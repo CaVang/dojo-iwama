@@ -1,0 +1,68 @@
+[
+  {
+    "id": "iwama-honbu",
+    "name": "Iwama Shin-Shin Aiki Shuren-kai Honbu Dojo",
+    "chief_instructor": "Hitohira Saito Sensei",
+    "address": "2289-1 Yoshioka, Iwama-machi, Kasama-shi, Ibaraki-ken 319-0203, Japan",
+    "map_link": "https://maps.google.com/?q=36.3583,140.2864",
+    "phone": "+81-299-45-2224",
+    "email": "info@iwamaaikido.com",
+    "image_url": "/images/dojos/iwama-honbu.jpg",
+    "description": "The birthplace of Iwama style Aikido, where O-Sensei spent his later years developing the art in harmony with nature."
+  },
+  {
+    "id": "tanrenkan-california",
+    "name": "Tanrenkan Dojo - California",
+    "chief_instructor": "Miles Kessler Sensei",
+    "address": "1234 Aikido Way, San Francisco, CA 94102, USA",
+    "map_link": "https://maps.google.com/?q=37.7749,-122.4194",
+    "phone": "+1-415-555-0123",
+    "email": "info@tanrenkan-ca.org",
+    "image_url": "/images/dojos/tanrenkan-ca.jpg",
+    "description": "A traditional Iwama dojo bringing authentic teachings to the West Coast of America."
+  },
+  {
+    "id": "takemusu-paris",
+    "name": "Takemusu Aiki Paris",
+    "chief_instructor": "Daniel Toutain Sensei",
+    "address": "45 Rue de la Paix, 75002 Paris, France",
+    "map_link": "https://maps.google.com/?q=48.8566,2.3522",
+    "phone": "+33-1-42-65-1234",
+    "email": "contact@takemusu-paris.fr",
+    "image_url": "/images/dojos/takemusu-paris.jpg",
+    "description": "One of the premier Iwama Aikido dojos in Europe, dedicated to preserving the founder's teachings."
+  },
+  {
+    "id": "iwama-sweden",
+    "name": "Iwama Ryu Sweden",
+    "chief_instructor": "Ulf Evenas Sensei",
+    "address": "Drottninggatan 12, 111 51 Stockholm, Sweden",
+    "map_link": "https://maps.google.com/?q=59.3293,18.0686",
+    "phone": "+46-8-555-1234",
+    "email": "info@iwama-sweden.se",
+    "image_url": "/images/dojos/iwama-sweden.jpg",
+    "description": "Bringing the spirit of Iwama to Scandinavia through dedicated practice and teaching."
+  },
+  {
+    "id": "aiki-shuren-australia",
+    "name": "Aiki Shuren Dojo Melbourne",
+    "chief_instructor": "Tony Smibert Sensei",
+    "address": "78 Collins Street, Melbourne VIC 3000, Australia",
+    "map_link": "https://maps.google.com/?q=-37.8136,144.9631",
+    "phone": "+61-3-9555-1234",
+    "email": "info@aikishuren-melbourne.com.au",
+    "image_url": "/images/dojos/aiki-shuren-australia.jpg",
+    "description": "Australia's leading Iwama style dojo, fostering the next generation of aikidoka."
+  },
+  {
+    "id": "takemusu-germany",
+    "name": "Takemusu Aikido Berlin",
+    "chief_instructor": "Stefan Stenudd Sensei",
+    "address": "Unter den Linden 77, 10117 Berlin, Germany",
+    "map_link": "https://maps.google.com/?q=52.5200,13.4050",
+    "phone": "+49-30-555-1234",
+    "email": "info@takemusu-berlin.de",
+    "image_url": "/images/dojos/takemusu-berlin.jpg",
+    "description": "A center of excellence for traditional Iwama Aikido in the heart of Europe."
+  }
+]

@@ -1,0 +1,130 @@
+{
+  "navigation": {
+    "home": "Trang chủ",
+    "techniques": "Kỹ thuật",
+    "dojos": "Võ đường",
+    "digitalLibrary": "Thư viện số"
+  },
+  "home": {
+    "philosophy": "Triết lý",
+    "principleOf": "Nguyên lý",
+    "riai": "Riai",
+    "riaiDescription1": "Riai đại diện cho nguyên lý cơ bản thống nhất tất cả các khía cạnh của việc luyện tập Aikido. Nó dạy rằng các chuyển động của cơ thể, kiếm và gậy đều chia sẻ những nguyên lý thiết yếu giống nhau.",
+    "riaiDescription2": "Trong phong cách Iwama, được O-Sensei Morihei Ueshiba phát triển trong những năm tháng sống tại thị trấn Iwama, sự tích hợp này là tối quan trọng. Việc luyện tập với vũ khí làm sáng tỏ các nguyên lý của kỹ thuật tay không.",
+    "taijutsu": "Taijutsu",
+    "bodyArts": "Thuật cơ thể",
+    "ken": "Ken",
+    "sword": "Kiếm",
+    "jo": "Jo",
+    "staff": "Gậy",
+    "featuredTechniques": "Kỹ thuật nổi bật",
+    "exploreFoundational": "Khám phá các kỹ thuật nền tảng của Iwama Aikido",
+    "viewAllTechniques": "Xem tất cả kỹ thuật",
+    "study": "Học",
+    "globalDojoNetwork": "Mạng lưới võ đường toàn cầu",
+    "connectWithDojos": "Kết nối với các võ đường Iwama Aikido chính thống trên toàn thế giới",
+    "exploreAllDojos": "Khám phá tất cả võ đường",
+    "quote": "Aikido không phải là kỹ thuật để chiến đấu hay đánh bại kẻ thù. Đó là con đường để hòa giải thế giới và làm cho loài người trở thành một gia đình.",
+    "oSensei": "Morihei Ueshiba, O-Sensei",
+    "welcomeTo": "Chào mừng đến với",
+    "iwamaAikido": "Iwama Aikido",
+    "continueScrolling": "Tiếp tục cuộn",
+    "scrollToEnter": "Cuộn để vào"
+  },
+  "techniques": {
+    "title": "Thư viện kỹ thuật",
+    "description": "Khám phá các kỹ thuật truyền thống của phong cách Iwama Aikido, bao gồm kỹ thuật tay không (Taijutsu), kiếm thuật (Aiki-Ken) và gậy thuật (Aiki-Jo).",
+    "allTechniques": "Tất cả kỹ thuật",
+    "allLevels": "Tất cả cấp độ",
+    "showing": "Hiển thị {count} kỹ thuật",
+    "showingPlural": "Hiển thị {count} kỹ thuật",
+    "postures": "{count} tư thế",
+    "notes": "{count} ghi chú",
+    "study": "Học",
+    "noTechniquesFound": "Không tìm thấy kỹ thuật",
+    "adjustFilters": "Hãy thử điều chỉnh bộ lọc để xem thêm kết quả.",
+    "clearFilters": "Xóa bộ lọc",
+    "beginner": "Cơ bản",
+    "intermediate": "Trung cấp",
+    "advanced": "Nâng cao"
+  },
+  "dojos": {
+    "title": "Danh bạ võ đường",
+    "description": "Kết nối với các võ đường Iwama Aikido chính thống trên toàn thế giới. Mỗi võ đường đều cống hiến cho việc bảo tồn và truyền đạt những giáo huấn truyền thống của O-Sensei.",
+    "searchPlaceholder": "Tìm kiếm theo tên, địa điểm hoặc huấn luyện viên...",
+    "showing": "Hiển thị {count} võ đường",
+    "showingPlural": "Hiển thị {count} võ đường",
+    "phone": "Điện thoại",
+    "email": "Email",
+    "viewOnMap": "Xem trên bản đồ",
+    "noDojosFound": "Không tìm thấy võ đường",
+    "adjustSearch": "Hãy thử điều chỉnh tìm kiếm để xem thêm kết quả.",
+    "clearSearch": "Xóa tìm kiếm",
+    "beginYourJourney": "Bắt đầu hành trình của bạn",
+    "journeyDescription": "Con đường Aikido bắt đầu bằng một bước chân đầu tiên. Liên hệ với võ đường gần bạn để quan sát một buổi tập hoặc bắt đầu luyện tập theo phong cách truyền thống Iwama.",
+    "exploreTechniques": "Khám phá kỹ thuật"
+  },
+  "footer": {
+    "description": "Bảo tồn và chia sẻ những giáo huấn truyền thống của phong cách Iwama Aikido thông qua nguyên lý Riai - sự thống nhất của cơ thể, kiếm và gậy.",
+    "explore": "Khám phá",
+    "home": "Trang chủ",
+    "techniqueLibrary": "Thư viện kỹ thuật",
+    "dojoDirectory": "Danh bạ võ đường",
+    "philosophy": "Triết lý",
+    "quote": "Budo chân chính là công việc của tình yêu. Đó là công việc trao sự sống cho tất cả chúng sinh, chứ không phải giết chóc hay đấu tranh với nhau.",
+    "oSensei": "— Morihei Ueshiba, O-Sensei",
+    "copyright": "© {year} Iwama Aikido Digital Library. Đã đăng ký bản quyền."
+  },
+  "notFound": {
+    "title": "404",
+    "pathNotFound": "Không tìm thấy đường",
+    "description": "Như một học trò đã lạc lối, trang này không thể tìm thấy. Hãy để chúng tôi hướng dẫn bạn trở lại võ đường.",
+    "returnHome": "Về trang chủ",
+    "goBack": "Quay lại",
+    "proverb": "Bảy lần ngã, tám lần đứng dậy."
+  },
+  "weapons": {
+    "bokken": {
+      "title": "木剣 Bokken",
+      "subtitle": "Kiếm gỗ",
+      "description": "Trong Iwama Aikido, kiếm gỗ (Bokken) là nền tảng để hiểu nguyên lý Riai. O-Sensei tin rằng mọi kỹ thuật tay không đều bắt nguồn từ kiếm. Tập luyện với Bokken giúp phát triển:",
+      "points": [
+        "Ma-ai (Khoảng cách) - Hiểu đúng tầm đánh",
+        "Timing (Thời điểm) - Biết lúc nào cần hành động",
+        "Tegatana (Lưỡi tay) - Sử dụng tay như kiếm",
+        "Shisei (Tư thế) - Tư thế đúng từ đầu đến cuối"
+      ]
+    },
+    "jo": {
+      "title": "杖 Jo",
+      "subtitle": "Gậy gỗ",
+      "description": "Gậy Jo trong Iwama Aikido được O-Sensei phát triển từ nghệ thuật Sojutsu cổ. Jo có ưu thế độc đáo trong thực chiến vì có thể đánh từ cả hai đầu và linh hoạt trong không gian hẹp.",
+      "points": [
+        "Hai đầu tấn công - Linh hoạt hơn kiếm",
+        "Khoảng cách an toàn - Giữ đối thủ ở xa",
+        "31 Jo Kata - Kata nền tảng do O-Sensei sáng tạo",
+        "Awase (Kết hợp) - Hòa nhập với năng lượng đối thủ"
+      ]
+    }
+  },
+  "common": {
+    "loading": "Đang tải..."
+  },
+  "techniqueDetail": {
+    "techniques": "Kỹ thuật",
+    "step": "Bước {number}",
+    "form": "Tư thế",
+    "postures": "Tư thế",
+    "notes": "Ghi chú",
+    "features": "Đặc điểm",
+    "keyPostures": "Các tư thế chính",
+    "keyPosturesDesc": "Nắm vững các tư thế cơ bản này để phát triển kỹ thuật và sự hiểu biết đúng đắn",
+    "importantNotes": "Ghi chú quan trọng",
+    "importantNotesDesc": "Những hiểu biết thiết yếu từ các bậc thầy để đào sâu việc luyện tập",
+    "characteristics": "Đặc điểm",
+    "characteristicsDesc": "Những phẩm chất độc đáo xác định kỹ thuật này",
+    "relatedTechniques": "Kỹ thuật liên quan",
+    "backToLibrary": "Quay lại thư viện",
+    "scroll": "Cuộn"
+  }
+}

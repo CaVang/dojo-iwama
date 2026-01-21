@@ -1,0 +1,490 @@
+[
+  {
+    "id": "ikkyo",
+    "slug": "ikkyo",
+    "name_jp": "一教",
+    "name_en": "First Teaching",
+    "category": "Taijutsu",
+    "difficulty": "Beginner",
+    "description": "The first and most fundamental technique in Aikido. Ikkyo teaches the basic principle of leading and controlling an attacker's center through arm manipulation.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Ai-hanmi Kamae",
+          "description": "Begin in matching stance with your partner. Maintain proper distance (ma-ai) with your lead foot aligned with your partner's lead foot. Your body should be relaxed yet alert.",
+          "image_url": "/images/techniques/ikkyo/posture-1.jpg"
+        },
+        {
+          "title": "Irimi Entry",
+          "description": "As uke attacks, blend with the movement by entering deeply alongside their arm. Your front hand connects to their elbow while your back hand guides their wrist.",
+          "image_url": "/images/techniques/ikkyo/posture-2.jpg"
+        },
+        {
+          "title": "Osae (Pin)",
+          "description": "Guide uke down to the mat in a spiral motion. The final pin positions uke face-down with their arm extended, elbow controlled, and shoulder locked.",
+          "image_url": "/images/techniques/ikkyo/posture-3.jpg"
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Never use force against force. Ikkyo works through proper timing and angle, not muscular strength.",
+          "image_url": "/images/techniques/ikkyo/note-1.jpg"
+        },
+        {
+          "note": "Keep your center connected to uke's center throughout the technique. If you lose this connection, the technique becomes ineffective.",
+          "image_url": "/images/techniques/ikkyo/note-2.jpg"
+        },
+        {
+          "note": "The cutting motion should originate from your hips, not your arms. Think of it as a sword cut (tegatana).",
+          "image_url": "/images/techniques/ikkyo/note-3.jpg"
+        }
+      ],
+      "characteristics": [
+        {
+          "feature": "Ikkyo develops the foundational understanding of controlling through the elbow joint.",
+          "image_url": "/images/techniques/ikkyo/char-1.jpg"
+        },
+        {
+          "feature": "This technique can be applied from virtually any attack, making it extremely versatile.",
+          "image_url": "/images/techniques/ikkyo/char-2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "nikyo",
+    "slug": "nikyo",
+    "name_jp": "二教",
+    "name_en": "Second Teaching",
+    "category": "Taijutsu",
+    "difficulty": "Beginner",
+    "description": "The second teaching introduces wrist control through a precise joint lock. Nikyo develops sensitivity to pressure and angle while maintaining connection.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Grip Establishment",
+          "description": "After blending with uke's attack, secure a C-grip on their wrist. Your thumb should be on the back of their hand, fingers wrapped around the wrist.",
+          "image_url": "/images/techniques/nikyo/posture-1.jpg"
+        },
+        {
+          "title": "Wrist Rotation",
+          "description": "Rotate uke's wrist inward while maintaining elbow control. The rotation should be smooth and continuous, not jerky.",
+          "image_url": "/images/techniques/nikyo/posture-2.jpg"
+        },
+        {
+          "title": "Kneeling Pin",
+          "description": "Bring uke down using the wrist lock, transitioning to a kneeling position. The final pin secures both the wrist and elbow.",
+          "image_url": "/images/techniques/nikyo/posture-3.jpg"
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "The effectiveness of nikyo comes from precise angle, not crushing force. Find the correct angle and the technique requires minimal effort.",
+          "image_url": "/images/techniques/nikyo/note-1.jpg"
+        },
+        {
+          "note": "Always maintain control of uke's elbow. Without elbow control, uke can escape the wrist lock.",
+          "image_url": "/images/techniques/nikyo/note-2.jpg"
+        }
+      ],
+      "characteristics": [
+        {
+          "feature": "Nikyo teaches precise joint manipulation and sensitivity to your partner's structure.",
+          "image_url": "/images/techniques/nikyo/char-1.jpg"
+        },
+        {
+          "feature": "The pain compliance element requires careful application in training to prevent injury.",
+          "image_url": "/images/techniques/nikyo/char-2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "sankyo",
+    "slug": "sankyo",
+    "name_jp": "三教",
+    "name_en": "Third Teaching",
+    "category": "Taijutsu",
+    "difficulty": "Intermediate",
+    "description": "The third teaching uses a rotational wrist lock that spirals through the entire arm to the shoulder. Sankyo embodies the spiral nature of Aikido movement.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Hand Capture",
+          "description": "Capture uke's hand with both hands, creating a structure where your fingers wrap over their hand and your thumbs press into their palm.",
+          "image_url": "/images/techniques/sankyo/posture-1.jpg"
+        },
+        {
+          "title": "Spiral Rotation",
+          "description": "Rotate uke's hand in a spiral motion toward their centerline. Their elbow should rise as the rotation continues.",
+          "image_url": "/images/techniques/sankyo/posture-2.jpg"
+        },
+        {
+          "title": "Standing Control",
+          "description": "Maintain the lock while transitioning to various positions. Sankyo can lead to throws or pins depending on the situation.",
+          "image_url": "/images/techniques/sankyo/posture-3.jpg"
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "The spiral must be continuous and connected to your center movement. Isolated hand manipulation is ineffective.",
+          "image_url": "/images/techniques/sankyo/note-1.jpg"
+        },
+        {
+          "note": "Watch for over-rotation which can cause wrist injury. Apply the lock smoothly and give uke time to tap.",
+          "image_url": "/images/techniques/sankyo/note-2.jpg"
+        }
+      ],
+      "characteristics": [
+        {
+          "feature": "Sankyo exemplifies the spiral energy (kokyu) central to Aikido's effectiveness.",
+          "image_url": "/images/techniques/sankyo/char-1.jpg"
+        },
+        {
+          "feature": "This technique is particularly effective for weapon disarms and multiple attacker situations.",
+          "image_url": "/images/techniques/sankyo/char-2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "shihonage",
+    "slug": "shihonage",
+    "name_jp": "四方投げ",
+    "name_en": "Four Directions Throw",
+    "category": "Taijutsu",
+    "difficulty": "Intermediate",
+    "description": "A fundamental throwing technique that can project an attacker in any of the four cardinal directions. Shihonage teaches proper body rotation and timing.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Katate-dori Grasp",
+          "description": "From a same-side wrist grab, blend with uke's energy while securing their wrist with both hands.",
+          "image_url": "/images/techniques/shihonage/posture-1.jpg"
+        },
+        {
+          "title": "Tenkan Pivot",
+          "description": "Execute a 180-degree pivot while raising uke's arm overhead. Your movement should be under uke's arm, not forcing their arm over.",
+          "image_url": "/images/techniques/shihonage/posture-2.jpg"
+        },
+        {
+          "title": "Throw Completion",
+          "description": "Complete the throw by cutting down with uke's arm while stepping through. Uke falls backward in a controlled manner.",
+          "image_url": "/images/techniques/shihonage/posture-3.jpg"
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Your pivot must bring you completely under uke's arm. Partial rotation results in a weak or dangerous technique.",
+          "image_url": "/images/techniques/shihonage/note-1.jpg"
+        },
+        {
+          "note": "The throw comes from your hip rotation, not from pulling uke's arm. Let your body movement create the throw.",
+          "image_url": "/images/techniques/shihonage/note-2.jpg"
+        }
+      ],
+      "characteristics": [
+        {
+          "feature": "Shihonage develops spatial awareness and the ability to redirect energy in any direction.",
+          "image_url": "/images/techniques/shihonage/char-1.jpg"
+        },
+        {
+          "feature": "The versatility of this technique makes it applicable to multiple attacks and situations.",
+          "image_url": "/images/techniques/shihonage/char-2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "iriminage",
+    "slug": "iriminage",
+    "name_jp": "入り身投げ",
+    "name_en": "Entering Throw",
+    "category": "Taijutsu",
+    "difficulty": "Intermediate",
+    "description": "A powerful entering technique that embodies the principle of irimi - moving directly into and through an attack. Often called the 'twenty-year technique' due to its depth.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Initial Entry",
+          "description": "Enter deeply past uke's attack, positioning yourself alongside them with your hip connected to their center.",
+          "image_url": "/images/techniques/iriminage/posture-1.jpg"
+        },
+        {
+          "title": "Spiral Drawing",
+          "description": "Draw uke's balance in a circular motion, lowering their center while maintaining connection through your arm and body.",
+          "image_url": "/images/techniques/iriminage/posture-2.jpg"
+        },
+        {
+          "title": "Final Throw",
+          "description": "Complete the throw by entering again while your arm guides uke's head and neck backward in a controlled manner.",
+          "image_url": "/images/techniques/iriminage/posture-3.jpg"
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "True irimi requires complete commitment. Half-hearted entry leaves you vulnerable to counter-attack.",
+          "image_url": "/images/techniques/iriminage/note-1.jpg"
+        },
+        {
+          "note": "The throw should feel like a wave - uke is drawn in, then projected out. Never force the technique.",
+          "image_url": "/images/techniques/iriminage/note-2.jpg"
+        }
+      ],
+      "characteristics": [
+        {
+          "feature": "Iriminage develops courage and the ability to move into danger rather than away from it.",
+          "image_url": "/images/techniques/iriminage/char-1.jpg"
+        },
+        {
+          "feature": "This technique requires excellent timing and connection, making it a lifelong study.",
+          "image_url": "/images/techniques/iriminage/char-2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "suburi-ichi",
+    "slug": "suburi-ichi",
+    "name_jp": "素振り一",
+    "name_en": "First Sword Swing",
+    "category": "Aiki-Ken",
+    "difficulty": "Beginner",
+    "description": "The first and most fundamental sword swing in Aiki-ken practice. This exercise develops proper cutting form, breath coordination, and center movement.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Chudan Kamae",
+          "description": "Begin in middle guard position with the sword tip at throat height. Grip should be relaxed but firm, with hands properly spaced on the handle.",
+          "image_url": "/images/techniques/suburi-ichi/posture-1.jpg"
+        },
+        {
+          "title": "Raise (Furikaburi)",
+          "description": "Raise the sword overhead in a large arc. The tip should travel past your center line, and your arms should be relaxed throughout the movement.",
+          "image_url": "/images/techniques/suburi-ichi/posture-2.jpg"
+        },
+        {
+          "title": "Cut (Kirioroshi)",
+          "description": "Execute the downward cut by dropping your center and letting gravity assist the motion. Stop with the tip at knee height.",
+          "image_url": "/images/techniques/suburi-ichi/posture-3.jpg"
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "The cut must come from your center, not your arms. Your body drops, and the sword follows.",
+          "image_url": "/images/techniques/suburi-ichi/note-1.jpg"
+        },
+        {
+          "note": "Coordinate your breath with the movement: inhale on the raise, exhale on the cut.",
+          "image_url": "/images/techniques/suburi-ichi/note-2.jpg"
+        }
+      ],
+      "characteristics": [
+        {
+          "feature": "Suburi practice develops the fundamental body mechanics used in all Aikido techniques.",
+          "image_url": "/images/techniques/suburi-ichi/char-1.jpg"
+        },
+        {
+          "feature": "Regular sword training strengthens the connection between breath, movement, and intention.",
+          "image_url": "/images/techniques/suburi-ichi/char-2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "kumitachi-ichi",
+    "slug": "kumitachi-ichi",
+    "name_jp": "組太刀一",
+    "name_en": "First Paired Sword",
+    "category": "Aiki-Ken",
+    "difficulty": "Intermediate",
+    "description": "The first paired sword kata in Iwama Aiki-ken. This practice develops timing, distance, and the ability to read an opponent's intention.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Opening Position",
+          "description": "Both partners begin in chudan kamae at proper distance (issoku itto no ma). Eye contact and awareness are maintained throughout.",
+          "image_url": "/images/techniques/kumitachi-ichi/posture-1.jpg"
+        },
+        {
+          "title": "Attack and Response",
+          "description": "Uchitachi initiates with a shomen cut. Uketachi receives by raising their sword and blending with the incoming energy.",
+          "image_url": "/images/techniques/kumitachi-ichi/posture-2.jpg"
+        },
+        {
+          "title": "Counter and Conclusion",
+          "description": "Uketachi completes the kata with a decisive counter-cut while uchitachi accepts the technique and yields.",
+          "image_url": "/images/techniques/kumitachi-ichi/posture-3.jpg"
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Uchitachi's role is to provide sincere attacks that develop uketachi's ability. Never hold back or 'let' your partner win.",
+          "image_url": "/images/techniques/kumitachi-ichi/note-1.jpg"
+        },
+        {
+          "note": "The kata should flow naturally once learned. Hesitation or rushing both indicate areas for improvement.",
+          "image_url": "/images/techniques/kumitachi-ichi/note-2.jpg"
+        }
+      ],
+      "characteristics": [
+        {
+          "feature": "Kumitachi develops maai (distance) and de-ai (meeting timing) essential for all martial practice.",
+          "image_url": "/images/techniques/kumitachi-ichi/char-1.jpg"
+        },
+        {
+          "feature": "Partner sword practice creates an understanding of weapons that directly informs empty-hand techniques.",
+          "image_url": "/images/techniques/kumitachi-ichi/char-2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "jo-suburi-ichi",
+    "slug": "jo-suburi-ichi",
+    "name_jp": "杖素振り一",
+    "name_en": "First Staff Swing",
+    "category": "Aiki-Jo",
+    "difficulty": "Beginner",
+    "description": "The first staff swing exercise. Jo practice in Iwama style develops circular movement, both-handed coordination, and flowing energy.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Choku-tsuki Kamae",
+          "description": "Hold the jo with both hands, rear hand near the end, front hand about one-third from the tip. Body faces forward with the jo pointing at the opponent's throat.",
+          "image_url": "/images/techniques/jo-suburi-ichi/posture-1.jpg"
+        },
+        {
+          "title": "Thrust Preparation",
+          "description": "Draw the jo back along your center line while shifting weight to the rear foot. The jo remains level throughout this movement.",
+          "image_url": "/images/techniques/jo-suburi-ichi/posture-2.jpg"
+        },
+        {
+          "title": "Thrust Execution",
+          "description": "Drive forward with the rear foot while extending the jo in a straight thrust. Power comes from the hips, not the arms.",
+          "image_url": "/images/techniques/jo-suburi-ichi/posture-3.jpg"
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "The thrust and footwork must be unified. Arriving before or after your weapon creates openings.",
+          "image_url": "/images/techniques/jo-suburi-ichi/note-1.jpg"
+        },
+        {
+          "note": "Maintain awareness of the entire jo length. The rear end is also a weapon.",
+          "image_url": "/images/techniques/jo-suburi-ichi/note-2.jpg"
+        }
+      ],
+      "characteristics": [
+        {
+          "feature": "Jo practice develops the ability to project power in a straight line - essential for atemi in taijutsu.",
+          "image_url": "/images/techniques/jo-suburi-ichi/char-1.jpg"
+        },
+        {
+          "feature": "The jo's length requires full-body coordination that transfers directly to empty-hand technique.",
+          "image_url": "/images/techniques/jo-suburi-ichi/char-2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "thirty-one-jo-kata",
+    "slug": "thirty-one-jo-kata",
+    "name_jp": "三十一の杖",
+    "name_en": "31 Jo Kata",
+    "category": "Aiki-Jo",
+    "difficulty": "Advanced",
+    "description": "The foundational jo kata of Iwama Aikido, consisting of 31 movements. This kata embodies the principles of Riai - the integration of jo, ken, and taijutsu.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Opening Sequence",
+          "description": "The kata begins with a choku-tsuki followed by a series of strikes and thrusts that establish the rhythm and flow of the practice.",
+          "image_url": "/images/techniques/31-jo/posture-1.jpg"
+        },
+        {
+          "title": "Middle Section",
+          "description": "The middle section includes more complex combinations including kaeshi-tsuki (returning thrust) and various striking patterns.",
+          "image_url": "/images/techniques/31-jo/posture-2.jpg"
+        },
+        {
+          "title": "Closing Sequence",
+          "description": "The kata concludes with decisive movements that demonstrate all the principles practiced throughout, ending in proper zanshin.",
+          "image_url": "/images/techniques/31-jo/posture-3.jpg"
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Learn each movement individually before attempting to flow through the entire kata. Quality over speed.",
+          "image_url": "/images/techniques/31-jo/note-1.jpg"
+        },
+        {
+          "note": "Every movement in the kata has a martial application. Practice with awareness of imaginary opponents.",
+          "image_url": "/images/techniques/31-jo/note-2.jpg"
+        },
+        {
+          "note": "The 31 Jo Kata should be practiced both solo and with the 31 Kumijo (paired practice) to fully understand the applications.",
+          "image_url": "/images/techniques/31-jo/note-3.jpg"
+        }
+      ],
+      "characteristics": [
+        {
+          "feature": "This kata was developed by O-Sensei in Iwama and represents his mature understanding of jo work.",
+          "image_url": "/images/techniques/31-jo/char-1.jpg"
+        },
+        {
+          "feature": "Mastery of the 31 Jo Kata demonstrates understanding of distance, timing, and flowing energy essential to Iwama style.",
+          "image_url": "/images/techniques/31-jo/char-2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "kokyu-ho",
+    "slug": "kokyu-ho",
+    "name_jp": "呼吸法",
+    "name_en": "Breath Power Exercise",
+    "category": "Taijutsu",
+    "difficulty": "Beginner",
+    "description": "The fundamental seated exercise that develops kokyu-ryoku (breath power). This practice is typically done at the end of every class.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Seiza Position",
+          "description": "Both partners sit in seiza facing each other. Uke grabs both of nage's wrists firmly. Maintain upright posture and calm breathing.",
+          "image_url": "/images/techniques/kokyu-ho/posture-1.jpg"
+        },
+        {
+          "title": "Extension",
+          "description": "Nage extends arms forward and upward while maintaining relaxed shoulders. The power comes from the lower abdomen (hara), not arm strength.",
+          "image_url": "/images/techniques/kokyu-ho/posture-2.jpg"
+        },
+        {
+          "title": "Projection",
+          "description": "Continue the extension to unbalance uke and guide them backward to the mat. The movement should be smooth and continuous.",
+          "image_url": "/images/techniques/kokyu-ho/posture-3.jpg"
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Relax your shoulders completely. Tension blocks the flow of power from your center.",
+          "image_url": "/images/techniques/kokyu-ho/note-1.jpg"
+        },
+        {
+          "note": "Breathe naturally throughout. Holding your breath creates stiffness and weakness.",
+          "image_url": "/images/techniques/kokyu-ho/note-2.jpg"
+        }
+      ],
+      "characteristics": [
+        {
+          "feature": "Kokyu-ho teaches the fundamental principle of extending energy without muscular force.",
+          "image_url": "/images/techniques/kokyu-ho/char-1.jpg"
+        },
+        {
+          "feature": "Regular practice develops the 'internal strength' that makes advanced techniques possible.",
+          "image_url": "/images/techniques/kokyu-ho/char-2.jpg"
+        }
+      ]
+    }
+  }
+]

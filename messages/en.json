@@ -1,0 +1,130 @@
+{
+  "navigation": {
+    "home": "Home",
+    "techniques": "Techniques",
+    "dojos": "Dojos",
+    "digitalLibrary": "Digital Library"
+  },
+  "home": {
+    "philosophy": "Philosophy",
+    "principleOf": "The Principle of",
+    "riai": "Riai",
+    "riaiDescription1": "Riai represents the fundamental principle that unifies all aspects of Aikido training. It teaches that the movements of the body, sword, and staff share the same essential principles.",
+    "riaiDescription2": "In Iwama style, developed by O-Sensei Morihei Ueshiba during his years in the rural town of Iwama, this integration is paramount. Training with weapons illuminates the principles of empty-hand techniques.",
+    "taijutsu": "Taijutsu",
+    "bodyArts": "Body Arts",
+    "ken": "Ken",
+    "sword": "Sword",
+    "jo": "Jo",
+    "staff": "Staff",
+    "featuredTechniques": "Featured Techniques",
+    "exploreFoundational": "Explore the foundational techniques of Iwama Aikido",
+    "viewAllTechniques": "View All Techniques",
+    "study": "Study",
+    "globalDojoNetwork": "Global Dojo Network",
+    "connectWithDojos": "Connect with authentic Iwama Aikido dojos around the world",
+    "exploreAllDojos": "Explore All Dojos",
+    "quote": "Aikido is not a technique to fight with or defeat an enemy. It is the way to reconcile the world and make human beings one family.",
+    "oSensei": "Morihei Ueshiba, O-Sensei",
+    "welcomeTo": "Welcome to",
+    "iwamaAikido": "Iwama Aikido",
+    "continueScrolling": "Continue Scrolling",
+    "scrollToEnter": "Scroll to Enter"
+  },
+  "techniques": {
+    "title": "Technique Library",
+    "description": "Explore the traditional techniques of Iwama style Aikido, including empty-hand techniques (Taijutsu), sword work (Aiki-Ken), and staff practices (Aiki-Jo).",
+    "allTechniques": "All Techniques",
+    "allLevels": "All Levels",
+    "showing": "Showing {count} technique",
+    "showingPlural": "Showing {count} techniques",
+    "postures": "{count} postures",
+    "notes": "{count} notes",
+    "study": "Study",
+    "noTechniquesFound": "No techniques found",
+    "adjustFilters": "Try adjusting your filters to see more results.",
+    "clearFilters": "Clear Filters",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced"
+  },
+  "dojos": {
+    "title": "Dojo Directory",
+    "description": "Connect with authentic Iwama Aikido dojos around the world. Each dojo is dedicated to preserving and transmitting the traditional teachings of O-Sensei.",
+    "searchPlaceholder": "Search by name, location, or instructor...",
+    "showing": "Showing {count} dojo",
+    "showingPlural": "Showing {count} dojos",
+    "phone": "Phone",
+    "email": "Email",
+    "viewOnMap": "View on Map",
+    "noDojosFound": "No dojos found",
+    "adjustSearch": "Try adjusting your search to see more results.",
+    "clearSearch": "Clear Search",
+    "beginYourJourney": "Begin Your Journey",
+    "journeyDescription": "The path of Aikido begins with a single step. Contact a dojo near you to observe a class or begin your training in the traditional ways of Iwama style.",
+    "exploreTechniques": "Explore Techniques"
+  },
+  "footer": {
+    "description": "Preserving and sharing the traditional teachings of Iwama style Aikido through the principle of Riai - the unity of body, sword, and staff.",
+    "explore": "Explore",
+    "home": "Home",
+    "techniqueLibrary": "Technique Library",
+    "dojoDirectory": "Dojo Directory",
+    "philosophy": "Philosophy",
+    "quote": "True Budo is a work of love. It is a work of giving life to all beings, and not killing or struggling with each other.",
+    "oSensei": "— Morihei Ueshiba, O-Sensei",
+    "copyright": "© {year} Iwama Aikido Digital Library. All rights reserved."
+  },
+  "notFound": {
+    "title": "404",
+    "pathNotFound": "Path Not Found",
+    "description": "Like a student who has lost their way, this page cannot be found. Let us guide you back to the dojo.",
+    "returnHome": "Return Home",
+    "goBack": "Go Back",
+    "proverb": "Seven times down, eight times up."
+  },
+  "weapons": {
+    "bokken": {
+      "title": "木剣 Bokken",
+      "subtitle": "Wooden Sword",
+      "description": "In Iwama Aikido, the wooden sword (Bokken) is the foundation for understanding the principle of Riai. O-Sensei believed that all empty-hand techniques originate from the sword. Training with Bokken helps develop:",
+      "points": [
+        "Ma-ai (Distance) - Understanding proper striking range",
+        "Timing - Knowing when to act",
+        "Tegatana (Hand blade) - Using hands like a sword",
+        "Shisei (Posture) - Correct posture throughout"
+      ]
+    },
+    "jo": {
+      "title": "杖 Jo",
+      "subtitle": "Wooden Staff",
+      "description": "The Jo staff in Iwama Aikido was developed by O-Sensei from ancient Sojutsu arts. The Jo has unique advantages in combat as it can strike from both ends and is flexible in confined spaces.",
+      "points": [
+        "Two-end attacks - More flexible than sword",
+        "Safe distance - Keep opponent at bay",
+        "31 Jo Kata - Foundation kata created by O-Sensei",
+        "Awase (Blending) - Harmonizing with opponent's energy"
+      ]
+    }
+  },
+  "common": {
+    "loading": "Loading..."
+  },
+  "techniqueDetail": {
+    "techniques": "Techniques",
+    "step": "Step {number}",
+    "form": "Form",
+    "postures": "Postures",
+    "notes": "Notes",
+    "features": "Features",
+    "keyPostures": "Key Postures",
+    "keyPosturesDesc": "Master these fundamental positions to develop proper form and understanding",
+    "importantNotes": "Important Notes",
+    "importantNotesDesc": "Essential insights from masters to deepen your practice",
+    "characteristics": "Characteristics",
+    "characteristicsDesc": "Unique qualities that define this technique",
+    "relatedTechniques": "Related Techniques",
+    "backToLibrary": "Back to Library",
+    "scroll": "Scroll"
+  }
+}
