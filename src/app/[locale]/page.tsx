@@ -268,13 +268,13 @@ export default function HomePage() {
                     >
                       <div className="bg-washi-cream p-6 text-center border border-japan-blue/10 group hover:border-japan-blue/30 transition-all duration-300">
                         {/* Icon */}
-                        <motion.div
-                          className="w-14 h-14 mx-auto mb-4 rounded-full bg-japan-blue/5 flex items-center justify-center group-hover:bg-japan-blue/10 transition-colors"
-                          whileHover={{ rotate: 360 }}
-                          transition={{ duration: 0.6 }}
-                        >
-                          <item.icon className="w-6 h-6 text-japan-blue" />
-                        </motion.div>
+                        {/*<motion.div*/}
+                        {/*  className="w-14 h-14 mx-auto mb-4 rounded-full bg-japan-blue/5 flex items-center justify-center group-hover:bg-japan-blue/10 transition-colors"*/}
+                        {/*  whileHover={{ rotate: 360 }}*/}
+                        {/*  transition={{ duration: 0.6 }}*/}
+                        {/*>*/}
+                        {/*  <item.icon className="w-6 h-6 text-japan-blue" />*/}
+                        {/*</motion.div>*/}
 
                         {/* Japanese title */}
                         <motion.span
