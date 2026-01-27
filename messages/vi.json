@@ -63,7 +63,13 @@
     "clearSearch": "Xóa tìm kiếm",
     "beginYourJourney": "Bắt đầu hành trình của bạn",
     "journeyDescription": "Con đường Aikido bắt đầu bằng một bước chân đầu tiên. Liên hệ với võ đường gần bạn để quan sát một buổi tập hoặc bắt đầu luyện tập theo phong cách truyền thống Iwama.",
-    "exploreTechniques": "Khám phá kỹ thuật"
+    "exploreTechniques": "Khám phá kỹ thuật",
+    "findNearestDojo": "Tìm võ đường gần nhất",
+    "nearestDojo": "Võ đường gần nhất",
+    "locating": "Đang xác định...",
+    "geolocationNotSupported": "Trình duyệt của bạn không hỗ trợ định vị",
+    "locationError": "Không thể lấy vị trí của bạn",
+    "worldwideDojos": "Võ đường toàn cầu"
   },
   "events": {
     "sectionTitle": "Sự kiện sắp tới",

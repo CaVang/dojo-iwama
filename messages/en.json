@@ -63,7 +63,13 @@
     "clearSearch": "Clear Search",
     "beginYourJourney": "Begin Your Journey",
     "journeyDescription": "The path of Aikido begins with a single step. Contact a dojo near you to observe a class or begin your training in the traditional ways of Iwama style.",
-    "exploreTechniques": "Explore Techniques"
+    "exploreTechniques": "Explore Techniques",
+    "findNearestDojo": "Find Nearest Dojo",
+    "nearestDojo": "Nearest Dojo",
+    "locating": "Locating...",
+    "geolocationNotSupported": "Geolocation is not supported by your browser",
+    "locationError": "Unable to get your location",
+    "worldwideDojos": "Worldwide Dojos"
   },
   "events": {
     "sectionTitle": "Upcoming Events",

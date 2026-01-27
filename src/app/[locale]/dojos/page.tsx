@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   MapPin,
@@ -17,6 +18,17 @@ import PageTransition, {
   staggerContainer,
 } from "@/components/animations/PageTransition";
 import dojos from "@/data/dojos.json";
+import "leaflet/dist/leaflet.css";
+
+// Dynamically import DojoMap to avoid SSR issues
+const DojoMap = dynamic(() => import("@/components/dojos/DojoMap"), {
+  ssr: false,
+  loading: () => (
+    <div className="h-[400px] bg-washi-cream border border-japan-blue/10 flex items-center justify-center">
+      <span className="text-sumi-muted">Loading map...</span>
+    </div>
+  ),
+});
 
 export default function DojosPage() {
   const [expandedDojo, setExpandedDojo] = useState<string | null>(null);
@@ -30,6 +42,15 @@ export default function DojosPage() {
       dojo.address.toLowerCase().includes(searchQuery.toLowerCase()) ||
       dojo.chief_instructor.toLowerCase().includes(searchQuery.toLowerCase()),
   );
+
+  const handleDojoSelect = (dojoId: string) => {
+    setExpandedDojo(dojoId);
+    // Scroll to dojo in list
+    const element = document.getElementById(`dojo-${dojoId}`);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
 
   return (
     <PageTransition>
@@ -80,6 +101,21 @@ export default function DojosPage() {
         </div>
       </section>
 
+      {/* Map Section */}
+      <section className="bg-washi py-8">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="mb-4">
+            <h2 className="font-serif text-xl text-sumi flex items-center gap-2">
+              <span className="font-jp text-japan-blue/30">地図</span>
+              {t("worldwideDojos")}
+            </h2>
+          </div>
+          <div className="border border-japan-blue/10 overflow-hidden">
+            <DojoMap onDojoSelect={handleDojoSelect} />
+          </div>
+        </div>
+      </section>
+
       {/* Search Section */}
       <section className="py-8 bg-washi border-b border-japan-blue/10 sticky top-20 z-30 backdrop-blur-md bg-washi/95">
         <div className="max-w-4xl mx-auto px-6">
@@ -124,6 +160,7 @@ export default function DojosPage() {
               {filteredDojos.map((dojo, index) => (
                 <motion.article
                   key={dojo.id}
+                  id={`dojo-${dojo.id}`}
                   layout
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
