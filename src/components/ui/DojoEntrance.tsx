@@ -31,7 +31,7 @@ function ShojiDoor({ side }: { side: 'left' | 'right' }) {
       </div>
 
       {/* Paper texture overlay */}
-      <div className="absolute inset-8 bg-gradient-to-br from-[#FFF8F0] to-[#F5E6D3] opacity-80" />
+      <div className="absolute inset-2 bg-gradient-to-br from-[#FFF8F0] to-[#F5E6D3] opacity-80" />
 
       {/* Subtle pattern on paper */}
       <svg className="absolute inset-8 w-[calc(100%-4rem)] h-[calc(100%-4rem)] opacity-5">
