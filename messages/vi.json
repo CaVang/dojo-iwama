@@ -3,7 +3,8 @@
     "home": "Trang chủ",
     "techniques": "Kỹ thuật",
     "dojos": "Võ đường",
-    "digitalLibrary": "Thư viện số"
+    "digitalLibrary": "Thư viện số",
+    "events": "Sự kiện"
   },
   "home": {
     "philosophy": "Triết lý",
@@ -63,6 +64,56 @@
     "beginYourJourney": "Bắt đầu hành trình của bạn",
     "journeyDescription": "Con đường Aikido bắt đầu bằng một bước chân đầu tiên. Liên hệ với võ đường gần bạn để quan sát một buổi tập hoặc bắt đầu luyện tập theo phong cách truyền thống Iwama.",
     "exploreTechniques": "Khám phá kỹ thuật"
+  },
+  "events": {
+    "sectionTitle": "Sự kiện sắp tới",
+    "sectionSubtitle": "Tham gia cùng chúng tôi trong các buổi tập luyện và lễ hội tại mạng lưới võ đường toàn cầu",
+    "kanjiTitle": "行事",
+    "viewAllEvents": "Xem tất cả sự kiện",
+    "eventDetails": "Chi tiết sự kiện",
+    "date": "Ngày",
+    "location": "Địa điểm",
+    "instructor": "Huấn luyện viên",
+    "description": "Mô tả",
+    "close": "Đóng",
+    "noUpcomingEvents": "Không có sự kiện nào sắp tới",
+    "latestPosts": "Bài viết mới nhất",
+    "pageTitle": "Lịch sự kiện",
+    "pageDescription": "Khám phá các hội thảo, gasshuku, workshop và kỳ thi sắp tới tại các võ đường Iwama Aikido trên toàn thế giới",
+    "filterByMonth": "Lọc theo tháng",
+    "allMonths": "Tất cả các tháng",
+    "eventTypes": {
+      "gasshuku": "Hội thảo tập trung",
+      "seminar": "Hội thảo",
+      "workshop": "Workshop",
+      "examination": "Kỳ thi"
+    },
+    "months": {
+      "january": "Tháng 1",
+      "february": "Tháng 2",
+      "march": "Tháng 3",
+      "april": "Tháng 4",
+      "may": "Tháng 5",
+      "june": "Tháng 6",
+      "july": "Tháng 7",
+      "august": "Tháng 8",
+      "september": "Tháng 9",
+      "october": "Tháng 10",
+      "november": "Tháng 11",
+      "december": "Tháng 12"
+    },
+    "winterGasshuku2026": "Gasshuku Mùa Đông 2026",
+    "winterGasshuku2026Desc": "Trại huấn luyện tập trung mùa đông hàng năm tại nơi khai sinh của Iwama Aikido. Ba ngày luyện tập chuyên sâu taijutsu, aiki-ken và aiki-jo dưới sự hướng dẫn của Hitohira Saito Sensei.",
+    "weaponsSeminarFeb": "Hội thảo Vũ khí Chuyên sâu",
+    "weaponsSeminarFebDesc": "Hội thảo cả ngày tập trung vào sự tích hợp của ken và jo với kỹ thuật tay không, khám phá nguyên lý Riai.",
+    "springGasshuku2026": "Gasshuku Mùa Xuân 2026",
+    "springGasshuku2026Desc": "Trại huấn luyện mùa xuân bốn ngày tại Bờ Tây. Mở cửa cho mọi cấp độ. Trải nghiệm chiều sâu của phong cách Iwama trong môi trường huấn luyện chuyên sâu.",
+    "beginnerWorkshopMar": "Workshop dành cho người mới",
+    "beginnerWorkshopMarDesc": "Workshop giới thiệu được thiết kế cho người mới đến với Aikido. Học các nguyên lý cơ bản và kỹ thuật cơ bản trong môi trường hỗ trợ.",
+    "danExaminationApr": "Kỳ thi Dan",
+    "danExaminationAprDesc": "Kỳ thi dan chính thức tại Honbu Dojo. Thí sinh phải có sự giới thiệu từ huấn luyện viên và đáp ứng số giờ tập luyện yêu cầu.",
+    "summerIntensive2026": "Huấn luyện Tập trung Mùa Hè",
+    "summerIntensive2026Desc": "Chương trình huấn luyện tập trung 10 ngày tại Iwama Honbu Dojo. Luyện tập hàng ngày taijutsu, vũ khí và thiền định. Chỉ dành cho người tập có kinh nghiệm."
   },
   "footer": {
     "description": "Bảo tồn và chia sẻ những giáo huấn truyền thống của phong cách Iwama Aikido thông qua nguyên lý Riai - sự thống nhất của cơ thể, kiếm và gậy.",

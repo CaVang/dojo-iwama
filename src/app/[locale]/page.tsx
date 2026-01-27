@@ -5,6 +5,7 @@ import DojoEntrance from "@/components/ui/DojoEntrance";
 import PhilosophySection from "@/components/main/PhilosophySection";
 import FeaturedTechniquesSection from "@/components/main/FeaturedTechniquesSection";
 import DojoNetworkSection from "@/components/main/DojoNetworkSection";
+import UpcomingEventsSection from "@/components/main/UpcomingEventsSection";
 import QuoteSection from "@/components/main/QuoteSection";
 
 export default function HomePage() {
@@ -25,6 +26,9 @@ export default function HomePage() {
 
         {/* Dojo Section */}
         <DojoNetworkSection />
+
+        {/* Upcoming Events Section */}
+        <UpcomingEventsSection />
 
         {/* Quote Section */}
         <QuoteSection />

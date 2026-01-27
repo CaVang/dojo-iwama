@@ -3,7 +3,8 @@
     "home": "Home",
     "techniques": "Techniques",
     "dojos": "Dojos",
-    "digitalLibrary": "Digital Library"
+    "digitalLibrary": "Digital Library",
+    "events": "Events"
   },
   "home": {
     "philosophy": "Philosophy",
@@ -63,6 +64,56 @@
     "beginYourJourney": "Begin Your Journey",
     "journeyDescription": "The path of Aikido begins with a single step. Contact a dojo near you to observe a class or begin your training in the traditional ways of Iwama style.",
     "exploreTechniques": "Explore Techniques"
+  },
+  "events": {
+    "sectionTitle": "Upcoming Events",
+    "sectionSubtitle": "Join us in training and celebration across our global dojo network",
+    "kanjiTitle": "行事",
+    "viewAllEvents": "View All Events",
+    "eventDetails": "Event Details",
+    "date": "Date",
+    "location": "Location",
+    "instructor": "Instructor",
+    "description": "Description",
+    "close": "Close",
+    "noUpcomingEvents": "No upcoming events scheduled",
+    "latestPosts": "Latest Posts",
+    "pageTitle": "Events Calendar",
+    "pageDescription": "Discover upcoming seminars, gasshuku, workshops, and examinations at Iwama Aikido dojos worldwide",
+    "filterByMonth": "Filter by Month",
+    "allMonths": "All Months",
+    "eventTypes": {
+      "gasshuku": "Gasshuku",
+      "seminar": "Seminar",
+      "workshop": "Workshop",
+      "examination": "Examination"
+    },
+    "months": {
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "september": "September",
+      "october": "October",
+      "november": "November",
+      "december": "December"
+    },
+    "winterGasshuku2026": "Winter Gasshuku 2026",
+    "winterGasshuku2026Desc": "Annual winter intensive training camp at the birthplace of Iwama Aikido. Three days of focused practice in taijutsu, aiki-ken, and aiki-jo under the guidance of Hitohira Saito Sensei.",
+    "weaponsSeminarFeb": "Weapons Intensive Seminar",
+    "weaponsSeminarFebDesc": "A full-day seminar focusing on the integration of ken and jo with empty-hand techniques, exploring the principle of Riai.",
+    "springGasshuku2026": "Spring Gasshuku 2026",
+    "springGasshuku2026Desc": "Four-day spring training camp on the West Coast. Open to all levels. Experience the depth of Iwama style in an immersive training environment.",
+    "beginnerWorkshopMar": "Beginner's Workshop",
+    "beginnerWorkshopMarDesc": "An introductory workshop designed for newcomers to Aikido. Learn the fundamental principles and basic techniques in a supportive environment.",
+    "danExaminationApr": "Dan Examination",
+    "danExaminationAprDesc": "Official dan examination at Honbu Dojo. Candidates must have recommendation from their instructor and meet the required training hours.",
+    "summerIntensive2026": "Summer Intensive Training",
+    "summerIntensive2026Desc": "Ten-day intensive training program at Iwama Honbu Dojo. Daily practice of taijutsu, weapons, and meditation. Limited to experienced practitioners."
   },
   "footer": {
     "description": "Preserving and sharing the traditional teachings of Iwama style Aikido through the principle of Riai - the unity of body, sword, and staff.",

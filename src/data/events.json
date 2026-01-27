@@ -1,0 +1,74 @@
+[
+  {
+    "id": "winter-gasshuku-2026",
+    "title_key": "winterGasshuku2026",
+    "date": "2026-02-15",
+    "end_date": "2026-02-17",
+    "dojo_id": "iwama-honbu",
+    "description_key": "winterGasshuku2026Desc",
+    "image_url": "/images/events/gasshuku-winter.jpg",
+    "event_type": "gasshuku",
+    "instructor": "Hitohira Saito Sensei",
+    "related_blog_ids": []
+  },
+  {
+    "id": "weapons-seminar-feb",
+    "title_key": "weaponsSeminarFeb",
+    "date": "2026-02-22",
+    "end_date": null,
+    "dojo_id": "takemusu-paris",
+    "description_key": "weaponsSeminarFebDesc",
+    "image_url": "/images/events/weapons-seminar.jpg",
+    "event_type": "seminar",
+    "instructor": "Daniel Toutain Sensei",
+    "related_blog_ids": []
+  },
+  {
+    "id": "spring-gasshuku-2026",
+    "title_key": "springGasshuku2026",
+    "date": "2026-03-20",
+    "end_date": "2026-03-23",
+    "dojo_id": "tanrenkan-california",
+    "description_key": "springGasshuku2026Desc",
+    "image_url": "/images/events/gasshuku-spring.jpg",
+    "event_type": "gasshuku",
+    "instructor": "Miles Kessler Sensei",
+    "related_blog_ids": []
+  },
+  {
+    "id": "beginner-workshop-mar",
+    "title_key": "beginnerWorkshopMar",
+    "date": "2026-03-08",
+    "end_date": null,
+    "dojo_id": "iwama-sweden",
+    "description_key": "beginnerWorkshopMarDesc",
+    "image_url": "/images/events/beginner-workshop.jpg",
+    "event_type": "workshop",
+    "instructor": "Ulf Evenas Sensei",
+    "related_blog_ids": []
+  },
+  {
+    "id": "dan-examination-apr",
+    "title_key": "danExaminationApr",
+    "date": "2026-04-12",
+    "end_date": null,
+    "dojo_id": "iwama-honbu",
+    "description_key": "danExaminationAprDesc",
+    "image_url": "/images/events/dan-exam.jpg",
+    "event_type": "examination",
+    "instructor": "Hitohira Saito Sensei",
+    "related_blog_ids": []
+  },
+  {
+    "id": "summer-intensive-2026",
+    "title_key": "summerIntensive2026",
+    "date": "2026-07-15",
+    "end_date": "2026-07-25",
+    "dojo_id": "iwama-honbu",
+    "description_key": "summerIntensive2026Desc",
+    "image_url": "/images/events/summer-intensive.jpg",
+    "event_type": "gasshuku",
+    "instructor": "Hitohira Saito Sensei",
+    "related_blog_ids": []
+  }
+]

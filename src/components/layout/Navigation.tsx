@@ -1,22 +1,23 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { useLocale, useTranslations } from 'next-intl';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
-import LanguageSwitcher from './LanguageSwitcher';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const t = useTranslations('navigation');
+  const t = useTranslations("navigation");
   const locale = useLocale();
 
   const navLinks = [
-    { href: `/${locale}`, label: t('home') },
-    { href: `/${locale}/techniques`, label: t('techniques') },
-    { href: `/${locale}/dojos`, label: t('dojos') },
+    { href: `/${locale}`, label: t("home") },
+    { href: `/${locale}/techniques`, label: t("techniques") },
+    { href: `/${locale}/dojos`, label: t("dojos") },
+    { href: `/${locale}/events`, label: t("events") },
   ];
 
   useEffect(() => {
@@ -24,8 +25,8 @@ export default function Navigation() {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -35,8 +36,8 @@ export default function Navigation() {
       transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-washi/95 backdrop-blur-md shadow-[0_1px_3px_rgba(46,64,87,0.1)]'
-          : 'bg-transparent'
+          ? "bg-washi/95 backdrop-blur-md shadow-[0_1px_3px_rgba(46,64,87,0.1)]"
+          : "bg-transparent"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -91,7 +92,7 @@ export default function Navigation() {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
             className="md:hidden bg-washi-cream border-t border-japan-blue/10"
