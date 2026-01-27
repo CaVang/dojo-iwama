@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useRef } from 'react';
-import Link from 'next/link';
+import { useRef } from "react";
+import Link from "next/link";
 import {
   motion,
   useScroll,
   useTransform,
   useSpring,
   useInView,
-} from 'framer-motion';
+} from "framer-motion";
 import {
   ArrowLeft,
   BookOpen,
@@ -16,8 +16,8 @@ import {
   Star,
   ChevronRight,
   ChevronDown,
-} from 'lucide-react';
-import { useLocale, useTranslations } from 'next-intl';
+} from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import {
   EnsoCircle,
   SeigaihaPattern,
@@ -28,8 +28,8 @@ import {
   WoodGrainBg,
   TatamiPattern,
   BrushReveal,
-} from '@/components/ui/JapaneseElements';
-import techniques from '@/data/techniques.json';
+} from "@/components/ui/JapaneseElements";
+import techniques from "@/data/techniques.json";
 
 interface Technique {
   id: string;
@@ -37,21 +37,23 @@ interface Technique {
   name_jp: string;
   name_en: string;
   category: string;
+  subcategory?: string;
   difficulty: string;
   description: string;
+  variants?: string[];
   content: {
     key_postures: Array<{
       title: string;
       description: string;
-      image_url: string;
+      image_url?: string;
     }>;
     important_notes: Array<{
       note: string;
-      image_url: string;
+      image_url?: string;
     }>;
-    characteristics: Array<{
+    characteristics?: Array<{
       feature: string;
-      image_url: string;
+      image_url?: string;
     }>;
   };
 }
@@ -63,7 +65,7 @@ interface TechniqueDetailClientProps {
 // Animated Section Component
 function AnimatedSection({
   children,
-  className = '',
+  className = "",
   delay = 0,
 }: {
   children: React.ReactNode;
@@ -71,7 +73,7 @@ function AnimatedSection({
   delay?: number;
 }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <motion.div
@@ -98,14 +100,14 @@ function PostureCard({
   stepLabel,
   formLabel,
 }: {
-  posture: { title: string; description: string; image_url: string };
+  posture: { title: string; description: string; image_url?: string };
   index: number;
   techniqueNameJp: string;
   stepLabel: string;
   formLabel: string;
 }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
     <motion.article
@@ -120,19 +122,19 @@ function PostureCard({
         className="absolute -left-4 md:-left-20 -top-8 z-0"
         initial={{ scale: 0, rotate: -20 }}
         animate={isInView ? { scale: 1, rotate: 0 } : {}}
-        transition={{ duration: 0.6, delay: 0.2, ease: 'backOut' }}
+        transition={{ duration: 0.6, delay: 0.2, ease: "backOut" }}
       >
         <span className="font-jp text-[8rem] md:text-[12rem] text-japan-blue/[0.07] font-bold leading-none">
-          {String(index + 1).padStart(2, '0')}
+          {String(index + 1).padStart(2, "0")}
         </span>
       </motion.div>
 
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center relative z-10">
         {/* Image with dramatic reveal */}
         <motion.div
-          className={`relative overflow-hidden ${index % 2 === 1 ? 'md:order-2' : ''}`}
-          initial={{ clipPath: 'inset(0 100% 0 0)' }}
-          animate={isInView ? { clipPath: 'inset(0 0% 0 0)' } : {}}
+          className={`relative overflow-hidden ${index % 2 === 1 ? "md:order-2" : ""}`}
+          initial={{ clipPath: "inset(0 100% 0 0)" }}
+          animate={isInView ? { clipPath: "inset(0 0% 0 0)" } : {}}
           transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <div className="aspect-[4/3] bg-gradient-to-br from-japan-blue/20 via-japan-blue/10 to-washi-warm relative group">
@@ -167,16 +169,16 @@ function PostureCard({
 
         {/* Content with staggered reveal */}
         <motion.div
-          className={`${index % 2 === 1 ? 'md:order-1 md:text-right' : ''}`}
+          className={`${index % 2 === 1 ? "md:order-1 md:text-right" : ""}`}
           initial={{ opacity: 0, x: index % 2 === 1 ? 50 : -50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <motion.div
             initial={{ width: 0 }}
-            animate={isInView ? { width: '3rem' } : {}}
+            animate={isInView ? { width: "3rem" } : {}}
             transition={{ duration: 0.4, delay: 0.5 }}
-            className={`h-0.5 bg-cinnabar mb-4 ${index % 2 === 1 ? 'ml-auto' : ''}`}
+            className={`h-0.5 bg-cinnabar mb-4 ${index % 2 === 1 ? "ml-auto" : ""}`}
           />
 
           <h3 className="font-serif text-2xl md:text-3xl text-sumi mb-4">
@@ -190,14 +192,16 @@ function PostureCard({
           {/* Decorative element */}
           <motion.div
             className={`mt-6 flex items-center gap-2 text-japan-blue/40 ${
-              index % 2 === 1 ? 'justify-end' : ''
+              index % 2 === 1 ? "justify-end" : ""
             }`}
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.7 }}
           >
             <span className="font-jp text-sm">形</span>
-            <span className="text-xs tracking-widest uppercase">{formLabel}</span>
+            <span className="text-xs tracking-widest uppercase">
+              {formLabel}
+            </span>
           </motion.div>
         </motion.div>
       </div>
@@ -212,8 +216,8 @@ function PostureCard({
         >
           <motion.div
             className="w-full h-full bg-gradient-to-b from-japan-blue/30 to-transparent"
-            initial={{ y: '-100%' }}
-            animate={isInView ? { y: '0%' } : {}}
+            initial={{ y: "-100%" }}
+            animate={isInView ? { y: "0%" } : {}}
             transition={{ duration: 0.6, delay: 0.9 }}
           />
         </motion.div>
@@ -227,17 +231,17 @@ export default function TechniqueDetailClient({
 }: TechniqueDetailClientProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
-  const t = useTranslations('techniqueDetail');
+  const t = useTranslations("techniqueDetail");
   const locale = useLocale();
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start start', 'end end'],
+    offset: ["start start", "end end"],
   });
 
   const { scrollYProgress: heroScrollProgress } = useScroll({
     target: heroRef,
-    offset: ['start start', 'end start'],
+    offset: ["start start", "end start"],
   });
 
   // Smooth spring animations
@@ -247,26 +251,27 @@ export default function TechniqueDetailClient({
   });
 
   // Hero parallax effects
-  const heroY = useTransform(heroScrollProgress, [0, 1], ['0%', '40%']);
+  const heroY = useTransform(heroScrollProgress, [0, 1], ["0%", "40%"]);
   const heroOpacity = useTransform(heroScrollProgress, [0, 0.6], [1, 0]);
   const heroScale = useTransform(heroScrollProgress, [0, 1], [1, 1.1]);
-  const kanjiY = useTransform(heroScrollProgress, [0, 1], ['0%', '80%']);
+  const kanjiY = useTransform(heroScrollProgress, [0, 1], ["0%", "80%"]);
   const kanjiRotate = useTransform(heroScrollProgress, [0, 1], [0, 10]);
 
   // Progress bar
-  const progressWidth = useTransform(smoothProgress, [0, 1], ['0%', '100%']);
+  const progressWidth = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
 
   // Find related techniques
   const relatedTechniques = techniques
-    .filter((tech) => tech.category === technique.category && tech.id !== technique.id)
+    .filter(
+      (tech) =>
+        tech.category === technique.category && tech.id !== technique.id,
+    )
     .slice(0, 3);
 
   return (
     <div ref={containerRef} className="bg-washi">
       {/* Progress bar */}
-      <motion.div
-        className="fixed top-20 left-0 right-0 h-1 bg-japan-blue/10 z-50"
-      >
+      <motion.div className="fixed top-20 left-0 right-0 h-1 bg-japan-blue/10 z-50">
         <motion.div
           className="h-full bg-gradient-to-r from-cinnabar via-japan-blue to-cinnabar"
           style={{ width: progressWidth }}
@@ -290,32 +295,34 @@ export default function TechniqueDetailClient({
         </div>
 
         {/* Animated ink splashes */}
-        <InkSplash className="absolute top-20 right-20 w-40 h-40 text-washi" delay={0.5} />
-        <InkSplash className="absolute bottom-40 left-10 w-32 h-32 text-washi" delay={0.8} />
-
-        {/* Giant parallax kanji background */}
-        <motion.div
-          className="absolute inset-0 flex items-center justify-center pointer-events-none"
-          style={{ y: kanjiY, rotate: kanjiRotate }}
-        >
-          <motion.span
-            className="font-jp text-[25rem] md:text-[40rem] text-washi/[0.03] font-bold leading-none select-none"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.5, ease: 'easeOut' }}
-          >
-            {technique.name_jp}
-          </motion.span>
-        </motion.div>
+        <InkSplash
+          className="absolute top-20 right-20 w-40 h-40 text-washi"
+          delay={0.5}
+        />
+        <InkSplash
+          className="absolute bottom-40 left-10 w-32 h-32 text-washi"
+          delay={0.8}
+        />
 
         {/* Enso circle decoration */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <EnsoCircle size={500} strokeWidth={4} className="text-washi" delay={0.3} />
+          <EnsoCircle
+            size={500}
+            strokeWidth={4}
+            className="text-washi"
+            delay={0.3}
+          />
         </div>
 
         {/* Bamboo decorations */}
-        <BambooDecoration className="absolute left-0 bottom-0 opacity-30" side="left" />
-        <BambooDecoration className="absolute right-0 bottom-0 opacity-30" side="right" />
+        <BambooDecoration
+          className="absolute left-0 bottom-0 opacity-30"
+          side="left"
+        />
+        <BambooDecoration
+          className="absolute right-0 bottom-0 opacity-30"
+          side="right"
+        />
 
         {/* Content */}
         <motion.div
@@ -329,8 +336,11 @@ export default function TechniqueDetailClient({
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex items-center justify-center gap-2 text-washi/60 text-sm mb-8"
           >
-            <Link href={`/${locale}/techniques`} className="hover:text-washi transition-colors">
-              {t('techniques')}
+            <Link
+              href={`/${locale}/techniques`}
+              className="hover:text-washi transition-colors"
+            >
+              {t("techniques")}
             </Link>
             <ChevronRight size={14} />
             <span className="text-washi">{technique.name_en}</span>
@@ -348,11 +358,11 @@ export default function TechniqueDetailClient({
             </span>
             <span
               className={`text-xs px-4 py-2 uppercase tracking-[0.2em] border ${
-                technique.difficulty === 'Beginner'
-                  ? 'bg-bamboo/20 text-bamboo-light border-bamboo/30'
-                  : technique.difficulty === 'Intermediate'
-                  ? 'bg-gold/20 text-gold border-gold/30'
-                  : 'bg-cinnabar/20 text-cinnabar-light border-cinnabar/30'
+                technique.difficulty === "Beginner"
+                  ? "bg-bamboo/20 text-bamboo-light border-bamboo/30"
+                  : technique.difficulty === "Intermediate"
+                    ? "bg-gold/20 text-gold border-gold/30"
+                    : "bg-cinnabar/20 text-cinnabar-light border-cinnabar/30"
               }`}
             >
               {technique.difficulty}
@@ -403,7 +413,9 @@ export default function TechniqueDetailClient({
               transition={{ duration: 2, repeat: Infinity }}
               className="flex flex-col items-center text-washi/50"
             >
-              <span className="text-xs tracking-[0.3em] uppercase mb-2">{t('scroll')}</span>
+              <span className="text-xs tracking-[0.3em] uppercase mb-2">
+                {t("scroll")}
+              </span>
               <ChevronDown size={24} />
             </motion.div>
           </motion.div>
@@ -422,9 +434,9 @@ export default function TechniqueDetailClient({
         <div className="max-w-4xl mx-auto px-6">
           <div className="flex items-center justify-center gap-8 py-4 overflow-x-auto">
             {[
-              { id: 'postures', icon: BookOpen, label: t('postures') },
-              { id: 'notes', icon: AlertCircle, label: t('notes') },
-              { id: 'characteristics', icon: Star, label: t('features') },
+              { id: "postures", icon: BookOpen, label: t("postures") },
+              { id: "notes", icon: AlertCircle, label: t("notes") },
+              { id: "characteristics", icon: Star, label: t("features") },
             ].map((item) => (
               <a
                 key={item.id}
@@ -453,7 +465,7 @@ export default function TechniqueDetailClient({
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, type: 'spring' }}
+              transition={{ duration: 0.5, type: "spring" }}
               className="w-20 h-20 mx-auto mb-6 rounded-full bg-japan-blue/5 flex items-center justify-center"
             >
               <BookOpen className="w-8 h-8 text-japan-blue" />
@@ -461,12 +473,12 @@ export default function TechniqueDetailClient({
 
             <BrushReveal delay={0.2}>
               <h2 className="font-serif text-3xl md:text-5xl text-sumi mb-4">
-                {t('keyPostures')}
+                {t("keyPostures")}
               </h2>
             </BrushReveal>
 
             <p className="text-sumi-muted max-w-xl mx-auto">
-              {t('keyPosturesDesc')}
+              {t("keyPosturesDesc")}
             </p>
 
             <motion.div
@@ -488,8 +500,8 @@ export default function TechniqueDetailClient({
                 posture={posture}
                 index={index}
                 techniqueNameJp={technique.name_jp}
-                stepLabel={t('step', { number: index + 1 })}
-                formLabel={t('form')}
+                stepLabel={t("step", { number: index + 1 })}
+                formLabel={t("form")}
               />
             ))}
           </div>
@@ -514,18 +526,18 @@ export default function TechniqueDetailClient({
               initial={{ scale: 0, rotate: -180 }}
               whileInView={{ scale: 1, rotate: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, type: 'spring' }}
+              transition={{ duration: 0.6, type: "spring" }}
               className="w-20 h-20 mx-auto mb-6 rounded-full bg-cinnabar/10 flex items-center justify-center"
             >
               <AlertCircle className="w-8 h-8 text-cinnabar" />
             </motion.div>
 
             <h2 className="font-serif text-3xl md:text-5xl text-sumi mb-4">
-              {t('importantNotes')}
+              {t("importantNotes")}
             </h2>
 
             <p className="text-sumi-muted max-w-xl mx-auto">
-              {t('importantNotesDesc')}
+              {t("importantNotesDesc")}
             </p>
           </AnimatedSection>
 
@@ -536,7 +548,7 @@ export default function TechniqueDetailClient({
                 key={index}
                 initial={{ opacity: 0, rotateY: -30, x: -50 }}
                 whileInView={{ opacity: 1, rotateY: 0, x: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{
                   duration: 0.7,
                   delay: index * 0.15,
@@ -606,29 +618,29 @@ export default function TechniqueDetailClient({
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, type: 'spring' }}
+              transition={{ duration: 0.5, type: "spring" }}
               className="w-20 h-20 mx-auto mb-6 rounded-full bg-washi/10 flex items-center justify-center"
             >
               <Star className="w-8 h-8 text-gold" />
             </motion.div>
 
             <h2 className="font-serif text-3xl md:text-5xl text-washi mb-4">
-              {t('characteristics')}
+              {t("characteristics")}
             </h2>
 
             <p className="text-washi/60 max-w-xl mx-auto">
-              {t('characteristicsDesc')}
+              {t("characteristicsDesc")}
             </p>
           </AnimatedSection>
 
           {/* Characteristics */}
           <div className="space-y-6">
-            {technique.content.characteristics.map((char, index) => (
+            {technique.content.characteristics?.map((char, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{
                   duration: 0.7,
                   delay: index * 0.2,
@@ -655,7 +667,7 @@ export default function TechniqueDetailClient({
 
                   {/* Index */}
                   <span className="font-jp text-4xl text-washi/10 shrink-0">
-                    {['一', '二', '三', '四', '五'][index] || ''}
+                    {["一", "二", "三", "四", "五"][index] || ""}
                   </span>
                 </div>
               </motion.div>
@@ -675,7 +687,7 @@ export default function TechniqueDetailClient({
                 関連技
               </span>
               <h2 className="font-serif text-3xl md:text-4xl text-sumi">
-                {t('relatedTechniques')}
+                {t("relatedTechniques")}
               </h2>
             </AnimatedSection>
 
@@ -689,7 +701,10 @@ export default function TechniqueDetailClient({
                   transition={{ delay: index * 0.15, duration: 0.6 }}
                   whileHover={{ y: -8 }}
                 >
-                  <Link href={`/${locale}/techniques/${related.slug}`} className="block group">
+                  <Link
+                    href={`/${locale}/techniques/${related.slug}`}
+                    className="block group"
+                  >
                     <div className="relative bg-washi-cream p-8 text-center border border-japan-blue/10 hover:border-japan-blue/30 transition-colors overflow-hidden">
                       {/* Background kanji */}
                       <motion.span
@@ -743,7 +758,9 @@ export default function TechniqueDetailClient({
               >
                 <ArrowLeft size={18} />
               </motion.div>
-              <span className="font-serif tracking-wider">{t('backToLibrary')}</span>
+              <span className="font-serif tracking-wider">
+                {t("backToLibrary")}
+              </span>
             </Link>
 
             {/* Seal stamp */}
