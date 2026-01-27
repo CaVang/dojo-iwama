@@ -36,7 +36,7 @@ function ShojiDoor({ side }: { side: "left" | "right" }) {
       </div>
 
       {/* Paper texture overlay */}
-      <div className="absolute inset-2 bg-gradient-to-br from-[#FFF8F0] to-[#F5E6D3] opacity-80" />
+      <div className="absolute inset-2 bg-linear-to-br from-[#FFF8F0] to-[#F5E6D3] opacity-80" />
 
       {/* Subtle pattern on paper */}
       <svg className="absolute inset-8 w-[calc(100%-4rem)] h-[calc(100%-4rem)] opacity-5">
@@ -59,158 +59,48 @@ function ShojiDoor({ side }: { side: "left" | "right" }) {
   );
 }
 
-// Weapon Rack Component
-function WeaponRack({
-  type,
+// Quote Component
+function Quote({
+  side,
+  text,
+  subtext,
+  kanji,
   isVisible,
-  weaponInfo,
 }: {
-  type: "bokken" | "jo";
+  side: "left" | "right";
+  text: string;
+  subtext?: string;
+  kanji?: string;
   isVisible: boolean;
-  weaponInfo: {
-    title: string;
-    subtitle: string;
-    description: string;
-    points: string[];
-  };
 }) {
-  const [isHovered, setIsHovered] = useState(false);
-
-  const weaponCount = type === "bokken" ? 5 : 4;
-
   return (
     <motion.div
-      className={`absolute ${type === "bokken" ? "right-8 md:right-16" : "left-8 md:left-16"} top-1/2 -translate-y-1/2 z-20`}
-      initial={{ opacity: 0, x: type === "bokken" ? 100 : -100 }}
+      className={`absolute top-1/2 -translate-y-1/2 ${
+        side === "left"
+          ? "left-8 md:left-20 lg:left-32 text-left"
+          : "right-8 md:right-20 lg:right-32 text-right"
+      } z-20 max-w-[140px] md:max-w-[200px] lg:max-w-xs pointer-events-none`}
+      initial={{ opacity: 0, x: side === "left" ? -30 : 30 }}
       animate={isVisible ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.8, delay: 0.5 }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      transition={{ duration: 1, delay: 1.2 }}
     >
-      {/* Rack Structure */}
-      <div className="relative cursor-pointer group">
-        {/* Rack frame */}
-        <div className="relative w-16 md:w-24 h-64 md:h-80">
-          {/* Vertical posts */}
-          <div className="absolute left-0 top-0 bottom-0 w-3 bg-gradient-to-r from-[#654321] to-[#8B4513] rounded-sm" />
-          <div className="absolute right-0 top-0 bottom-0 w-3 bg-gradient-to-l from-[#654321] to-[#8B4513] rounded-sm" />
-
-          {/* Horizontal bars */}
-          {[0, 1, 2].map((i) => (
-            <div
-              key={i}
-              className="absolute left-0 right-0 h-2 bg-[#8B4513]"
-              style={{ top: `${20 + i * 30}%` }}
-            />
-          ))}
-
-          {/* Weapons */}
-          {Array.from({ length: weaponCount }).map((_, i) => (
-            <motion.div
-              key={i}
-              className={`absolute ${
-                type === "bokken"
-                  ? "w-2 h-48 md:h-56 bg-gradient-to-b from-[#DEB887] via-[#D2691E] to-[#8B4513]"
-                  : "w-1.5 h-52 md:h-64 bg-gradient-to-b from-[#F5DEB3] via-[#DEB887] to-[#D2691E]"
-              } rounded-full`}
-              style={{
-                left: `${15 + i * (type === "bokken" ? 15 : 18)}%`,
-                top: type === "bokken" ? "5%" : "0%",
-                transform: `rotate(${type === "bokken" ? 5 + i * 2 : -3 + i * 2}deg)`,
-              }}
-              initial={{ rotate: type === "bokken" ? 5 + i * 2 : -3 + i * 2 }}
-              whileHover={{
-                rotate: type === "bokken" ? 0 : 0,
-                y: -5,
-                transition: { duration: 0.2 },
-              }}
-            >
-              {/* Weapon details */}
-              {type === "bokken" && (
-                <>
-                  {/* Tsuka (handle) */}
-                  <div className="absolute bottom-0 left-0 right-0 h-12 bg-[#2F1810] rounded-b-full" />
-                  {/* Tsuba (guard) */}
-                  <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-4 h-1 bg-[#4A4A4A] rounded-full" />
-                </>
-              )}
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Glow effect on hover */}
-        <motion.div
-          className="absolute inset-0 bg-gold/20 rounded-lg blur-xl -z-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isHovered ? 1 : 0 }}
-          transition={{ duration: 0.3 }}
-        />
-
-        {/* Label */}
-        <motion.div
-          className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isVisible ? 1 : 0 }}
-          transition={{ delay: 1 }}
-        >
-          <span className="font-jp text-lg text-washi/80">
-            {type === "bokken" ? "Bokken" : "Jo"}
+      <div
+        className={`flex flex-col ${side === "left" ? "items-start" : "items-end"}`}
+      >
+        {kanji && (
+          <span className="font-jp text-3xl md:text-4xl text-japan-blue/20 mb-2 select-none">
+            {kanji}
           </span>
-        </motion.div>
-      </div>
-
-      {/* Hover Info Panel */}
-      <AnimatePresence>
-        {isHovered && (
-          <motion.div
-            className={`absolute top-0 ${
-              type === "bokken" ? "right-full mr-4" : "left-full ml-4"
-            } w-72 md:w-80 bg-washi/95 backdrop-blur-md border border-japan-blue/20 shadow-2xl z-30`}
-            initial={{
-              opacity: 0,
-              x: type === "bokken" ? 20 : -20,
-              scale: 0.95,
-            }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: type === "bokken" ? 20 : -20, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-          >
-            {/* Header */}
-            <div className="bg-japan-blue p-4">
-              <h3 className="font-jp text-2xl text-washi">
-                {weaponInfo.title}
-              </h3>
-              <p className="text-washi/70 text-sm">{weaponInfo.subtitle}</p>
-            </div>
-
-            {/* Content */}
-            <div className="p-4">
-              <p className="text-sumi-light text-sm leading-relaxed mb-4">
-                {weaponInfo.description}
-              </p>
-
-              <ul className="space-y-2">
-                {weaponInfo.points.map((point, i) => (
-                  <motion.li
-                    key={i}
-                    className="flex items-start gap-2 text-sm text-sumi"
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                  >
-                    <span className="text-cinnabar mt-0.5">●</span>
-                    {point}
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Decorative corner */}
-            <div className="absolute top-2 right-2 w-4 h-4 border-t border-r border-cinnabar/30" />
-            <div className="absolute bottom-2 left-2 w-4 h-4 border-b border-l border-cinnabar/30" />
-          </motion.div>
         )}
-      </AnimatePresence>
+        <h3 className="font-serif text-lg md:text-xl lg:text-2xl text-washi/90 mb-2 italic leading-relaxed">
+          &ldquo;{text}&rdquo;
+        </h3>
+        {subtext && (
+          <p className="font-sans text-xs md:text-sm text-washi/60 uppercase tracking-widest">
+            {subtext}
+          </p>
+        )}
+      </div>
     </motion.div>
   );
 }
@@ -229,12 +119,12 @@ function OSenseiPortrait({ isVisible }: { isVisible: boolean }) {
         {/* Outer frame */}
         <div className="w-[175px] h-[238px] md:w-[220px] md:h-[318px] lg:w-[270px] lg:h-[368px] bg-[#1a1a1a] p-2 shadow-2xl">
           {/* Inner frame */}
-          <div className="w-full h-full bg-gradient-to-b from-[#2a2a2a] to-[#1a1a1a] p-1">
+          <div className="w-full h-full bg-linear-to-b from-[#2a2a2a] to-[#1a1a1a] p-1">
             {/* Photo area */}
-            <div className="w-full h-full bg-gradient-to-br from-[#3a3a3a] via-[#2a2a2a] to-[#1a1a1a] relative overflow-hidden">
+            <div className="w-full h-full bg-linear-to-br from-[#3a3a3a] via-[#2a2a2a] to-[#1a1a1a] relative overflow-hidden">
               <Image src="/images/dojos/O_sensei.jpg" alt="O Sensei" fill />
               {/* Light effect */}
-              <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-washi/5" />
+              <div className="absolute inset-0 bg-linear-to-t from-transparent via-transparent to-washi/5" />
             </div>
           </div>
         </div>
@@ -261,7 +151,6 @@ export default function DojoEntrance() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [hasScrolled, setHasScrolled] = useState(false);
   const t = useTranslations("home");
-  const tWeapons = useTranslations("weapons");
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -289,27 +178,12 @@ export default function DojoEntrance() {
 
   const doorsOpen = hasScrolled;
 
-  // Get weapon info from translations
-  const bokkenInfo = {
-    title: tWeapons("bokken.title"),
-    subtitle: tWeapons("bokken.subtitle"),
-    description: tWeapons("bokken.description"),
-    points: tWeapons.raw("bokken.points") as string[],
-  };
-
-  const joInfo = {
-    title: tWeapons("jo.title"),
-    subtitle: tWeapons("jo.subtitle"),
-    description: tWeapons("jo.description"),
-    points: tWeapons.raw("jo.points") as string[],
-  };
-
   return (
     <section ref={containerRef} className="relative h-[200vh]">
       {/* Sticky container */}
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#1a1a1a]">
         {/* Background wall texture */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#2a2a2a] to-[#1a1a1a]">
+        <div className="absolute inset-0 bg-linear-to-b from-[#2a2a2a] to-[#1a1a1a]">
           {/* Wood panel pattern */}
           <svg className="absolute inset-0 w-full h-full opacity-10">
             <pattern
@@ -335,7 +209,7 @@ export default function DojoEntrance() {
           style={{ opacity: interiorOpacity }}
         >
           {/* Dojo interior background */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#2F2F2F] via-[#252525] to-[#1a1a1a]">
+          <div className="absolute inset-0 bg-linear-to-b from-[#2F2F2F] via-[#252525] to-[#1a1a1a]">
             {/* Tatami pattern hint */}
             <div className="absolute bottom-0 left-0 right-0 h-1/3 opacity-20">
               <svg width="100%" height="100%">
@@ -372,12 +246,20 @@ export default function DojoEntrance() {
           <OSenseiPortrait isVisible={doorsOpen} />
 
           {/* Weapon Racks */}
-          <WeaponRack
-            type="bokken"
+          {/* O-Sensei Quotes */}
+          <Quote
+            side="left"
+            text="Masakatsu Agatsu"
+            subtext="True Victory is Victory Over Oneself"
+            kanji="正勝吾勝"
             isVisible={doorsOpen}
-            weaponInfo={bokkenInfo}
           />
-          <WeaponRack type="jo" isVisible={doorsOpen} weaponInfo={joInfo} />
+          <Quote
+            side="right"
+            text="Aikido is the Art of Peace"
+            kanji="和の武道"
+            isVisible={doorsOpen}
+          />
 
           {/* Welcome text */}
           <motion.div
@@ -477,13 +359,13 @@ export default function DojoEntrance() {
         {/* Wall frame around doors */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Top beam */}
-          <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-[#654321] to-[#8B4513]" />
+          <div className="absolute top-0 left-0 right-0 h-8 bg-linear-to-b from-[#654321] to-[#8B4513]" />
           {/* Bottom beam */}
-          <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#654321] to-[#8B4513]" />
+          <div className="absolute bottom-0 left-0 right-0 h-8 bg-linear-to-t from-[#654321] to-[#8B4513]" />
           {/* Left pillar */}
-          <div className="absolute top-0 bottom-0 left-0 w-4 bg-gradient-to-r from-[#654321] to-[#8B4513]" />
+          <div className="absolute top-0 bottom-0 left-0 w-4 bg-linear-to-r from-[#654321] to-[#8B4513]" />
           {/* Right pillar */}
-          <div className="absolute top-0 bottom-0 right-0 w-4 bg-gradient-to-l from-[#654321] to-[#8B4513]" />
+          <div className="absolute top-0 bottom-0 right-0 w-4 bg-linear-to-l from-[#654321] to-[#8B4513]" />
 
           {/* Corner decorations */}
           <div className="absolute top-8 left-4 w-8 h-8 border-l-4 border-t-4 border-[#4A3728]" />
