@@ -556,14 +556,14 @@ export default function TechniqueDetailClient({
                 }}
                 className="group"
               >
-                <div className="relative bg-washi p-8 border-l-4 border-cinnabar shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="relative bg-white p-8 border-l-4 border-cinnabar shadow-lg hover:shadow-xl transition-shadow duration-300">
                   {/* Decorative corner */}
                   <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-cinnabar/5 -rotate-45 translate-x-16 -translate-y-16 group-hover:bg-cinnabar/10 transition-colors" />
                   </div>
 
                   {/* Number */}
-                  <div className="absolute -left-4 -top-4 w-10 h-10 bg-cinnabar text-washi rounded-full flex items-center justify-center font-serif text-lg shadow-md">
+                  <div className="absolute left-1 top-1 w-10 h-10 bg-cinnabar text-washi rounded-full flex items-center justify-center font-serif text-lg shadow-md">
                     {index + 1}
                   </div>
 
@@ -706,15 +706,6 @@ export default function TechniqueDetailClient({
                     className="block group"
                   >
                     <div className="relative bg-washi-cream p-8 text-center border border-japan-blue/10 hover:border-japan-blue/30 transition-colors overflow-hidden">
-                      {/* Background kanji */}
-                      <motion.span
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-jp text-8xl text-japan-blue/[0.05] group-hover:text-japan-blue/10 transition-colors"
-                        whileHover={{ scale: 1.2, rotate: 5 }}
-                        transition={{ duration: 0.4 }}
-                      >
-                        {related.name_jp}
-                      </motion.span>
-
                       {/* Content */}
                       <div className="relative z-10">
                         <span className="font-jp text-3xl text-japan-blue/30 block mb-2">
