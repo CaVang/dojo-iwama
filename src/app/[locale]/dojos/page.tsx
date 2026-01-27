@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   MapPin,
   Phone,
@@ -11,25 +11,24 @@ import {
   Users,
   ChevronDown,
   Search,
-} from 'lucide-react';
-import { useLocale, useTranslations } from 'next-intl';
+} from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import PageTransition, {
-  fadeInUp,
   staggerContainer,
-} from '@/components/animations/PageTransition';
-import dojos from '@/data/dojos.json';
+} from "@/components/animations/PageTransition";
+import dojos from "@/data/dojos.json";
 
 export default function DojosPage() {
   const [expandedDojo, setExpandedDojo] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState('');
-  const t = useTranslations('dojos');
+  const [searchQuery, setSearchQuery] = useState("");
+  const t = useTranslations("dojos");
   const locale = useLocale();
 
   const filteredDojos = dojos.filter(
     (dojo) =>
       dojo.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       dojo.address.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      dojo.chief_instructor.toLowerCase().includes(searchQuery.toLowerCase())
+      dojo.chief_instructor.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   return (
@@ -57,10 +56,10 @@ export default function DojosPage() {
               道場
             </span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-washi tracking-wider mb-4">
-              {t('title')}
+              {t("title")}
             </h1>
             <p className="text-washi/70 max-w-2xl mx-auto">
-              {t('description')}
+              {t("description")}
             </p>
           </motion.div>
         </div>
@@ -91,7 +90,7 @@ export default function DojosPage() {
             />
             <input
               type="text"
-              placeholder={t('searchPlaceholder')}
+              placeholder={t("searchPlaceholder")}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full bg-washi-cream border border-japan-blue/20 pl-12 pr-4 py-3 font-sans text-sumi placeholder:text-sumi-muted focus:outline-none focus:border-japan-blue transition-colors"
@@ -110,8 +109,8 @@ export default function DojosPage() {
             className="text-sumi-muted text-sm mb-8"
           >
             {filteredDojos.length === 1
-              ? t('showing', { count: filteredDojos.length })
-              : t('showingPlural', { count: filteredDojos.length })}
+              ? t("showing", { count: filteredDojos.length })
+              : t("showingPlural", { count: filteredDojos.length })}
           </motion.p>
 
           {/* Dojos List */}
@@ -136,9 +135,7 @@ export default function DojosPage() {
                   <div
                     className="p-6 cursor-pointer"
                     onClick={() =>
-                      setExpandedDojo(
-                        expandedDojo === dojo.id ? null : dojo.id
-                      )
+                      setExpandedDojo(expandedDojo === dojo.id ? null : dojo.id)
                     }
                   >
                     <div className="flex items-start justify-between gap-4">
@@ -158,7 +155,10 @@ export default function DojosPage() {
                         </div>
 
                         <div className="flex items-center gap-2 text-sm text-sumi-light mt-4 ml-13">
-                          <MapPin size={14} className="text-japan-blue shrink-0" />
+                          <MapPin
+                            size={14}
+                            className="text-japan-blue shrink-0"
+                          />
                           <span className="line-clamp-1">{dojo.address}</span>
                         </div>
                       </div>
@@ -180,7 +180,7 @@ export default function DojosPage() {
                     {expandedDojo === dojo.id && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
+                        animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
@@ -209,7 +209,7 @@ export default function DojosPage() {
                                 </div>
                                 <div>
                                   <p className="text-xs text-sumi-muted uppercase tracking-wider">
-                                    {t('phone')}
+                                    {t("phone")}
                                   </p>
                                   <p className="text-sumi font-medium">
                                     {dojo.phone}
@@ -225,14 +225,11 @@ export default function DojosPage() {
                                 className="flex items-center gap-3 p-4 bg-washi-cream hover:bg-japan-blue/5 transition-colors group"
                               >
                                 <div className="w-10 h-10 bg-japan-blue/10 rounded-full flex items-center justify-center group-hover:bg-japan-blue/20 transition-colors">
-                                  <Mail
-                                    size={18}
-                                    className="text-japan-blue"
-                                  />
+                                  <Mail size={18} className="text-japan-blue" />
                                 </div>
                                 <div>
                                   <p className="text-xs text-sumi-muted uppercase tracking-wider">
-                                    {t('email')}
+                                    {t("email")}
                                   </p>
                                   <p className="text-sumi font-medium truncate max-w-[180px]">
                                     {dojo.email}
@@ -251,7 +248,7 @@ export default function DojosPage() {
                               className="mt-4 flex items-center justify-center gap-2 p-4 border border-japan-blue/20 text-japan-blue hover:bg-japan-blue hover:text-washi transition-colors font-serif tracking-wider"
                             >
                               <MapPin size={18} />
-                              {t('viewOnMap')}
+                              {t("viewOnMap")}
                               <ExternalLink size={14} />
                             </a>
                           )}
@@ -275,16 +272,14 @@ export default function DojosPage() {
                 無
               </span>
               <h3 className="font-serif text-xl text-sumi mb-2">
-                {t('noDojosFound')}
+                {t("noDojosFound")}
               </h3>
-              <p className="text-sumi-muted">
-                {t('adjustSearch')}
-              </p>
+              <p className="text-sumi-muted">{t("adjustSearch")}</p>
               <button
-                onClick={() => setSearchQuery('')}
+                onClick={() => setSearchQuery("")}
                 className="mt-6 btn-outline"
               >
-                {t('clearSearch')}
+                {t("clearSearch")}
               </button>
             </motion.div>
           )}
@@ -298,7 +293,7 @@ export default function DojosPage() {
             className="absolute inset-0"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 Q25 25 50 50 T100 50' stroke='%23ffffff' fill='none' stroke-width='1'/%3E%3C/svg%3E")`,
-              backgroundSize: '100px 50px',
+              backgroundSize: "100px 50px",
             }}
           />
         </div>
@@ -313,17 +308,17 @@ export default function DojosPage() {
             稽古
           </span>
           <h2 className="font-serif text-3xl md:text-4xl text-washi mb-6">
-            {t('beginYourJourney')}
+            {t("beginYourJourney")}
           </h2>
           <p className="text-washi/70 mb-8 leading-relaxed">
-            {t('journeyDescription')}
+            {t("journeyDescription")}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href={`/${locale}/techniques`}
               className="btn-outline bg-transparent text-washi border-washi/30 hover:bg-washi hover:text-japan-blue"
             >
-              {t('exploreTechniques')}
+              {t("exploreTechniques")}
             </Link>
           </div>
         </motion.div>
