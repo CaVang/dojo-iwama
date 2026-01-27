@@ -1,52 +1,103 @@
 [
   {
-    "id": "ikkyo",
-    "slug": "ikkyo",
-    "name_jp": "一教",
-    "name_en": "First Teaching",
+    "id": "tai-no-henko",
+    "slug": "tai-no-henko",
+    "name_jp": "体の変更",
+    "name_en": "Body Change",
     "category": "Taijutsu",
+    "subcategory": "Warm-up",
     "difficulty": "Beginner",
-    "description": "The first and most fundamental technique in Aikido. Ikkyo teaches the basic principle of leading and controlling an attacker's center through arm manipulation.",
+    "description": "Xoay người đổi hướng - kỹ thuật khởi động bắt buộc trong mọi lớp học Iwama để rèn luyện sự hòa hợp (ki) và hông (koshi).",
+    "variants": ["Kihon (Cứng, nắm chặt)", "Ki no Nagare (Dòng chảy, mềm)"],
     "content": {
       "key_postures": [
         {
-          "title": "Ai-hanmi Kamae",
-          "description": "Begin in matching stance with your partner. Maintain proper distance (ma-ai) with your lead foot aligned with your partner's lead foot. Your body should be relaxed yet alert.",
-          "image_url": "/images/techniques/ikkyo/posture-1.jpg"
+          "title": "Kamae",
+          "description": "Đứng ở tư thế hanmi, đối diện đối thủ. Giữ trọng tâm thấp và ổn định."
         },
         {
-          "title": "Irimi Entry",
-          "description": "As uke attacks, blend with the movement by entering deeply alongside their arm. Your front hand connects to their elbow while your back hand guides their wrist.",
-          "image_url": "/images/techniques/ikkyo/posture-2.jpg"
+          "title": "Nhận nắm tay",
+          "description": "Đối thủ nắm cổ tay bạn. Trong Kihon, họ nắm chặt cứng."
         },
         {
-          "title": "Osae (Pin)",
-          "description": "Guide uke down to the mat in a spiral motion. The final pin positions uke face-down with their arm extended, elbow controlled, and shoulder locked.",
-          "image_url": "/images/techniques/ikkyo/posture-3.jpg"
+          "title": "Tenkan",
+          "description": "Xoay người 180 độ, chân sau bước vòng cung phía sau, dẫn đối thủ theo hướng xoay."
+        }
+      ],
+      "important_notes": [
+        { "note": "Giữ trọng tâm thấp trong suốt quá trình xoay." },
+        { "note": "Không dùng sức tay, mà dùng hông để dẫn." },
+        {
+          "note": "Ki no Nagare thực hiện khi đối thủ vừa chạm tay, không đợi nắm chặt."
+        }
+      ]
+    }
+  },
+  {
+    "id": "morotedori-kokyuho",
+    "slug": "morotedori-kokyuho",
+    "name_jp": "諸手取り呼吸法",
+    "name_en": "Two-Hand Grab Breath Power",
+    "category": "Taijutsu",
+    "subcategory": "Warm-up",
+    "difficulty": "Beginner",
+    "description": "Phương pháp hô hấp khi bị nắm 2 tay vào 1 tay - bài tập ném đối thủ bằng lực hông và hơi thở.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Bị nắm",
+          "description": "Đối thủ dùng hai tay nắm chặt một cổ tay của bạn."
+        },
+        {
+          "title": "Mở rộng",
+          "description": "Dùng lực từ hông và hara (bụng dưới), mở rộng cánh tay theo hướng lên trên hoặc ra ngoài."
+        },
+        {
+          "title": "Ném",
+          "description": "Tiếp tục mở rộng để phá vỡ thăng bằng đối thủ và ném họ xuống."
         }
       ],
       "important_notes": [
         {
-          "note": "Never use force against force. Ikkyo works through proper timing and angle, not muscular strength.",
-          "image_url": "/images/techniques/ikkyo/note-1.jpg"
+          "note": "Phối hợp hơi thở: hít vào khi chuẩn bị, thở ra khi mở rộng."
+        },
+        { "note": "Không dùng sức vai, sức phải đến từ hông." }
+      ]
+    }
+  },
+  {
+    "id": "ikkyo",
+    "slug": "ikkyo",
+    "name_jp": "一教",
+    "name_en": "First Teaching (Arm Pin)",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Beginner",
+    "description": "Khóa số 1 (Ude Osae) - Kỹ thuật đè cùi chỏ, là nền tảng cơ bản nhất trong Aikido. Dạy nguyên lý kiểm soát trung tâm đối thủ thông qua điều khiển cánh tay.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Ai-hanmi Kamae",
+          "description": "Bắt đầu ở tư thế cùng chiều với đối thủ. Giữ khoảng cách phù hợp (ma-ai)."
         },
         {
-          "note": "Keep your center connected to uke's center throughout the technique. If you lose this connection, the technique becomes ineffective.",
-          "image_url": "/images/techniques/ikkyo/note-2.jpg"
+          "title": "Irimi Entry",
+          "description": "Khi đối thủ tấn công, hòa nhập bằng cách đi sâu bên cạnh cánh tay họ. Tay trước nắm khuỷu tay, tay sau hướng dẫn cổ tay."
         },
         {
-          "note": "The cutting motion should originate from your hips, not your arms. Think of it as a sword cut (tegatana).",
-          "image_url": "/images/techniques/ikkyo/note-3.jpg"
+          "title": "Osae (Pin)",
+          "description": "Dẫn đối thủ xuống thảm theo chuyển động xoắn ốc. Cuối cùng đối thủ nằm úp, cánh tay duỗi thẳng, khuỷu tay và vai bị khóa."
         }
       ],
-      "characteristics": [
+      "important_notes": [
         {
-          "feature": "Ikkyo develops the foundational understanding of controlling through the elbow joint.",
-          "image_url": "/images/techniques/ikkyo/char-1.jpg"
+          "note": "Không bao giờ dùng lực chống lực. Ikkyo hoạt động nhờ thời điểm và góc độ đúng."
         },
         {
-          "feature": "This technique can be applied from virtually any attack, making it extremely versatile.",
-          "image_url": "/images/techniques/ikkyo/char-2.jpg"
+          "note": "Giữ trung tâm của bạn kết nối với trung tâm đối thủ trong suốt kỹ thuật."
+        },
+        {
+          "note": "Chuyển động cắt phải bắt nguồn từ hông, không phải từ tay (tegatana)."
         }
       ]
     }
@@ -55,46 +106,32 @@
     "id": "nikyo",
     "slug": "nikyo",
     "name_jp": "二教",
-    "name_en": "Second Teaching",
+    "name_en": "Second Teaching (Wrist Turn)",
     "category": "Taijutsu",
+    "subcategory": "Osae Waza",
     "difficulty": "Beginner",
-    "description": "The second teaching introduces wrist control through a precise joint lock. Nikyo develops sensitivity to pressure and angle while maintaining connection.",
+    "description": "Khóa số 2 (Kote Mawashi) - Xoắn cổ tay vào trong. Phát triển sự nhạy cảm với áp lực và góc độ trong khi duy trì kết nối.",
     "content": {
       "key_postures": [
         {
-          "title": "Grip Establishment",
-          "description": "After blending with uke's attack, secure a C-grip on their wrist. Your thumb should be on the back of their hand, fingers wrapped around the wrist.",
-          "image_url": "/images/techniques/nikyo/posture-1.jpg"
+          "title": "Nắm cổ tay",
+          "description": "Sau khi hòa nhập với tấn công, nắm cổ tay đối thủ theo kiểu C-grip. Ngón cái ở mu bàn tay, các ngón quấn quanh cổ tay."
         },
         {
-          "title": "Wrist Rotation",
-          "description": "Rotate uke's wrist inward while maintaining elbow control. The rotation should be smooth and continuous, not jerky.",
-          "image_url": "/images/techniques/nikyo/posture-2.jpg"
+          "title": "Xoay cổ tay",
+          "description": "Xoay cổ tay đối thủ vào trong trong khi kiểm soát khuỷu tay. Chuyển động xoay phải mượt mà và liên tục."
         },
         {
-          "title": "Kneeling Pin",
-          "description": "Bring uke down using the wrist lock, transitioning to a kneeling position. The final pin secures both the wrist and elbow.",
-          "image_url": "/images/techniques/nikyo/posture-3.jpg"
+          "title": "Khóa quỳ",
+          "description": "Đưa đối thủ xuống bằng khóa cổ tay, chuyển sang tư thế quỳ. Khóa cuối cùng giữ cả cổ tay và khuỷu tay."
         }
       ],
       "important_notes": [
         {
-          "note": "The effectiveness of nikyo comes from precise angle, not crushing force. Find the correct angle and the technique requires minimal effort.",
-          "image_url": "/images/techniques/nikyo/note-1.jpg"
+          "note": "Hiệu quả của Nikyo đến từ góc độ chính xác, không phải lực nghiền. Tìm đúng góc và kỹ thuật không cần nhiều sức."
         },
         {
-          "note": "Always maintain control of uke's elbow. Without elbow control, uke can escape the wrist lock.",
-          "image_url": "/images/techniques/nikyo/note-2.jpg"
-        }
-      ],
-      "characteristics": [
-        {
-          "feature": "Nikyo teaches precise joint manipulation and sensitivity to your partner's structure.",
-          "image_url": "/images/techniques/nikyo/char-1.jpg"
-        },
-        {
-          "feature": "The pain compliance element requires careful application in training to prevent injury.",
-          "image_url": "/images/techniques/nikyo/char-2.jpg"
+          "note": "Luôn kiểm soát khuỷu tay đối thủ. Không có kiểm soát khuỷu tay, đối thủ có thể thoát khóa cổ tay."
         }
       ]
     }
@@ -103,46 +140,134 @@
     "id": "sankyo",
     "slug": "sankyo",
     "name_jp": "三教",
-    "name_en": "Third Teaching",
+    "name_en": "Third Teaching (Wrist Twist)",
     "category": "Taijutsu",
+    "subcategory": "Osae Waza",
     "difficulty": "Intermediate",
-    "description": "The third teaching uses a rotational wrist lock that spirals through the entire arm to the shoulder. Sankyo embodies the spiral nature of Aikido movement.",
+    "description": "Khóa số 3 (Kote Hineri) - Xoắn cổ tay lên trên theo hình xoắn ốc qua toàn bộ cánh tay đến vai. Thể hiện bản chất xoắn ốc của chuyển động Aikido.",
     "content": {
       "key_postures": [
         {
-          "title": "Hand Capture",
-          "description": "Capture uke's hand with both hands, creating a structure where your fingers wrap over their hand and your thumbs press into their palm.",
-          "image_url": "/images/techniques/sankyo/posture-1.jpg"
+          "title": "Bắt tay",
+          "description": "Bắt tay đối thủ bằng cả hai tay, tạo cấu trúc với các ngón tay quấn trên bàn tay họ và ngón cái ấn vào lòng bàn tay."
         },
         {
-          "title": "Spiral Rotation",
-          "description": "Rotate uke's hand in a spiral motion toward their centerline. Their elbow should rise as the rotation continues.",
-          "image_url": "/images/techniques/sankyo/posture-2.jpg"
+          "title": "Xoắn ốc",
+          "description": "Xoay tay đối thủ theo chuyển động xoắn ốc về phía đường trung tâm của họ. Khuỷu tay sẽ nâng lên khi xoay tiếp tục."
         },
         {
-          "title": "Standing Control",
-          "description": "Maintain the lock while transitioning to various positions. Sankyo can lead to throws or pins depending on the situation.",
-          "image_url": "/images/techniques/sankyo/posture-3.jpg"
+          "title": "Kiểm soát đứng",
+          "description": "Duy trì khóa trong khi chuyển đến các vị trí khác nhau. Sankyo có thể dẫn đến ném hoặc khóa tùy tình huống."
         }
       ],
       "important_notes": [
         {
-          "note": "The spiral must be continuous and connected to your center movement. Isolated hand manipulation is ineffective.",
-          "image_url": "/images/techniques/sankyo/note-1.jpg"
+          "note": "Xoắn ốc phải liên tục và kết nối với chuyển động trung tâm của bạn."
         },
         {
-          "note": "Watch for over-rotation which can cause wrist injury. Apply the lock smoothly and give uke time to tap.",
-          "image_url": "/images/techniques/sankyo/note-2.jpg"
+          "note": "Cẩn thận không xoay quá mức gây chấn thương cổ tay. Áp dụng khóa mượt mà và cho đối thủ thời gian tap."
+        }
+      ]
+    }
+  },
+  {
+    "id": "yonkyo",
+    "slug": "yonkyo",
+    "name_jp": "四教",
+    "name_en": "Fourth Teaching (Wrist Press)",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Intermediate",
+    "description": "Khóa số 4 (Tekubi Osae) - Bấm huyệt cổ tay. Sử dụng áp lực lên dây thần kinh ở mặt trong cẳng tay để kiểm soát đối thủ.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Nắm cẳng tay",
+          "description": "Nắm cẳng tay đối thủ với đốt ngón tay trỏ ấn vào điểm huyệt trên mặt trong cẳng tay."
+        },
+        {
+          "title": "Áp lực điểm huyệt",
+          "description": "Áp dụng áp lực bằng đốt ngón tay trong khi giữ Ikkyo-style control trên cánh tay."
+        },
+        {
+          "title": "Dẫn xuống",
+          "description": "Dùng áp lực điểm huyệt kết hợp với kiểm soát cánh tay để dẫn đối thủ xuống thảm."
         }
       ],
-      "characteristics": [
+      "important_notes": [
         {
-          "feature": "Sankyo exemplifies the spiral energy (kokyu) central to Aikido's effectiveness.",
-          "image_url": "/images/techniques/sankyo/char-1.jpg"
+          "note": "Điểm huyệt nằm cách cổ tay khoảng 1-2 tấc trên mặt trong cẳng tay."
         },
         {
-          "feature": "This technique is particularly effective for weapon disarms and multiple attacker situations.",
-          "image_url": "/images/techniques/sankyo/char-2.jpg"
+          "note": "Yonkyo cần luyện tập nhiều để tìm đúng vị trí. Không phải ai cũng nhạy cảm với điểm này."
+        }
+      ]
+    }
+  },
+  {
+    "id": "gokyo",
+    "slug": "gokyo",
+    "name_jp": "五教",
+    "name_en": "Fifth Teaching (Arm Stretch)",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Advanced",
+    "description": "Khóa số 5 (Ude Nobashi) - Tương tự Ikkyo nhưng tay cầm ngược để tước dao. Đặc biệt dùng cho kỹ thuật tanto-dori (tước dao).",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Đối phó tấn công dao",
+          "description": "Khi đối thủ tấn công bằng dao, hòa nhập và nắm cổ tay họ với ngón cái hướng xuống (ngược với Ikkyo)."
+        },
+        {
+          "title": "Kiểm soát khuỷu tay",
+          "description": "Giữ khuỷu tay đối thủ duỗi thẳng và khóa, ngăn họ có thể cắt bạn."
+        },
+        {
+          "title": "Tước và khóa",
+          "description": "Dẫn đối thủ xuống trong khi tước dao khỏi tay họ."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Cách nắm ngược trong Gokyo giữ lưỡi dao hướng ra xa khỏi bạn."
+        },
+        {
+          "note": "Luôn giữ khuỷu tay đối thủ duỗi thẳng để họ không thể cắt được."
+        }
+      ]
+    }
+  },
+  {
+    "id": "rokkyo",
+    "slug": "rokkyo",
+    "name_jp": "六教",
+    "name_en": "Sixth Teaching (Elbow Lock)",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Advanced",
+    "description": "Khóa số 6 (Hiji Kime Osae) - Khóa khớp khuỷu tay. Kỹ thuật khóa nâng cao tập trung vào việc cố định khuỷu tay.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Nắm cánh tay",
+          "description": "Nắm cánh tay đối thủ với một tay trên cổ tay, tay kia trên khuỷu tay."
+        },
+        {
+          "title": "Khóa khuỷu tay",
+          "description": "Ép khuỷu tay đối thủ đưa lên cao trong khi giữ cổ tay thấp, tạo áp lực lên khớp khuỷu tay."
+        },
+        {
+          "title": "Hoàn thành khóa",
+          "description": "Dẫn đối thủ xuống thảm với khuỷu tay bị khóa."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Cẩn thận khi áp dụng vì kỹ thuật này có thể gây chấn thương khuỷu tay nếu dùng quá mạnh."
+        },
+        {
+          "note": "Rokkyo ít phổ biến hơn các khóa khác nhưng rất hiệu quả trong một số tình huống."
         }
       ]
     }
@@ -153,45 +278,32 @@
     "name_jp": "四方投げ",
     "name_en": "Four Directions Throw",
     "category": "Taijutsu",
+    "subcategory": "Nage Waza",
     "difficulty": "Intermediate",
-    "description": "A fundamental throwing technique that can project an attacker in any of the four cardinal directions. Shihonage teaches proper body rotation and timing.",
+    "description": "Ném 4 phương - Đặc sản Iwama: giữ tay chặt như cầm kiếm trước ngực. Kỹ thuật ném có thể đưa đối thủ theo bất kỳ hướng nào trong 4 hướng chính.",
     "content": {
       "key_postures": [
         {
           "title": "Katate-dori Grasp",
-          "description": "From a same-side wrist grab, blend with uke's energy while securing their wrist with both hands.",
-          "image_url": "/images/techniques/shihonage/posture-1.jpg"
+          "description": "Từ nắm tay cùng phía, hòa nhập với năng lượng đối thủ trong khi nắm chặt cổ tay họ bằng cả hai tay."
         },
         {
           "title": "Tenkan Pivot",
-          "description": "Execute a 180-degree pivot while raising uke's arm overhead. Your movement should be under uke's arm, not forcing their arm over.",
-          "image_url": "/images/techniques/shihonage/posture-2.jpg"
+          "description": "Thực hiện xoay 180 độ trong khi nâng cánh tay đối thủ qua đầu. Chuyển động của bạn phải ở dưới cánh tay đối thủ."
         },
         {
-          "title": "Throw Completion",
-          "description": "Complete the throw by cutting down with uke's arm while stepping through. Uke falls backward in a controlled manner.",
-          "image_url": "/images/techniques/shihonage/posture-3.jpg"
+          "title": "Hoàn thành ném",
+          "description": "Hoàn thành ném bằng cách cắt xuống với cánh tay đối thủ trong khi bước qua. Đối thủ ngã ngửa ra sau."
         }
       ],
       "important_notes": [
         {
-          "note": "Your pivot must bring you completely under uke's arm. Partial rotation results in a weak or dangerous technique.",
-          "image_url": "/images/techniques/shihonage/note-1.jpg"
+          "note": "Đặc biệt trong Iwama: giữ tay như đang cầm kiếm trước ngực."
         },
         {
-          "note": "The throw comes from your hip rotation, not from pulling uke's arm. Let your body movement create the throw.",
-          "image_url": "/images/techniques/shihonage/note-2.jpg"
-        }
-      ],
-      "characteristics": [
-        {
-          "feature": "Shihonage develops spatial awareness and the ability to redirect energy in any direction.",
-          "image_url": "/images/techniques/shihonage/char-1.jpg"
+          "note": "Xoay phải đưa bạn hoàn toàn dưới cánh tay đối thủ. Xoay một phần dẫn đến kỹ thuật yếu hoặc nguy hiểm."
         },
-        {
-          "feature": "The versatility of this technique makes it applicable to multiple attacks and situations.",
-          "image_url": "/images/techniques/shihonage/char-2.jpg"
-        }
+        { "note": "Ném đến từ xoay hông, không phải từ kéo cánh tay." }
       ]
     }
   },
@@ -201,44 +313,258 @@
     "name_jp": "入り身投げ",
     "name_en": "Entering Throw",
     "category": "Taijutsu",
+    "subcategory": "Nage Waza",
     "difficulty": "Intermediate",
-    "description": "A powerful entering technique that embodies the principle of irimi - moving directly into and through an attack. Often called the 'twenty-year technique' due to its depth.",
+    "description": "Ném nhập nội - Đi vào 'điểm chết' sau gáy đối thủ. Kỹ thuật thể hiện nguyên lý irimi - di chuyển trực tiếp vào và xuyên qua tấn công.",
     "content": {
       "key_postures": [
         {
-          "title": "Initial Entry",
-          "description": "Enter deeply past uke's attack, positioning yourself alongside them with your hip connected to their center.",
-          "image_url": "/images/techniques/iriminage/posture-1.jpg"
+          "title": "Nhập nội ban đầu",
+          "description": "Đi sâu qua tấn công của đối thủ, đặt mình bên cạnh họ với hông kết nối với trung tâm của họ."
         },
         {
-          "title": "Spiral Drawing",
-          "description": "Draw uke's balance in a circular motion, lowering their center while maintaining connection through your arm and body.",
-          "image_url": "/images/techniques/iriminage/posture-2.jpg"
+          "title": "Vẽ xoắn ốc",
+          "description": "Kéo thăng bằng đối thủ theo chuyển động tròn, hạ thấp trung tâm của họ trong khi duy trì kết nối qua cánh tay và thân."
         },
         {
-          "title": "Final Throw",
-          "description": "Complete the throw by entering again while your arm guides uke's head and neck backward in a controlled manner.",
-          "image_url": "/images/techniques/iriminage/posture-3.jpg"
+          "title": "Ném cuối cùng",
+          "description": "Hoàn thành ném bằng cách nhập nội lần nữa trong khi cánh tay bạn dẫn đầu và cổ đối thủ ra sau."
         }
       ],
       "important_notes": [
         {
-          "note": "True irimi requires complete commitment. Half-hearted entry leaves you vulnerable to counter-attack.",
-          "image_url": "/images/techniques/iriminage/note-1.jpg"
+          "note": "Irimi thực sự đòi hỏi cam kết hoàn toàn. Nhập nội nửa vời để bạn dễ bị phản công."
         },
         {
-          "note": "The throw should feel like a wave - uke is drawn in, then projected out. Never force the technique.",
-          "image_url": "/images/techniques/iriminage/note-2.jpg"
+          "note": "Ném phải cảm thấy như một con sóng - đối thủ bị kéo vào, sau đó bị đẩy ra."
+        }
+      ]
+    }
+  },
+  {
+    "id": "kotegaeshi",
+    "slug": "kotegaeshi",
+    "name_jp": "小手返し",
+    "name_en": "Wrist Return Throw",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "description": "Ném lật cổ tay - Kỹ thuật ném bằng cách lật ngược cổ tay đối thủ, tạo áp lực lên khớp cổ tay và phá vỡ thăng bằng.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Nắm cổ tay",
+          "description": "Nắm cổ tay đối thủ với một tay trên mu bàn tay, tay kia hỗ trợ từ bên dưới."
+        },
+        {
+          "title": "Lật cổ tay",
+          "description": "Lật cổ tay đối thủ ra ngoài và xuống dưới, hướng về phía họ."
+        },
+        {
+          "title": "Ném",
+          "description": "Tiếp tục chuyển động lật để ném đối thủ xuống. Họ sẽ phải lộn ngược để tránh chấn thương cổ tay."
         }
       ],
-      "characteristics": [
+      "important_notes": [
+        { "note": "Lật cổ tay phải kết hợp với tenkan để tạo động lượng." },
+        { "note": "Không chỉ dùng tay, mà dùng cả cơ thể để tạo lực lật." }
+      ]
+    }
+  },
+  {
+    "id": "kaitennage",
+    "slug": "kaitennage",
+    "name_jp": "回転投げ",
+    "name_en": "Rotation Throw",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "description": "Ném vòng cầu - Có 2 loại: Uchi (luồn trong nách) và Soto (đè ngoài cổ). Kỹ thuật ném xoay vòng đặc trưng.",
+    "variants": [
+      "Uchi Kaiten-nage (luồn trong nách)",
+      "Soto Kaiten-nage (đè ngoài cổ)"
+    ],
+    "content": {
+      "key_postures": [
         {
-          "feature": "Iriminage develops courage and the ability to move into danger rather than away from it.",
-          "image_url": "/images/techniques/iriminage/char-1.jpg"
+          "title": "Nắm và dẫn",
+          "description": "Nắm cánh tay đối thủ và dẫn họ theo vòng cung."
         },
         {
-          "feature": "This technique requires excellent timing and connection, making it a lifelong study.",
-          "image_url": "/images/techniques/iriminage/char-2.jpg"
+          "title": "Xoay vòng",
+          "description": "Uchi: Luồn dưới nách đối thủ. Soto: Ép từ bên ngoài cổ."
+        },
+        {
+          "title": "Hoàn thành ném",
+          "description": "Tiếp tục chuyển động xoay để ném đối thủ xuống theo vòng cung."
+        }
+      ],
+      "important_notes": [
+        { "note": "Phân biệt rõ Uchi và Soto để áp dụng đúng tình huống." },
+        { "note": "Giữ đối thủ mất thăng bằng trong suốt chuyển động xoay." }
+      ]
+    }
+  },
+  {
+    "id": "tenchinage",
+    "slug": "tenchinage",
+    "name_jp": "天地投げ",
+    "name_en": "Heaven and Earth Throw",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "description": "Ném trời đất - Kỹ thuật ném bằng cách tách hai tay đối thủ theo hai hướng ngược nhau: trời (lên) và đất (xuống).",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Ryote-dori",
+          "description": "Đối thủ nắm cả hai cổ tay của bạn."
+        },
+        {
+          "title": "Tách trời đất",
+          "description": "Một tay vươn lên trời (ten), tay kia hướng xuống đất (chi), tạo ra lực tách đối thủ."
+        },
+        {
+          "title": "Nhập nội và ném",
+          "description": "Bước vào sâu trong khi duy trì sự tách, phá vỡ thăng bằng và ném đối thủ."
+        }
+      ],
+      "important_notes": [
+        { "note": "Hai tay phải di chuyển đồng thời và quyết đoán." },
+        { "note": "Bước irimi phải cùng lúc với việc tách tay." }
+      ]
+    }
+  },
+  {
+    "id": "koshinage",
+    "slug": "koshinage",
+    "name_jp": "腰投げ",
+    "name_en": "Hip Throw",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Advanced",
+    "description": "Ném hông - Iwama có rất nhiều biến thể Koshi-nage. Kỹ thuật ném sử dụng hông làm điểm tựa chính.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Nhập nội sâu",
+          "description": "Đi sâu vào bên cạnh hoặc trước đối thủ, đặt hông của bạn thấp hơn trọng tâm của họ."
+        },
+        {
+          "title": "Nâng lên hông",
+          "description": "Sử dụng hông như điểm tựa, nâng đối thủ lên."
+        },
+        {
+          "title": "Ném qua hông",
+          "description": "Xoay và hạ thấp để ném đối thủ qua hông của bạn."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Iwama có nhiều biến thể Koshi-nage khác nhau tùy theo cách tấn công."
+        },
+        { "note": "Hông phải thấp hơn trọng tâm đối thủ để ném hiệu quả." },
+        { "note": "Cần luyện tập ukemi (lộn) tốt trước khi tập kỹ thuật này." }
+      ]
+    }
+  },
+  {
+    "id": "jujinage",
+    "slug": "jujinage",
+    "name_jp": "十字投げ",
+    "name_en": "Cross Throw",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Advanced",
+    "description": "Ném thập tự (Juji Garami) - Khóa tréo 2 tay của đối thủ thành hình chữ thập rồi ném.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Nắm hai tay",
+          "description": "Từ ryote-dori hoặc tình huống tương tự, kiểm soát cả hai cổ tay đối thủ."
+        },
+        {
+          "title": "Tréo tay",
+          "description": "Dẫn hai tay đối thủ tréo nhau thành hình chữ thập (十)."
+        },
+        {
+          "title": "Ném",
+          "description": "Sử dụng cấu trúc tréo để phá vỡ thăng bằng và ném đối thủ."
+        }
+      ],
+      "important_notes": [
+        { "note": "Giữ hai tay đối thủ tréo chặt để họ không thể thoát." },
+        { "note": "Ném phải đến từ chuyển động cơ thể, không phải lực tay." }
+      ]
+    }
+  },
+  {
+    "id": "kokyunage",
+    "slug": "kokyunage",
+    "name_jp": "呼吸投げ",
+    "name_en": "Breath Throw",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Advanced",
+    "description": "Ném bằng lực hô hấp - Đây là nhóm đòn rộng nhất, không có khuôn mẫu cố định, tùy biến hóa. Ném bằng kokyu-ryoku (sức mạnh hô hấp).",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Tiếp nhận tấn công",
+          "description": "Hòa nhập với bất kỳ loại tấn công nào từ đối thủ."
+        },
+        {
+          "title": "Hướng dẫn năng lượng",
+          "description": "Sử dụng kokyu (hô hấp/năng lượng) để dẫn năng lượng đối thủ."
+        },
+        {
+          "title": "Ném tự nhiên",
+          "description": "Ném đối thủ theo hướng năng lượng của họ đang đi, không cần kỹ thuật khóa cố định."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Kokyu-nage là nhóm kỹ thuật rộng nhất, bao gồm mọi ném không thuộc các loại khác."
+        },
+        {
+          "note": "Không có khuôn mẫu cố định - đòi hỏi sự nhạy cảm và linh hoạt cao."
+        },
+        {
+          "note": "Thể hiện sự thành thạo cao khi có thể ném mượt mà mà không cần dùng lực."
+        }
+      ]
+    }
+  },
+  {
+    "id": "kokyu-ho",
+    "slug": "kokyu-ho",
+    "name_jp": "呼吸法",
+    "name_en": "Breath Power Exercise",
+    "category": "Taijutsu",
+    "subcategory": "Warm-up",
+    "difficulty": "Beginner",
+    "description": "Bài tập sức mạnh hô hấp ngồi. Thường thực hiện cuối mỗi buổi tập để rèn luyện kokyu-ryoku.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Seiza",
+          "description": "Cả hai ngồi seiza đối diện nhau. Đối thủ nắm chặt cả hai cổ tay của bạn."
+        },
+        {
+          "title": "Mở rộng",
+          "description": "Mở rộng cánh tay về phía trước và lên trên trong khi giữ vai thả lỏng. Sức mạnh đến từ hara (bụng dưới)."
+        },
+        {
+          "title": "Đẩy ngã",
+          "description": "Tiếp tục mở rộng để phá vỡ thăng bằng đối thủ và đẩy họ ngã về phía sau."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Thả lỏng vai hoàn toàn. Căng thẳng ngăn dòng chảy sức mạnh từ trung tâm."
+        },
+        {
+          "note": "Thở tự nhiên trong suốt quá trình. Nín thở tạo ra cứng nhắc và yếu đuối."
         }
       ]
     }
@@ -250,44 +576,27 @@
     "name_en": "First Sword Swing",
     "category": "Aiki-Ken",
     "difficulty": "Beginner",
-    "description": "The first and most fundamental sword swing in Aiki-ken practice. This exercise develops proper cutting form, breath coordination, and center movement.",
+    "description": "Vung kiếm đầu tiên và cơ bản nhất trong Aiki-ken. Bài tập này phát triển hình thức cắt đúng, phối hợp hơi thở, và chuyển động trung tâm.",
     "content": {
       "key_postures": [
         {
           "title": "Chudan Kamae",
-          "description": "Begin in middle guard position with the sword tip at throat height. Grip should be relaxed but firm, with hands properly spaced on the handle.",
-          "image_url": "/images/techniques/suburi-ichi/posture-1.jpg"
+          "description": "Bắt đầu ở tư thế trung đẳng với mũi kiếm ở độ cao cổ họng. Nắm tay thả lỏng nhưng chắc chắn."
         },
         {
-          "title": "Raise (Furikaburi)",
-          "description": "Raise the sword overhead in a large arc. The tip should travel past your center line, and your arms should be relaxed throughout the movement.",
-          "image_url": "/images/techniques/suburi-ichi/posture-2.jpg"
+          "title": "Nâng (Furikaburi)",
+          "description": "Nâng kiếm lên trên đầu theo vòng cung lớn. Mũi kiếm đi qua đường trung tâm của bạn."
         },
         {
-          "title": "Cut (Kirioroshi)",
-          "description": "Execute the downward cut by dropping your center and letting gravity assist the motion. Stop with the tip at knee height.",
-          "image_url": "/images/techniques/suburi-ichi/posture-3.jpg"
+          "title": "Cắt (Kirioroshi)",
+          "description": "Thực hiện cắt xuống bằng cách hạ trung tâm và để trọng lực hỗ trợ. Dừng với mũi kiếm ở độ cao đầu gối."
         }
       ],
       "important_notes": [
         {
-          "note": "The cut must come from your center, not your arms. Your body drops, and the sword follows.",
-          "image_url": "/images/techniques/suburi-ichi/note-1.jpg"
+          "note": "Cắt phải đến từ trung tâm, không phải từ tay. Cơ thể bạn hạ xuống, kiếm theo sau."
         },
-        {
-          "note": "Coordinate your breath with the movement: inhale on the raise, exhale on the cut.",
-          "image_url": "/images/techniques/suburi-ichi/note-2.jpg"
-        }
-      ],
-      "characteristics": [
-        {
-          "feature": "Suburi practice develops the fundamental body mechanics used in all Aikido techniques.",
-          "image_url": "/images/techniques/suburi-ichi/char-1.jpg"
-        },
-        {
-          "feature": "Regular sword training strengthens the connection between breath, movement, and intention.",
-          "image_url": "/images/techniques/suburi-ichi/char-2.jpg"
-        }
+        { "note": "Phối hợp hơi thở: hít vào khi nâng, thở ra khi cắt." }
       ]
     }
   },
@@ -298,43 +607,28 @@
     "name_en": "First Paired Sword",
     "category": "Aiki-Ken",
     "difficulty": "Intermediate",
-    "description": "The first paired sword kata in Iwama Aiki-ken. This practice develops timing, distance, and the ability to read an opponent's intention.",
+    "description": "Kata kiếm đôi đầu tiên trong Iwama Aiki-ken. Bài tập này phát triển thời điểm, khoảng cách, và khả năng đọc ý định đối thủ.",
     "content": {
       "key_postures": [
         {
-          "title": "Opening Position",
-          "description": "Both partners begin in chudan kamae at proper distance (issoku itto no ma). Eye contact and awareness are maintained throughout.",
-          "image_url": "/images/techniques/kumitachi-ichi/posture-1.jpg"
+          "title": "Vị trí mở đầu",
+          "description": "Cả hai đối tác bắt đầu ở chudan kamae với khoảng cách phù hợp (issoku itto no ma)."
         },
         {
-          "title": "Attack and Response",
-          "description": "Uchitachi initiates with a shomen cut. Uketachi receives by raising their sword and blending with the incoming energy.",
-          "image_url": "/images/techniques/kumitachi-ichi/posture-2.jpg"
+          "title": "Tấn công và phản ứng",
+          "description": "Uchitachi khởi đầu với shomen cut. Uketachi đón nhận bằng cách nâng kiếm và hòa nhập với năng lượng đến."
         },
         {
-          "title": "Counter and Conclusion",
-          "description": "Uketachi completes the kata with a decisive counter-cut while uchitachi accepts the technique and yields.",
-          "image_url": "/images/techniques/kumitachi-ichi/posture-3.jpg"
+          "title": "Phản công và kết thúc",
+          "description": "Uketachi hoàn thành kata với đòn phản công quyết đoán trong khi uchitachi chấp nhận kỹ thuật."
         }
       ],
       "important_notes": [
         {
-          "note": "Uchitachi's role is to provide sincere attacks that develop uketachi's ability. Never hold back or 'let' your partner win.",
-          "image_url": "/images/techniques/kumitachi-ichi/note-1.jpg"
+          "note": "Vai trò của uchitachi là cung cấp tấn công chân thành để phát triển khả năng của uketachi."
         },
         {
-          "note": "The kata should flow naturally once learned. Hesitation or rushing both indicate areas for improvement.",
-          "image_url": "/images/techniques/kumitachi-ichi/note-2.jpg"
-        }
-      ],
-      "characteristics": [
-        {
-          "feature": "Kumitachi develops maai (distance) and de-ai (meeting timing) essential for all martial practice.",
-          "image_url": "/images/techniques/kumitachi-ichi/char-1.jpg"
-        },
-        {
-          "feature": "Partner sword practice creates an understanding of weapons that directly informs empty-hand techniques.",
-          "image_url": "/images/techniques/kumitachi-ichi/char-2.jpg"
+          "note": "Kata nên chảy tự nhiên khi đã học. Do dự hoặc vội vàng đều cho thấy cần cải thiện."
         }
       ]
     }
@@ -346,43 +640,28 @@
     "name_en": "First Staff Swing",
     "category": "Aiki-Jo",
     "difficulty": "Beginner",
-    "description": "The first staff swing exercise. Jo practice in Iwama style develops circular movement, both-handed coordination, and flowing energy.",
+    "description": "Bài tập vung gậy đầu tiên. Luyện tập Jo trong phong cách Iwama phát triển chuyển động tròn, phối hợp hai tay, và dòng chảy năng lượng.",
     "content": {
       "key_postures": [
         {
           "title": "Choku-tsuki Kamae",
-          "description": "Hold the jo with both hands, rear hand near the end, front hand about one-third from the tip. Body faces forward with the jo pointing at the opponent's throat.",
-          "image_url": "/images/techniques/jo-suburi-ichi/posture-1.jpg"
+          "description": "Giữ jo với cả hai tay, tay sau gần cuối, tay trước khoảng 1/3 từ đầu. Jo chỉ vào cổ họng đối thủ."
         },
         {
-          "title": "Thrust Preparation",
-          "description": "Draw the jo back along your center line while shifting weight to the rear foot. The jo remains level throughout this movement.",
-          "image_url": "/images/techniques/jo-suburi-ichi/posture-2.jpg"
+          "title": "Chuẩn bị đâm",
+          "description": "Kéo jo về phía sau theo đường trung tâm trong khi chuyển trọng lượng về chân sau. Jo giữ ngang."
         },
         {
-          "title": "Thrust Execution",
-          "description": "Drive forward with the rear foot while extending the jo in a straight thrust. Power comes from the hips, not the arms.",
-          "image_url": "/images/techniques/jo-suburi-ichi/posture-3.jpg"
+          "title": "Thực hiện đâm",
+          "description": "Đẩy về phía trước với chân sau trong khi duỗi jo thành đường đâm thẳng. Sức mạnh đến từ hông."
         }
       ],
       "important_notes": [
         {
-          "note": "The thrust and footwork must be unified. Arriving before or after your weapon creates openings.",
-          "image_url": "/images/techniques/jo-suburi-ichi/note-1.jpg"
+          "note": "Đâm và bước chân phải thống nhất. Đến trước hoặc sau vũ khí đều tạo ra lỗ hổng."
         },
         {
-          "note": "Maintain awareness of the entire jo length. The rear end is also a weapon.",
-          "image_url": "/images/techniques/jo-suburi-ichi/note-2.jpg"
-        }
-      ],
-      "characteristics": [
-        {
-          "feature": "Jo practice develops the ability to project power in a straight line - essential for atemi in taijutsu.",
-          "image_url": "/images/techniques/jo-suburi-ichi/char-1.jpg"
-        },
-        {
-          "feature": "The jo's length requires full-body coordination that transfers directly to empty-hand technique.",
-          "image_url": "/images/techniques/jo-suburi-ichi/char-2.jpg"
+          "note": "Nhận thức toàn bộ chiều dài jo. Đầu sau cũng là một vũ khí."
         }
       ]
     }
@@ -394,95 +673,156 @@
     "name_en": "31 Jo Kata",
     "category": "Aiki-Jo",
     "difficulty": "Advanced",
-    "description": "The foundational jo kata of Iwama Aikido, consisting of 31 movements. This kata embodies the principles of Riai - the integration of jo, ken, and taijutsu.",
+    "description": "Kata jo nền tảng của Iwama Aikido, gồm 31 động tác. Kata này thể hiện nguyên lý Riai - sự tích hợp của jo, ken, và taijutsu.",
     "content": {
       "key_postures": [
         {
-          "title": "Opening Sequence",
-          "description": "The kata begins with a choku-tsuki followed by a series of strikes and thrusts that establish the rhythm and flow of the practice.",
-          "image_url": "/images/techniques/31-jo/posture-1.jpg"
+          "title": "Chuỗi mở đầu",
+          "description": "Kata bắt đầu với choku-tsuki tiếp theo là một loạt đòn đánh và đâm thiết lập nhịp điệu."
         },
         {
-          "title": "Middle Section",
-          "description": "The middle section includes more complex combinations including kaeshi-tsuki (returning thrust) and various striking patterns.",
-          "image_url": "/images/techniques/31-jo/posture-2.jpg"
+          "title": "Phần giữa",
+          "description": "Phần giữa bao gồm các tổ hợp phức tạp hơn bao gồm kaeshi-tsuki (đâm quay lại) và các mẫu đánh khác nhau."
         },
         {
-          "title": "Closing Sequence",
-          "description": "The kata concludes with decisive movements that demonstrate all the principles practiced throughout, ending in proper zanshin.",
-          "image_url": "/images/techniques/31-jo/posture-3.jpg"
+          "title": "Chuỗi kết thúc",
+          "description": "Kata kết thúc với các động tác quyết đoán thể hiện tất cả các nguyên lý đã luyện tập, kết thúc với zanshin phù hợp."
         }
       ],
       "important_notes": [
         {
-          "note": "Learn each movement individually before attempting to flow through the entire kata. Quality over speed.",
-          "image_url": "/images/techniques/31-jo/note-1.jpg"
+          "note": "Học từng động tác riêng lẻ trước khi cố gắng chảy qua toàn bộ kata. Chất lượng hơn tốc độ."
         },
         {
-          "note": "Every movement in the kata has a martial application. Practice with awareness of imaginary opponents.",
-          "image_url": "/images/techniques/31-jo/note-2.jpg"
+          "note": "Mỗi động tác trong kata đều có ứng dụng võ thuật. Luyện tập với nhận thức về đối thủ tưởng tượng."
         },
         {
-          "note": "The 31 Jo Kata should be practiced both solo and with the 31 Kumijo (paired practice) to fully understand the applications.",
-          "image_url": "/images/techniques/31-jo/note-3.jpg"
-        }
-      ],
-      "characteristics": [
-        {
-          "feature": "This kata was developed by O-Sensei in Iwama and represents his mature understanding of jo work.",
-          "image_url": "/images/techniques/31-jo/char-1.jpg"
-        },
-        {
-          "feature": "Mastery of the 31 Jo Kata demonstrates understanding of distance, timing, and flowing energy essential to Iwama style.",
-          "image_url": "/images/techniques/31-jo/char-2.jpg"
+          "note": "31 Jo Kata nên được luyện tập cả đơn và với 31 Kumijo (luyện tập đôi) để hiểu đầy đủ các ứng dụng."
         }
       ]
     }
   },
   {
-    "id": "kokyu-ho",
-    "slug": "kokyu-ho",
-    "name_jp": "呼吸法",
-    "name_en": "Breath Power Exercise",
-    "category": "Taijutsu",
-    "difficulty": "Beginner",
-    "description": "The fundamental seated exercise that develops kokyu-ryoku (breath power). This practice is typically done at the end of every class.",
+    "id": "tachi-dori",
+    "slug": "tachi-dori",
+    "name_jp": "太刀取り",
+    "name_en": "Sword Taking",
+    "category": "Buki-dori",
+    "difficulty": "Advanced",
+    "description": "Tay không đoạt kiếm - Kỹ thuật sử dụng taijutsu để tước kiếm từ đối thủ có vũ trang.",
     "content": {
       "key_postures": [
         {
-          "title": "Seiza Position",
-          "description": "Both partners sit in seiza facing each other. Uke grabs both of nage's wrists firmly. Maintain upright posture and calm breathing.",
-          "image_url": "/images/techniques/kokyu-ho/posture-1.jpg"
+          "title": "Đối mặt kiếm",
+          "description": "Đối thủ tấn công bằng kiếm. Bạn di chuyển để tránh đòn cắt."
         },
         {
-          "title": "Extension",
-          "description": "Nage extends arms forward and upward while maintaining relaxed shoulders. The power comes from the lower abdomen (hara), not arm strength.",
-          "image_url": "/images/techniques/kokyu-ho/posture-2.jpg"
+          "title": "Nhập nội và kiểm soát",
+          "description": "Đi vào khoảng cách nguy hiểm và kiểm soát cánh tay cầm kiếm của đối thủ."
         },
         {
-          "title": "Projection",
-          "description": "Continue the extension to unbalance uke and guide them backward to the mat. The movement should be smooth and continuous.",
-          "image_url": "/images/techniques/kokyu-ho/posture-3.jpg"
+          "title": "Tước kiếm",
+          "description": "Áp dụng kỹ thuật khóa hoặc ném đồng thời tước kiếm khỏi tay đối thủ."
         }
       ],
       "important_notes": [
         {
-          "note": "Relax your shoulders completely. Tension blocks the flow of power from your center.",
-          "image_url": "/images/techniques/kokyu-ho/note-1.jpg"
+          "note": "Thời điểm và irimi là yếu tố sống còn khi đối mặt với vũ khí."
+        },
+        { "note": "Luyện tập với kiếm gỗ (bokken) để đảm bảo an toàn." }
+      ]
+    }
+  },
+  {
+    "id": "jo-dori",
+    "slug": "jo-dori",
+    "name_jp": "杖取り",
+    "name_en": "Staff Taking",
+    "category": "Buki-dori",
+    "difficulty": "Advanced",
+    "description": "Tay không đoạt gậy - Kỹ thuật sử dụng taijutsu để tước gậy từ đối thủ có vũ trang.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Đối mặt gậy",
+          "description": "Đối thủ tấn công bằng jo. Bạn di chuyển để tránh đòn đánh hoặc đâm."
         },
         {
-          "note": "Breathe naturally throughout. Holding your breath creates stiffness and weakness.",
-          "image_url": "/images/techniques/kokyu-ho/note-2.jpg"
+          "title": "Nhập nội",
+          "description": "Đi vào bên trong tầm với của gậy và kiểm soát đối thủ."
+        },
+        {
+          "title": "Tước gậy",
+          "description": "Áp dụng kỹ thuật để tước gậy hoặc ném đối thủ."
         }
       ],
-      "characteristics": [
+      "important_notes": [
+        { "note": "Jo có tầm với dài, cần nhập nội quyết đoán." },
+        { "note": "Cẩn thận cả hai đầu gậy đều là vũ khí." }
+      ]
+    }
+  },
+  {
+    "id": "tanto-dori",
+    "slug": "tanto-dori",
+    "name_jp": "短刀取り",
+    "name_en": "Knife Taking",
+    "category": "Buki-dori",
+    "difficulty": "Advanced",
+    "description": "Tay không đoạt dao - Kỹ thuật sử dụng taijutsu để tước dao từ đối thủ có vũ trang. Thường sử dụng Gokyo.",
+    "content": {
+      "key_postures": [
         {
-          "feature": "Kokyu-ho teaches the fundamental principle of extending energy without muscular force.",
-          "image_url": "/images/techniques/kokyu-ho/char-1.jpg"
+          "title": "Đối mặt dao",
+          "description": "Đối thủ tấn công bằng dao. Đây là tình huống nguy hiểm nhất."
         },
         {
-          "feature": "Regular practice develops the 'internal strength' that makes advanced techniques possible.",
-          "image_url": "/images/techniques/kokyu-ho/char-2.jpg"
+          "title": "Tránh và kiểm soát",
+          "description": "Tránh đường đâm/cắt và ngay lập tức kiểm soát cánh tay cầm dao."
+        },
+        {
+          "title": "Tước dao (Gokyo)",
+          "description": "Áp dụng Gokyo hoặc kỹ thuật tương tự với cách nắm ngược để tước dao an toàn."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Trong Gokyo, cách nắm ngược giữ lưỡi dao hướng ra xa khỏi bạn."
+        },
+        {
+          "note": "Luôn giữ khuỷu tay đối thủ duỗi thẳng để họ không thể cắt được."
+        },
+        { "note": "Tanto-dori đòi hỏi sự tập trung và chính xác cao nhất." }
+      ]
+    }
+  },
+  {
+    "id": "jo-nage",
+    "slug": "jo-nage",
+    "name_jp": "杖投げ",
+    "name_en": "Staff Throw",
+    "category": "Buki-dori",
+    "difficulty": "Advanced",
+    "description": "Dùng gậy để ném đối thủ - Kỹ thuật sử dụng jo như một công cụ để khóa và ném đối thủ tay không hoặc có vũ khí.",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Cầm jo",
+          "description": "Bạn đang cầm jo, đối thủ tấn công bạn (có thể tay không hoặc có vũ khí)."
+        },
+        {
+          "title": "Sử dụng jo để kiểm soát",
+          "description": "Sử dụng jo để chặn, đánh, hoặc khóa đối thủ."
+        },
+        {
+          "title": "Ném bằng jo",
+          "description": "Sử dụng jo như đòn bẩy hoặc điểm kiểm soát để ném đối thủ."
+        }
+      ],
+      "important_notes": [
+        { "note": "Jo-nage khác với Jo-dori - ở đây BẠN là người cầm gậy." },
+        {
+          "note": "Jo có thể được sử dụng theo nhiều cách: đánh, đâm, khóa, hoặc làm đòn bẩy."
         }
       ]
     }

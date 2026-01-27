@@ -40,7 +40,7 @@
     "showingPlural": "Showing {count} techniques",
     "postures": "{count} postures",
     "notes": "{count} notes",
-    "study": "Study",
+    "view": "View",
     "noTechniquesFound": "No techniques found",
     "adjustFilters": "Try adjusting your filters to see more results.",
     "clearFilters": "Clear Filters",
@@ -126,5 +126,575 @@
     "relatedTechniques": "Related Techniques",
     "backToLibrary": "Back to Library",
     "scroll": "Scroll"
+  },
+  "techniqueData": {
+    "categories": {
+      "warmup": "Warm-up",
+      "osaeWaza": "Locking Techniques",
+      "nageWaza": "Throwing Techniques",
+      "bukiDori": "Weapon Taking"
+    },
+    "tai-no-henko": {
+      "name": "Body Change",
+      "description": "Body turning technique - mandatory warm-up in every Iwama class to train harmony (ki) and hip (koshi).",
+      "variants": ["Kihon (Solid, firm grip)", "Ki no Nagare (Flowing, soft)"],
+      "postures": {
+        "kamae": {
+          "title": "Kamae",
+          "description": "Stand in hanmi stance, facing partner. Keep center low and stable."
+        },
+        "receive": {
+          "title": "Receive Grab",
+          "description": "Partner grabs your wrist. In Kihon, they grip firmly."
+        },
+        "tenkan": {
+          "title": "Tenkan",
+          "description": "Turn 180 degrees, rear foot steps in an arc behind, leading partner in the turning direction."
+        }
+      },
+      "notes": [
+        "Keep center low throughout the turn.",
+        "Don't use arm strength, use hips to lead.",
+        "Ki no Nagare is performed when partner just touches, not waiting for firm grip."
+      ]
+    },
+    "morotedori-kokyuho": {
+      "name": "Two-Hand Grab Breath Power",
+      "description": "Breath power method when grabbed with two hands on one - exercise to throw using hip power and breath.",
+      "postures": {
+        "grabbed": {
+          "title": "Being Grabbed",
+          "description": "Partner uses both hands to firmly grab one of your wrists."
+        },
+        "extend": {
+          "title": "Extension",
+          "description": "Using power from hips and hara (lower abdomen), extend arm upward or outward."
+        },
+        "throw": {
+          "title": "Throw",
+          "description": "Continue extension to break partner's balance and throw them down."
+        }
+      },
+      "notes": [
+        "Coordinate breath: inhale to prepare, exhale to extend.",
+        "Don't use shoulder strength, power must come from hips."
+      ]
+    },
+    "ikkyo": {
+      "name": "First Teaching (Arm Pin)",
+      "description": "Lock #1 (Ude Osae) - Elbow pinning technique, the most fundamental foundation in Aikido. Teaches the principle of controlling partner's center through arm manipulation.",
+      "postures": {
+        "kamae": {
+          "title": "Ai-hanmi Kamae",
+          "description": "Begin in matching stance with partner. Maintain proper distance (ma-ai)."
+        },
+        "entry": {
+          "title": "Irimi Entry",
+          "description": "As partner attacks, blend by entering deeply alongside their arm. Front hand on elbow, rear hand guides wrist."
+        },
+        "pin": {
+          "title": "Osae (Pin)",
+          "description": "Guide partner down to mat in spiral motion. Final pin: partner face-down, arm extended, elbow and shoulder locked."
+        }
+      },
+      "notes": [
+        "Never use force against force. Ikkyo works through proper timing and angle.",
+        "Keep your center connected to partner's center throughout the technique.",
+        "The cutting motion must originate from your hips, not your arms (tegatana)."
+      ]
+    },
+    "nikyo": {
+      "name": "Second Teaching (Wrist Turn)",
+      "description": "Lock #2 (Kote Mawashi) - Inward wrist twist. Develops sensitivity to pressure and angle while maintaining connection.",
+      "postures": {
+        "grip": {
+          "title": "Wrist Grip",
+          "description": "After blending with attack, grip partner's wrist in C-grip. Thumb on back of hand, fingers wrapped around wrist."
+        },
+        "rotate": {
+          "title": "Wrist Rotation",
+          "description": "Rotate partner's wrist inward while controlling elbow. Rotation must be smooth and continuous."
+        },
+        "pin": {
+          "title": "Kneeling Pin",
+          "description": "Bring partner down using wrist lock, transition to kneeling position. Final pin secures both wrist and elbow."
+        }
+      },
+      "notes": [
+        "Nikyo effectiveness comes from precise angle, not crushing force. Find the right angle and technique requires minimal effort.",
+        "Always maintain elbow control. Without elbow control, partner can escape the wrist lock."
+      ]
+    },
+    "sankyo": {
+      "name": "Third Teaching (Wrist Twist)",
+      "description": "Lock #3 (Kote Hineri) - Upward spiral wrist twist through entire arm to shoulder. Embodies the spiral nature of Aikido movement.",
+      "postures": {
+        "capture": {
+          "title": "Hand Capture",
+          "description": "Capture partner's hand with both hands, creating structure with fingers wrapped over their hand and thumbs pressing into palm."
+        },
+        "spiral": {
+          "title": "Spiral Rotation",
+          "description": "Rotate partner's hand in spiral motion toward their centerline. Elbow rises as rotation continues."
+        },
+        "control": {
+          "title": "Standing Control",
+          "description": "Maintain lock while transitioning to various positions. Sankyo can lead to throws or pins depending on situation."
+        }
+      },
+      "notes": [
+        "The spiral must be continuous and connected to your center movement.",
+        "Be careful not to over-rotate causing wrist injury. Apply lock smoothly and give partner time to tap."
+      ]
+    },
+    "yonkyo": {
+      "name": "Fourth Teaching (Wrist Press)",
+      "description": "Lock #4 (Tekubi Osae) - Pressure point on wrist. Uses pressure on nerve inside forearm to control partner.",
+      "postures": {
+        "grip": {
+          "title": "Forearm Grip",
+          "description": "Grip partner's forearm with index finger knuckle pressing the pressure point on inside forearm."
+        },
+        "pressure": {
+          "title": "Pressure Point",
+          "description": "Apply pressure with knuckle while maintaining Ikkyo-style control on arm."
+        },
+        "lead": {
+          "title": "Lead Down",
+          "description": "Use pressure point combined with arm control to lead partner down to mat."
+        }
+      },
+      "notes": [
+        "Pressure point is located about 1-2 inches from wrist on inside forearm.",
+        "Yonkyo requires much practice to find the right position. Not everyone is sensitive to this point."
+      ]
+    },
+    "gokyo": {
+      "name": "Fifth Teaching (Arm Stretch)",
+      "description": "Lock #5 (Ude Nobashi) - Similar to Ikkyo but with reverse grip to disarm knife. Specifically used for tanto-dori (knife taking).",
+      "postures": {
+        "defense": {
+          "title": "Knife Defense",
+          "description": "When partner attacks with knife, blend and grip their wrist with thumb facing down (opposite of Ikkyo)."
+        },
+        "control": {
+          "title": "Elbow Control",
+          "description": "Keep partner's elbow extended and locked, preventing them from cutting you."
+        },
+        "disarm": {
+          "title": "Disarm and Pin",
+          "description": "Lead partner down while disarming knife from their hand."
+        }
+      },
+      "notes": [
+        "The reverse grip in Gokyo keeps knife blade pointing away from you.",
+        "Always keep partner's elbow extended so they cannot cut."
+      ]
+    },
+    "rokkyo": {
+      "name": "Sixth Teaching (Elbow Lock)",
+      "description": "Lock #6 (Hiji Kime Osae) - Elbow joint lock. Advanced locking technique focused on immobilizing elbow.",
+      "postures": {
+        "grip": {
+          "title": "Arm Grip",
+          "description": "Grip partner's arm with one hand on wrist, other hand on elbow."
+        },
+        "lock": {
+          "title": "Elbow Lock",
+          "description": "Press partner's elbow upward while keeping wrist low, creating pressure on elbow joint."
+        },
+        "complete": {
+          "title": "Complete Lock",
+          "description": "Lead partner to mat with elbow locked."
+        }
+      },
+      "notes": [
+        "Be careful when applying as this technique can injure elbow if used too strongly.",
+        "Rokkyo is less common than other locks but very effective in certain situations."
+      ]
+    },
+    "shihonage": {
+      "name": "Four Directions Throw",
+      "description": "Four-direction throw - Iwama specialty: grip hand firmly like holding sword in front of chest. Throwing technique that can project partner in any of four cardinal directions.",
+      "postures": {
+        "grasp": {
+          "title": "Katate-dori Grasp",
+          "description": "From same-side wrist grab, blend with partner's energy while securing their wrist with both hands."
+        },
+        "pivot": {
+          "title": "Tenkan Pivot",
+          "description": "Execute 180-degree pivot while raising partner's arm overhead. Your movement must be under partner's arm."
+        },
+        "throw": {
+          "title": "Throw Completion",
+          "description": "Complete throw by cutting down with partner's arm while stepping through. Partner falls backward."
+        }
+      },
+      "notes": [
+        "Iwama specialty: hold hand like gripping sword in front of chest.",
+        "Pivot must bring you completely under partner's arm. Partial rotation results in weak or dangerous technique.",
+        "Throw comes from hip rotation, not pulling arm."
+      ]
+    },
+    "iriminage": {
+      "name": "Entering Throw",
+      "description": "Entering throw - Enter the 'dead zone' behind partner's neck. Technique embodies irimi principle - moving directly into and through attack.",
+      "postures": {
+        "entry": {
+          "title": "Initial Entry",
+          "description": "Enter deeply past partner's attack, positioning yourself alongside them with hip connected to their center."
+        },
+        "spiral": {
+          "title": "Spiral Drawing",
+          "description": "Draw partner's balance in circular motion, lowering their center while maintaining connection through arm and body."
+        },
+        "throw": {
+          "title": "Final Throw",
+          "description": "Complete throw by entering again while arm guides partner's head and neck backward."
+        }
+      },
+      "notes": [
+        "True irimi requires complete commitment. Half-hearted entry leaves you vulnerable to counter-attack.",
+        "Throw should feel like a wave - partner is drawn in, then projected out."
+      ]
+    },
+    "kotegaeshi": {
+      "name": "Wrist Return Throw",
+      "description": "Wrist reversal throw - Throwing technique by reversing partner's wrist, creating pressure on wrist joint and breaking balance.",
+      "postures": {
+        "grip": {
+          "title": "Wrist Grip",
+          "description": "Grip partner's wrist with one hand on back of hand, other hand supporting from below."
+        },
+        "turn": {
+          "title": "Wrist Turn",
+          "description": "Turn partner's wrist outward and downward, toward them."
+        },
+        "throw": {
+          "title": "Throw",
+          "description": "Continue turning motion to throw partner down. They must flip over to avoid wrist injury."
+        }
+      },
+      "notes": [
+        "Wrist turn must combine with tenkan to create momentum.",
+        "Don't just use hands, use entire body to create turning force."
+      ]
+    },
+    "kaitennage": {
+      "name": "Rotation Throw",
+      "description": "Rotational throw - Two types: Uchi (under armpit) and Soto (outside neck). Characteristic rotational throwing technique.",
+      "variants": [
+        "Uchi Kaiten-nage (under armpit)",
+        "Soto Kaiten-nage (outside neck)"
+      ],
+      "postures": {
+        "lead": {
+          "title": "Grip and Lead",
+          "description": "Grip partner's arm and lead them in an arc."
+        },
+        "rotate": {
+          "title": "Rotation",
+          "description": "Uchi: Go under partner's armpit. Soto: Press from outside neck."
+        },
+        "throw": {
+          "title": "Complete Throw",
+          "description": "Continue rotational movement to throw partner down in arc."
+        }
+      },
+      "notes": [
+        "Clearly distinguish Uchi and Soto to apply in correct situations.",
+        "Keep partner off-balance throughout rotational movement."
+      ]
+    },
+    "tenchinage": {
+      "name": "Heaven and Earth Throw",
+      "description": "Heaven and earth throw - Technique by separating partner's two hands in opposite directions: heaven (up) and earth (down).",
+      "postures": {
+        "ryotedori": {
+          "title": "Ryote-dori",
+          "description": "Partner grabs both your wrists."
+        },
+        "separate": {
+          "title": "Heaven-Earth Separation",
+          "description": "One hand reaches to heaven (ten), other hand points to earth (chi), creating separating force on partner."
+        },
+        "throw": {
+          "title": "Enter and Throw",
+          "description": "Step in deeply while maintaining separation, break balance and throw partner."
+        }
+      },
+      "notes": [
+        "Both hands must move simultaneously and decisively.",
+        "Irimi step must be simultaneous with hand separation."
+      ]
+    },
+    "koshinage": {
+      "name": "Hip Throw",
+      "description": "Hip throw - Iwama has many Koshi-nage variations. Throwing technique using hip as main fulcrum.",
+      "postures": {
+        "entry": {
+          "title": "Deep Entry",
+          "description": "Enter deeply beside or in front of partner, placing your hip lower than their center of gravity."
+        },
+        "lift": {
+          "title": "Lift onto Hip",
+          "description": "Use hip as fulcrum, lift partner up."
+        },
+        "throw": {
+          "title": "Throw over Hip",
+          "description": "Rotate and lower to throw partner over your hip."
+        }
+      },
+      "notes": [
+        "Iwama has many different Koshi-nage variations depending on attack type.",
+        "Hip must be lower than partner's center of gravity to throw effectively.",
+        "Need good ukemi (breakfall) practice before training this technique."
+      ]
+    },
+    "jujinage": {
+      "name": "Cross Throw",
+      "description": "Cross throw (Juji Garami) - Cross partner's two arms into X-shape then throw.",
+      "postures": {
+        "grip": {
+          "title": "Grip Both Hands",
+          "description": "From ryote-dori or similar situation, control both of partner's wrists."
+        },
+        "cross": {
+          "title": "Cross Arms",
+          "description": "Lead partner's two arms to cross each other into X-shape (十)."
+        },
+        "throw": {
+          "title": "Throw",
+          "description": "Use crossed structure to break balance and throw partner."
+        }
+      },
+      "notes": [
+        "Keep partner's two hands tightly crossed so they cannot escape.",
+        "Throw must come from body movement, not arm strength."
+      ]
+    },
+    "kokyunage": {
+      "name": "Breath Throw",
+      "description": "Breath power throw - This is the broadest group of techniques, no fixed pattern, highly variable. Throwing using kokyu-ryoku (breath power).",
+      "postures": {
+        "receive": {
+          "title": "Receive Attack",
+          "description": "Blend with any type of attack from partner."
+        },
+        "guide": {
+          "title": "Guide Energy",
+          "description": "Use kokyu (breath/energy) to guide partner's energy."
+        },
+        "throw": {
+          "title": "Natural Throw",
+          "description": "Throw partner in direction their energy is going, no fixed locking technique needed."
+        }
+      },
+      "notes": [
+        "Kokyu-nage is the broadest technique group, including any throw not in other categories.",
+        "No fixed pattern - requires high sensitivity and flexibility.",
+        "Demonstrates advanced mastery when able to throw smoothly without using force."
+      ]
+    },
+    "kokyu-ho": {
+      "name": "Breath Power Exercise",
+      "description": "Seated breath power exercise. Usually performed at end of each class to train kokyu-ryoku.",
+      "postures": {
+        "seiza": {
+          "title": "Seiza",
+          "description": "Both partners sit in seiza facing each other. Partner firmly grabs both your wrists."
+        },
+        "extend": {
+          "title": "Extension",
+          "description": "Extend arms forward and upward while keeping shoulders relaxed. Power comes from hara (lower abdomen)."
+        },
+        "project": {
+          "title": "Projection",
+          "description": "Continue extension to break partner's balance and push them backward."
+        }
+      },
+      "notes": [
+        "Relax shoulders completely. Tension blocks power flow from center.",
+        "Breathe naturally throughout. Holding breath creates stiffness and weakness."
+      ]
+    },
+    "suburi-ichi": {
+      "name": "First Sword Swing",
+      "description": "The first and most fundamental sword swing in Aiki-ken. This exercise develops proper cutting form, breath coordination, and center movement.",
+      "postures": {
+        "chudan": {
+          "title": "Chudan Kamae",
+          "description": "Begin in middle guard position with sword tip at throat height. Grip relaxed but firm."
+        },
+        "raise": {
+          "title": "Raise (Furikaburi)",
+          "description": "Raise sword overhead in large arc. Tip travels past your centerline."
+        },
+        "cut": {
+          "title": "Cut (Kirioroshi)",
+          "description": "Execute downward cut by dropping center and letting gravity assist. Stop with tip at knee height."
+        }
+      },
+      "notes": [
+        "Cut must come from your center, not arms. Your body drops, sword follows.",
+        "Coordinate breath: inhale on raise, exhale on cut."
+      ]
+    },
+    "kumitachi-ichi": {
+      "name": "First Paired Sword",
+      "description": "The first paired sword kata in Iwama Aiki-ken. Develops timing, distance, and ability to read opponent's intention.",
+      "postures": {
+        "opening": {
+          "title": "Opening Position",
+          "description": "Both partners begin in chudan kamae at proper distance (issoku itto no ma)."
+        },
+        "attack": {
+          "title": "Attack and Response",
+          "description": "Uchitachi initiates with shomen cut. Uketachi receives by raising sword and blending with incoming energy."
+        },
+        "counter": {
+          "title": "Counter and Conclusion",
+          "description": "Uketachi completes kata with decisive counter-cut while uchitachi accepts technique."
+        }
+      },
+      "notes": [
+        "Uchitachi's role is to provide sincere attacks to develop uketachi's ability.",
+        "Kata should flow naturally once learned. Hesitation or rushing indicate areas for improvement."
+      ]
+    },
+    "jo-suburi-ichi": {
+      "name": "First Staff Swing",
+      "description": "First staff swing exercise. Jo practice in Iwama style develops circular movement, both-handed coordination, and flowing energy.",
+      "postures": {
+        "kamae": {
+          "title": "Choku-tsuki Kamae",
+          "description": "Hold jo with both hands, rear hand near end, front hand about one-third from tip. Jo points at opponent's throat."
+        },
+        "prepare": {
+          "title": "Thrust Preparation",
+          "description": "Draw jo back along centerline while shifting weight to rear foot. Jo remains level."
+        },
+        "thrust": {
+          "title": "Thrust Execution",
+          "description": "Drive forward with rear foot while extending jo in straight thrust. Power comes from hips."
+        }
+      },
+      "notes": [
+        "Thrust and footwork must be unified. Arriving before or after weapon creates openings.",
+        "Maintain awareness of entire jo length. Rear end is also a weapon."
+      ]
+    },
+    "thirty-one-jo-kata": {
+      "name": "31 Jo Kata",
+      "description": "Foundational jo kata of Iwama Aikido, consisting of 31 movements. Embodies Riai principle - integration of jo, ken, and taijutsu.",
+      "postures": {
+        "opening": {
+          "title": "Opening Sequence",
+          "description": "Kata begins with choku-tsuki followed by series of strikes and thrusts establishing rhythm."
+        },
+        "middle": {
+          "title": "Middle Section",
+          "description": "Middle section includes more complex combinations including kaeshi-tsuki (returning thrust) and various striking patterns."
+        },
+        "closing": {
+          "title": "Closing Sequence",
+          "description": "Kata concludes with decisive movements demonstrating all principles practiced, ending with proper zanshin."
+        }
+      },
+      "notes": [
+        "Learn each movement individually before attempting to flow through entire kata. Quality over speed.",
+        "Every movement in kata has martial application. Practice with awareness of imaginary opponents.",
+        "31 Jo Kata should be practiced both solo and with 31 Kumijo (paired practice) to fully understand applications."
+      ]
+    },
+    "tachi-dori": {
+      "name": "Sword Taking",
+      "description": "Empty-hand sword disarm - Technique using taijutsu to disarm sword from armed opponent.",
+      "postures": {
+        "face": {
+          "title": "Facing Sword",
+          "description": "Opponent attacks with sword. You move to avoid the cut."
+        },
+        "control": {
+          "title": "Enter and Control",
+          "description": "Enter danger zone and control opponent's sword arm."
+        },
+        "disarm": {
+          "title": "Disarm Sword",
+          "description": "Apply locking or throwing technique while simultaneously disarming sword from opponent's hand."
+        }
+      },
+      "notes": [
+        "Timing and irimi are critical when facing weapons.",
+        "Practice with wooden sword (bokken) for safety."
+      ]
+    },
+    "jo-dori": {
+      "name": "Staff Taking",
+      "description": "Empty-hand staff disarm - Technique using taijutsu to disarm staff from armed opponent.",
+      "postures": {
+        "face": {
+          "title": "Facing Staff",
+          "description": "Opponent attacks with jo. You move to avoid strike or thrust."
+        },
+        "entry": {
+          "title": "Entry",
+          "description": "Enter inside staff's reach and control opponent."
+        },
+        "disarm": {
+          "title": "Disarm Staff",
+          "description": "Apply technique to disarm staff or throw opponent."
+        }
+      },
+      "notes": [
+        "Jo has long reach, requires decisive entry.",
+        "Be careful both ends of staff are weapons."
+      ]
+    },
+    "tanto-dori": {
+      "name": "Knife Taking",
+      "description": "Empty-hand knife disarm - Technique using taijutsu to disarm knife from armed opponent. Often uses Gokyo.",
+      "postures": {
+        "face": {
+          "title": "Facing Knife",
+          "description": "Opponent attacks with knife. This is the most dangerous situation."
+        },
+        "evade": {
+          "title": "Evade and Control",
+          "description": "Avoid stab/cut path and immediately control knife-holding arm."
+        },
+        "disarm": {
+          "title": "Disarm Knife (Gokyo)",
+          "description": "Apply Gokyo or similar technique with reverse grip to safely disarm knife."
+        }
+      },
+      "notes": [
+        "In Gokyo, reverse grip keeps knife blade pointing away from you.",
+        "Always keep opponent's elbow extended so they cannot cut.",
+        "Tanto-dori requires highest concentration and precision."
+      ]
+    },
+    "jo-nage": {
+      "name": "Staff Throw",
+      "description": "Using staff to throw opponent - Technique using jo as tool to lock and throw opponent whether empty-handed or armed.",
+      "postures": {
+        "hold": {
+          "title": "Hold Jo",
+          "description": "You are holding jo, opponent attacks you (may be empty-handed or armed)."
+        },
+        "control": {
+          "title": "Use Jo to Control",
+          "description": "Use jo to block, strike, or lock opponent."
+        },
+        "throw": {
+          "title": "Throw with Jo",
+          "description": "Use jo as lever or control point to throw opponent."
+        }
+      },
+      "notes": [
+        "Jo-nage differs from Jo-dori - here YOU are holding the staff.",
+        "Jo can be used in many ways: strike, thrust, lock, or as lever."
+      ]
+    }
   }
 }

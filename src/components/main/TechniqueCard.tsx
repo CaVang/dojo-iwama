@@ -50,7 +50,7 @@ export default function TechniqueCard({
           transition={{ duration: 0.3 }}
         >
           {/* Image/Visual Area */}
-          <div className="aspect-[4/3] bg-gradient-to-br from-japan-blue/15 via-japan-blue/10 to-transparent relative overflow-hidden">
+          <div className="aspect-4/3 bg-linear-to-br from-japan-blue/15 via-japan-blue/10 to-transparent relative overflow-hidden">
             {/* Decorative frame */}
             <div className="absolute inset-3 border border-japan-blue/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -78,7 +78,7 @@ export default function TechniqueCard({
             <div className="absolute bottom-2 left-2 w-6 h-6 border-l border-b border-cinnabar/30 opacity-0 group-hover:opacity-100 transition-opacity" />
 
             {/* Hover overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-japan-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-linear-to-t from-japan-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </div>
 
           {/* Content */}

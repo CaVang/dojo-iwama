@@ -1,53 +1,58 @@
-'use client';
+"use client";
 
-import { useState, useMemo } from 'react';
-import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Filter, Sword, Users, Grip } from 'lucide-react';
-import { useLocale, useTranslations } from 'next-intl';
-import PageTransition, { fadeInUp, staggerContainer } from '@/components/animations/PageTransition';
-import techniques from '@/data/techniques.json';
+import { useState, useMemo } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Filter, Sword, Users, Grip } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import PageTransition, {
+  staggerContainer,
+} from "@/components/animations/PageTransition";
+import techniques from "@/data/techniques.json";
 
-type Category = 'All' | 'Taijutsu' | 'Aiki-Ken' | 'Aiki-Jo';
-type Difficulty = 'All' | 'Beginner' | 'Intermediate' | 'Advanced';
+type Category = "All" | "Taijutsu" | "Aiki-Ken" | "Aiki-Jo";
+type Difficulty = "All" | "Beginner" | "Intermediate" | "Advanced";
 
 export default function TechniquesPage() {
-  const [selectedCategory, setSelectedCategory] = useState<Category>('All');
-  const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty>('All');
-  const t = useTranslations('techniques');
+  const [selectedCategory, setSelectedCategory] = useState<Category>("All");
+  const [selectedDifficulty, setSelectedDifficulty] =
+    useState<Difficulty>("All");
+  const t = useTranslations("techniques");
+  const tTechniqueData = useTranslations("techniqueData");
   const locale = useLocale();
 
   const categories: { value: Category; label: string; icon: typeof Users }[] = [
-    { value: 'All', label: t('allTechniques'), icon: Grip },
-    { value: 'Taijutsu', label: 'Taijutsu', icon: Users },
-    { value: 'Aiki-Ken', label: 'Aiki-Ken', icon: Sword },
-    { value: 'Aiki-Jo', label: 'Aiki-Jo', icon: Grip },
+    { value: "All", label: t("allTechniques"), icon: Grip },
+    { value: "Taijutsu", label: "Taijutsu", icon: Users },
+    { value: "Aiki-Ken", label: "Aiki-Ken", icon: Sword },
+    { value: "Aiki-Jo", label: "Aiki-Jo", icon: Grip },
   ];
 
   const difficulties: { value: Difficulty; label: string }[] = [
-    { value: 'All', label: t('allLevels') },
-    { value: 'Beginner', label: t('beginner') },
-    { value: 'Intermediate', label: t('intermediate') },
-    { value: 'Advanced', label: t('advanced') },
+    { value: "All", label: t("allLevels") },
+    { value: "Beginner", label: t("beginner") },
+    { value: "Intermediate", label: t("intermediate") },
+    { value: "Advanced", label: t("advanced") },
   ];
 
   const filteredTechniques = useMemo(() => {
     return techniques.filter((technique) => {
       const categoryMatch =
-        selectedCategory === 'All' || technique.category === selectedCategory;
+        selectedCategory === "All" || technique.category === selectedCategory;
       const difficultyMatch =
-        selectedDifficulty === 'All' || technique.difficulty === selectedDifficulty;
+        selectedDifficulty === "All" ||
+        technique.difficulty === selectedDifficulty;
       return categoryMatch && difficultyMatch;
     });
   }, [selectedCategory, selectedDifficulty]);
 
   const getCategoryIcon = (category: string) => {
     switch (category) {
-      case 'Taijutsu':
+      case "Taijutsu":
         return Users;
-      case 'Aiki-Ken':
+      case "Aiki-Ken":
         return Sword;
-      case 'Aiki-Jo':
+      case "Aiki-Jo":
         return Grip;
       default:
         return Users;
@@ -56,12 +61,12 @@ export default function TechniquesPage() {
 
   const getDifficultyLabel = (difficulty: string) => {
     switch (difficulty) {
-      case 'Beginner':
-        return t('beginner');
-      case 'Intermediate':
-        return t('intermediate');
-      case 'Advanced':
-        return t('advanced');
+      case "Beginner":
+        return t("beginner");
+      case "Intermediate":
+        return t("intermediate");
+      case "Advanced":
+        return t("advanced");
       default:
         return difficulty;
     }
@@ -88,12 +93,14 @@ export default function TechniquesPage() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <span className="font-jp text-4xl text-washi/20 block mb-4">技</span>
+            <span className="font-jp text-4xl text-washi/20 block mb-4">
+              技
+            </span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-washi tracking-wider mb-4">
-              {t('title')}
+              {t("title")}
             </h1>
             <p className="text-washi/70 max-w-2xl mx-auto">
-              {t('description')}
+              {t("description")}
             </p>
           </motion.div>
         </div>
@@ -126,8 +133,8 @@ export default function TechniquesPage() {
                   onClick={() => setSelectedCategory(cat.value)}
                   className={`flex items-center gap-2 px-4 py-2 text-sm font-serif tracking-wider transition-all duration-300 ${
                     selectedCategory === cat.value
-                      ? 'bg-japan-blue text-washi'
-                      : 'bg-washi-cream text-sumi hover:bg-japan-blue/10'
+                      ? "bg-japan-blue text-washi"
+                      : "bg-washi-cream text-sumi hover:bg-japan-blue/10"
                   }`}
                 >
                   <cat.icon size={16} />
@@ -141,7 +148,9 @@ export default function TechniquesPage() {
               <Filter size={16} className="text-sumi-muted" />
               <select
                 value={selectedDifficulty}
-                onChange={(e) => setSelectedDifficulty(e.target.value as Difficulty)}
+                onChange={(e) =>
+                  setSelectedDifficulty(e.target.value as Difficulty)
+                }
                 className="bg-washi-cream border border-japan-blue/20 px-4 py-2 text-sm font-serif focus:outline-none focus:border-japan-blue"
               >
                 {difficulties.map((diff) => (
@@ -165,8 +174,8 @@ export default function TechniquesPage() {
             className="text-sumi-muted text-sm mb-8"
           >
             {filteredTechniques.length === 1
-              ? t('showing', { count: filteredTechniques.length })
-              : t('showingPlural', { count: filteredTechniques.length })}
+              ? t("showing", { count: filteredTechniques.length })
+              : t("showingPlural", { count: filteredTechniques.length })}
           </motion.p>
 
           {/* Grid */}
@@ -192,13 +201,20 @@ export default function TechniquesPage() {
                       href={`/${locale}/techniques/${technique.slug}`}
                       className="block group h-full"
                     >
-                      <div className="card-washi h-full overflow-hidden">
+                      <motion.div
+                        className="card-washi h-full overflow-hidden flex flex-col border border-japan-blue/10"
+                        whileHover={{ y: -8, scale: 1.02 }}
+                        transition={{ duration: 0.3 }}
+                      >
                         {/* Image/Visual Area */}
-                        <div className="aspect-[4/3] bg-gradient-to-br from-japan-blue/10 via-japan-blue/5 to-transparent relative overflow-hidden">
+                        <div className="aspect-4/3 bg-linear-to-br from-japan-blue/10 via-japan-blue/5 to-transparent relative overflow-hidden shrink-0">
+                          {/* Decorative frame */}
+                          <div className="absolute inset-3 border border-japan-blue/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
                           {/* Large Japanese character background */}
-                          <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="absolute inset-0 flex items-center justify-center p-4">
                             <motion.span
-                              className="font-jp text-7xl text-japan-blue/10"
+                              className="font-jp text-5xl lg:text-7xl text-japan-blue/10"
                               whileHover={{ scale: 1.1, rotate: 3 }}
                               transition={{ duration: 0.4 }}
                             >
@@ -218,23 +234,27 @@ export default function TechniquesPage() {
                           <div className="absolute top-4 right-4">
                             <span
                               className={`text-xs px-2 py-1 uppercase tracking-wider ${
-                                technique.difficulty === 'Beginner'
-                                  ? 'bg-bamboo/20 text-bamboo'
-                                  : technique.difficulty === 'Intermediate'
-                                  ? 'bg-gold/20 text-gold'
-                                  : 'bg-cinnabar/20 text-cinnabar'
+                                technique.difficulty === "Beginner"
+                                  ? "bg-bamboo/20 text-bamboo"
+                                  : technique.difficulty === "Intermediate"
+                                    ? "bg-gold/20 text-gold"
+                                    : "bg-cinnabar/20 text-cinnabar"
                               }`}
                             >
                               {getDifficultyLabel(technique.difficulty)}
                             </span>
                           </div>
 
+                          {/* Corner decorations */}
+                          <div className="absolute top-2 right-2 w-6 h-6 border-r border-t border-cinnabar/30 opacity-0 group-hover:opacity-100 transition-opacity" />
+                          <div className="absolute bottom-2 left-2 w-6 h-6 border-l border-b border-cinnabar/30 opacity-0 group-hover:opacity-100 transition-opacity" />
+
                           {/* Hover overlay */}
-                          <div className="absolute inset-0 bg-japan-blue/0 group-hover:bg-japan-blue/5 transition-colors duration-300" />
+                          <div className="absolute inset-0 bg-linear-to-t from-japan-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         </div>
 
                         {/* Content */}
-                        <div className="p-6">
+                        <div className="p-6 flex flex-col grow">
                           <div className="flex items-start justify-between gap-4 mb-3">
                             <h3 className="font-serif text-xl text-sumi group-hover:text-japan-blue transition-colors">
                               {technique.name_en}
@@ -244,19 +264,28 @@ export default function TechniquesPage() {
                             </span>
                           </div>
 
-                          <p className="text-sm text-sumi-muted line-clamp-2 mb-4">
-                            {technique.description}
+                          <p className="text-sm text-sumi-muted line-clamp-2 mb-4 grow">
+                            {tTechniqueData(`${technique.slug}.description`)}
                           </p>
 
                           {/* Footer with stats */}
-                          <div className="flex items-center justify-between pt-4 border-t border-japan-blue/10">
+                          <div className="flex items-center justify-between pt-4 border-t border-japan-blue/10 mt-auto">
                             <div className="flex items-center gap-4 text-xs text-sumi-muted">
-                              <span>{t('postures', { count: technique.content.key_postures.length })}</span>
-                              <span>{t('notes', { count: technique.content.important_notes.length })}</span>
+                              <span>
+                                {t("postures", {
+                                  count: technique.content.key_postures.length,
+                                })}
+                              </span>
+                              <span>
+                                {t("notes", {
+                                  count:
+                                    technique.content.important_notes.length,
+                                })}
+                              </span>
                             </div>
 
                             <div className="flex items-center text-japan-blue text-sm font-serif tracking-wider group-hover:gap-2 transition-all">
-                              <span>{t('study')}</span>
+                              <span>{t("view")}</span>
                               <ArrowRight
                                 size={16}
                                 className="ml-1 group-hover:translate-x-1 transition-transform"
@@ -264,7 +293,7 @@ export default function TechniquesPage() {
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </motion.div>
                     </Link>
                   </motion.div>
                 );
@@ -283,19 +312,17 @@ export default function TechniquesPage() {
                 無
               </span>
               <h3 className="font-serif text-xl text-sumi mb-2">
-                {t('noTechniquesFound')}
+                {t("noTechniquesFound")}
               </h3>
-              <p className="text-sumi-muted">
-                {t('adjustFilters')}
-              </p>
+              <p className="text-sumi-muted">{t("adjustFilters")}</p>
               <button
                 onClick={() => {
-                  setSelectedCategory('All');
-                  setSelectedDifficulty('All');
+                  setSelectedCategory("All");
+                  setSelectedDifficulty("All");
                 }}
                 className="mt-6 btn-outline"
               >
-                {t('clearFilters')}
+                {t("clearFilters")}
               </button>
             </motion.div>
           )}
