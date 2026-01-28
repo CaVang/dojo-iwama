@@ -69,7 +69,7 @@ export default function UserMenu() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.15 }}
-            className="absolute right-0 mt-2 w-64 bg-washi border border-japan-blue/10 shadow-lg z-50"
+            className="absolute right-0 mt-2 w-64 bg-white border border-japan-blue/10 shadow-lg z-50"
           >
             {/* User Info */}
             <div className="p-4 border-b border-japan-blue/10">

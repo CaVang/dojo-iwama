@@ -9,6 +9,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import LoginButton from "@/components/auth/LoginButton";
 import UserMenu from "@/components/auth/UserMenu";
 import { useAuth } from "@/components/auth/AuthProvider";
+import Image from "next/image";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,11 +50,15 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative">
-              {/* Japanese seal/stamp logo */}
+              {/* logo */}
               <div className="w-10 h-10 border-2 border-japan-blue flex items-center justify-center transform group-hover:rotate-3 transition-transform duration-300">
-                <span className="font-jp text-lg font-bold text-japan-blue">
-                  合
-                </span>
+                <Image
+                  src="/images/dojos/iwama-dojo-square-logo.png"
+                  alt="Logo"
+                  width={100}
+                  height={100}
+                  className="object-contain"
+                />
               </div>
             </div>
             <div className="hidden sm:block">
