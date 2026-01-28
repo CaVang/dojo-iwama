@@ -6,12 +6,16 @@ import { useLocale, useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
+import LoginButton from "@/components/auth/LoginButton";
+import UserMenu from "@/components/auth/UserMenu";
+import { useAuth } from "@/components/auth/AuthProvider";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const t = useTranslations("navigation");
   const locale = useLocale();
+  const { user, isLoading } = useAuth();
 
   const navLinks = [
     { href: `/${locale}`, label: t("home") },
@@ -74,6 +78,8 @@ export default function Navigation() {
               </Link>
             ))}
             <LanguageSwitcher />
+            {/* Auth Section */}
+            {!isLoading && (user ? <UserMenu /> : <LoginButton />)}
           </div>
 
           {/* Mobile Menu Button */}
@@ -118,9 +124,10 @@ export default function Navigation() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navLinks.length * 0.1 }}
-                className="pt-4"
+                className="pt-4 flex items-center justify-between"
               >
                 <LanguageSwitcher />
+                {!isLoading && (user ? <UserMenu /> : <LoginButton />)}
               </motion.div>
             </div>
           </motion.div>
