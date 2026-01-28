@@ -137,7 +137,7 @@ function PostureCard({
           animate={isInView ? { clipPath: "inset(0 0% 0 0)" } : {}}
           transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          <div className="aspect-[4/3] bg-gradient-to-br from-japan-blue/20 via-japan-blue/10 to-washi-warm relative group">
+          <div className="aspect-4/3 bg-linear-to-br from-japan-blue/20 via-japan-blue/10 to-washi-warm relative group">
             {/* Decorative frame */}
             <div className="absolute inset-4 border border-japan-blue/20" />
             <div className="absolute inset-6 border border-japan-blue/10" />
@@ -215,7 +215,7 @@ function PostureCard({
           transition={{ delay: 0.8 }}
         >
           <motion.div
-            className="w-full h-full bg-gradient-to-b from-japan-blue/30 to-transparent"
+            className="w-full h-full bg-linear-to-b from-japan-blue/30 to-transparent"
             initial={{ y: "-100%" }}
             animate={isInView ? { y: "0%" } : {}}
             transition={{ duration: 0.6, delay: 0.9 }}
@@ -254,8 +254,6 @@ export default function TechniqueDetailClient({
   const heroY = useTransform(heroScrollProgress, [0, 1], ["0%", "40%"]);
   const heroOpacity = useTransform(heroScrollProgress, [0, 0.6], [1, 0]);
   const heroScale = useTransform(heroScrollProgress, [0, 1], [1, 1.1]);
-  const kanjiY = useTransform(heroScrollProgress, [0, 1], ["0%", "80%"]);
-  const kanjiRotate = useTransform(heroScrollProgress, [0, 1], [0, 10]);
 
   // Progress bar
   const progressWidth = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
@@ -273,7 +271,7 @@ export default function TechniqueDetailClient({
       {/* Progress bar */}
       <motion.div className="fixed top-20 left-0 right-0 h-1 bg-japan-blue/10 z-50">
         <motion.div
-          className="h-full bg-gradient-to-r from-cinnabar via-japan-blue to-cinnabar"
+          className="h-full bg-linear-to-r from-cinnabar via-japan-blue to-cinnabar"
           style={{ width: progressWidth }}
         />
       </motion.div>
@@ -488,7 +486,7 @@ export default function TechniqueDetailClient({
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <div className="w-32 h-px bg-gradient-to-r from-transparent via-japan-blue/50 to-transparent" />
+              <div className="w-32 h-px bg-linear-to-r from-transparent via-japan-blue/50 to-transparent" />
             </motion.div>
           </AnimatedSection>
 
@@ -514,7 +512,7 @@ export default function TechniqueDetailClient({
       {/* Important Notes Section */}
       <section
         id="notes"
-        className="py-24 md:py-32 relative scroll-mt-32 bg-gradient-to-b from-washi-cream to-washi"
+        className="py-24 md:py-32 relative scroll-mt-32 bg-linear-to-b from-washi-cream to-washi"
       >
         <WoodGrainBg />
         <AsanohaPattern className="absolute inset-0 text-japan-blue" />
@@ -579,7 +577,7 @@ export default function TechniqueDetailClient({
 
                   {/* Bottom decoration */}
                   <motion.div
-                    className="absolute bottom-0 left-4 right-4 h-0.5 bg-gradient-to-r from-transparent via-cinnabar/20 to-transparent"
+                    className="absolute bottom-0 left-4 right-4 h-0.5 bg-linear-to-r from-transparent via-cinnabar/20 to-transparent"
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
