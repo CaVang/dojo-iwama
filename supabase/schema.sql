@@ -236,12 +236,18 @@ $$ LANGUAGE plpgsql SECURITY DEFINER;
 CREATE TABLE IF NOT EXISTS public.techniques (
   id TEXT PRIMARY KEY,
   slug TEXT UNIQUE NOT NULL,
+  type TEXT DEFAULT 'foundational', -- 'foundational' or 'grading'
   name_jp TEXT NOT NULL,
   name_en TEXT NOT NULL,
   category TEXT NOT NULL,
   subcategory TEXT,
   difficulty TEXT NOT NULL,
   description TEXT,
+  -- Grading technique specific fields
+  attack TEXT, -- attack type for grading techniques
+  base_technique TEXT, -- base technique for grading techniques
+  belt_levels JSONB DEFAULT '[]', -- required belt levels
+  -- Common fields
   variants JSONB DEFAULT '[]',
   content JSONB NOT NULL,
   created_by UUID REFERENCES auth.users(id),

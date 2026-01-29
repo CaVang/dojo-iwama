@@ -19,18 +19,24 @@ const eventsData = JSON.parse(
 
 // Generate SQL INSERT statements for techniques
 function generateTechniquesSQL() {
-  const rows = techniquesData.map((t) => {
+  const allTechniques = techniquesData.techniques || techniquesData;
+  const rows = allTechniques.map((t) => {
     const variants = JSON.stringify(t.variants || []);
-    const content = JSON.stringify(t.content);
+    const content = JSON.stringify(t.content || {});
+    const beltLevels = JSON.stringify(t.beltLevels || []);
     return `(
       '${t.id}',
       '${t.slug}',
+      '${t.type || 'foundational'}',
       '${t.name_jp.replace(/'/g, "''")}',
       '${t.name_en.replace(/'/g, "''")}',
       '${t.category}',
       ${t.subcategory ? `'${t.subcategory}'` : "NULL"},
       '${t.difficulty}',
       '${(t.description || "").replace(/'/g, "''")}',
+      ${t.attack ? `'${t.attack}'` : "NULL"},
+      ${t.baseTechnique ? `'${t.baseTechnique}'` : "NULL"},
+      '${beltLevels.replace(/'/g, "''")}',
       '${variants.replace(/'/g, "''")}',
       '${content.replace(/'/g, "''")}'
     )`;
@@ -38,16 +44,21 @@ function generateTechniquesSQL() {
 
   return `
 -- Insert Techniques
-INSERT INTO public.techniques (id, slug, name_jp, name_en, category, subcategory, difficulty, description, variants, content)
+INSERT INTO public.techniques (id, slug, type, name_jp, name_en, category, subcategory, difficulty, description, attack, base_technique, belt_levels, variants, content)
 VALUES
 ${rows.join(",\n")}
 ON CONFLICT (id) DO UPDATE SET
+  slug = EXCLUDED.slug,
+  type = EXCLUDED.type,
   name_jp = EXCLUDED.name_jp,
   name_en = EXCLUDED.name_en,
   category = EXCLUDED.category,
   subcategory = EXCLUDED.subcategory,
   difficulty = EXCLUDED.difficulty,
   description = EXCLUDED.description,
+  attack = EXCLUDED.attack,
+  base_technique = EXCLUDED.base_technique,
+  belt_levels = EXCLUDED.belt_levels,
   variants = EXCLUDED.variants,
   content = EXCLUDED.content,
   updated_at = NOW();

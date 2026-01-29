@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface Technique {
   id: string;
@@ -11,7 +12,7 @@ interface Technique {
   name_en: string;
   name_jp: string;
   category: string;
-  description: string;
+  description?: string;
   difficulty: string;
 }
 
@@ -28,6 +29,14 @@ export default function TechniqueCard({
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const tTechniqueData = useTranslations("techniqueData");
+
+  // Get description from i18n or fallback - check if key exists first
+  const descKey = `${technique.slug}.description`;
+  const hasTranslation = tTechniqueData.has(descKey as never);
+  const description = hasTranslation
+    ? tTechniqueData(descKey as never)
+    : technique.description || technique.name_en;
 
   return (
     <motion.div
@@ -93,7 +102,7 @@ export default function TechniqueCard({
             </div>
 
             <p className="text-sm text-sumi-muted line-clamp-2 mb-4">
-              {technique.description}
+              {description}
             </p>
 
             {/* Bottom bar */}

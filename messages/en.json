@@ -21,7 +21,7 @@
     "featuredTechniques": "Featured Techniques",
     "exploreFoundational": "Explore the foundational techniques of Iwama Aikido",
     "viewAllTechniques": "View All Techniques",
-    "study": "Study",
+    "view": "View",
     "globalDojoNetwork": "Global Dojo Network",
     "connectWithDojos": "Connect with authentic Iwama Aikido dojos around the world",
     "exploreAllDojos": "Explore All Dojos",
@@ -37,6 +37,7 @@
     "description": "Explore the traditional techniques of Iwama style Aikido, including empty-hand techniques (Taijutsu), sword work (Aiki-Ken), and staff practices (Aiki-Jo).",
     "allTechniques": "All Techniques",
     "allLevels": "All Levels",
+    "allBeltLevels": "All Belt Levels",
     "showing": "Showing {count} technique",
     "showingPlural": "Showing {count} techniques",
     "postures": "{count} postures",
@@ -47,7 +48,15 @@
     "clearFilters": "Clear Filters",
     "beginner": "Beginner",
     "intermediate": "Intermediate",
-    "advanced": "Advanced"
+    "advanced": "Advanced",
+    "syllabusView": "Grading Syllabus",
+    "gridView": "Foundational",
+    "gradingSyllabus": "Grading Syllabus",
+    "syllabusDescription": "Click on a technique to view details. Green indicates techniques required for the selected belt level.",
+    "attack": "Attack",
+    "requiredForBelt": "Required for selected level",
+    "higherLevel": "Higher level technique",
+    "notApplicable": "Not applicable"
   },
   "dojos": {
     "title": "Dojo Directory",

@@ -1,0 +1,536 @@
+[
+  {
+    "id": "tai-no-henko",
+    "slug": "tai-no-henko",
+    "type": "foundational",
+    "name_jp": "体の変更",
+    "name_en": "Body Change",
+    "category": "Taijutsu",
+    "subcategory": "Warm-up",
+    "difficulty": "Beginner",
+    "variants": ["Kihon", "Ki no Nagare"],
+    "content": {
+      "key_postures": [
+        {
+          "title": "Kamae",
+          "description": "Stand in hanmi stance, facing partner."
+        },
+        {
+          "title": "Receive Grab",
+          "description": "Partner grabs your wrist firmly."
+        },
+        {
+          "title": "Tenkan",
+          "description": "Turn 180 degrees, rear foot steps in arc behind."
+        }
+      ],
+      "important_notes": [
+        { "note": "Keep center low throughout the turn." },
+        { "note": "Use hips to lead, not arm strength." }
+      ]
+    }
+  },
+  {
+    "id": "morotedori-kokyuho",
+    "slug": "morotedori-kokyuho",
+    "type": "foundational",
+    "name_jp": "諸手取り呼吸法",
+    "name_en": "Two-Hand Grab Breath Power",
+    "category": "Taijutsu",
+    "subcategory": "Warm-up",
+    "difficulty": "Beginner",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Being Grabbed",
+          "description": "Partner uses both hands to grab one wrist."
+        },
+        {
+          "title": "Extension",
+          "description": "Extend arm using hip and hara power."
+        },
+        {
+          "title": "Throw",
+          "description": "Continue extension to throw partner."
+        }
+      ],
+      "important_notes": [
+        { "note": "Coordinate breath: inhale to prepare, exhale to extend." }
+      ]
+    }
+  },
+  {
+    "id": "ikkyo",
+    "slug": "ikkyo",
+    "type": "foundational",
+    "name_jp": "一教",
+    "name_en": "First Teaching",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Beginner",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Ai-hanmi Kamae",
+          "description": "Begin in matching stance with proper distance."
+        },
+        {
+          "title": "Irimi Entry",
+          "description": "Enter deeply alongside partner's arm."
+        },
+        {
+          "title": "Osae Pin",
+          "description": "Guide partner down in spiral motion to mat."
+        }
+      ],
+      "important_notes": [
+        { "note": "Never use force against force." },
+        { "note": "Cutting motion originates from hips." }
+      ]
+    }
+  },
+  {
+    "id": "nikyo",
+    "slug": "nikyo",
+    "type": "foundational",
+    "name_jp": "二教",
+    "name_en": "Second Teaching",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Beginner",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Wrist Grip",
+          "description": "Grip partner's wrist in C-grip."
+        },
+        {
+          "title": "Wrist Rotation",
+          "description": "Rotate wrist inward while controlling elbow."
+        },
+        {
+          "title": "Kneeling Pin",
+          "description": "Bring partner down using wrist lock."
+        }
+      ],
+      "important_notes": [
+        { "note": "Effectiveness comes from precise angle, not force." }
+      ]
+    }
+  },
+  {
+    "id": "sankyo",
+    "slug": "sankyo",
+    "type": "foundational",
+    "name_jp": "三教",
+    "name_en": "Third Teaching",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Hand Capture",
+          "description": "Capture partner's hand with both hands."
+        },
+        {
+          "title": "Spiral Rotation",
+          "description": "Rotate hand in spiral toward centerline."
+        },
+        {
+          "title": "Standing Control",
+          "description": "Maintain lock for throw or pin."
+        }
+      ],
+      "important_notes": [
+        { "note": "Spiral must be continuous and connected to center." }
+      ]
+    }
+  },
+  {
+    "id": "yonkyo",
+    "slug": "yonkyo",
+    "type": "foundational",
+    "name_jp": "四教",
+    "name_en": "Fourth Teaching",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Forearm Grip",
+          "description": "Grip forearm with knuckle on pressure point."
+        },
+        {
+          "title": "Pressure Point",
+          "description": "Apply pressure while maintaining arm control."
+        },
+        {
+          "title": "Lead Down",
+          "description": "Use combined control to lead partner down."
+        }
+      ],
+      "important_notes": [
+        { "note": "Pressure point is 1-2 inches from wrist on inner forearm." }
+      ]
+    }
+  },
+  {
+    "id": "gokyo",
+    "slug": "gokyo",
+    "type": "foundational",
+    "name_jp": "五教",
+    "name_en": "Fifth Teaching",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Knife Defense",
+          "description": "Grip wrist with thumb facing down."
+        },
+        {
+          "title": "Elbow Control",
+          "description": "Keep elbow extended and locked."
+        },
+        {
+          "title": "Disarm and Pin",
+          "description": "Lead partner down while disarming."
+        }
+      ],
+      "important_notes": [
+        { "note": "Reverse grip keeps knife blade away from you." }
+      ]
+    }
+  },
+  {
+    "id": "shihonage",
+    "slug": "shihonage",
+    "type": "foundational",
+    "name_jp": "四方投げ",
+    "name_en": "Four Directions Throw",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Katate-dori Grasp",
+          "description": "Blend while securing wrist with both hands."
+        },
+        {
+          "title": "Tenkan Pivot",
+          "description": "180-degree pivot while raising arm overhead."
+        },
+        {
+          "title": "Throw Completion",
+          "description": "Cut down with arm while stepping through."
+        }
+      ],
+      "important_notes": [
+        { "note": "Iwama: hold hand like gripping sword in front of chest." }
+      ]
+    }
+  },
+  {
+    "id": "iriminage",
+    "slug": "iriminage",
+    "type": "foundational",
+    "name_jp": "入り身投げ",
+    "name_en": "Entering Throw",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Initial Entry",
+          "description": "Enter deeply past attack, hip connected to center."
+        },
+        {
+          "title": "Spiral Drawing",
+          "description": "Draw partner in circular motion."
+        },
+        {
+          "title": "Final Throw",
+          "description": "Enter again while guiding head backward."
+        }
+      ],
+      "important_notes": [
+        { "note": "True irimi requires complete commitment." }
+      ]
+    }
+  },
+  {
+    "id": "kotegaeshi",
+    "slug": "kotegaeshi",
+    "type": "foundational",
+    "name_jp": "小手返し",
+    "name_en": "Wrist Return Throw",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Wrist Grip",
+          "description": "One hand on back of hand, other supporting."
+        },
+        {
+          "title": "Wrist Turn",
+          "description": "Turn wrist outward and downward."
+        },
+        {
+          "title": "Throw",
+          "description": "Continue turning to throw partner."
+        }
+      ],
+      "important_notes": [
+        { "note": "Use entire body to create turning force." }
+      ]
+    }
+  },
+  {
+    "id": "kaitennage",
+    "slug": "kaitennage",
+    "type": "foundational",
+    "name_jp": "回転投げ",
+    "name_en": "Rotation Throw",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "variants": ["Uchi Kaiten-nage", "Soto Kaiten-nage"],
+    "content": {
+      "key_postures": [
+        {
+          "title": "Grip and Lead",
+          "description": "Grip arm and lead in arc."
+        },
+        {
+          "title": "Rotation",
+          "description": "Uchi: under armpit. Soto: outside neck."
+        },
+        {
+          "title": "Complete Throw",
+          "description": "Continue rotation to throw."
+        }
+      ],
+      "important_notes": [
+        { "note": "Keep partner off-balance throughout rotation." }
+      ]
+    }
+  },
+  {
+    "id": "tenchinage",
+    "slug": "tenchinage",
+    "type": "foundational",
+    "name_jp": "天地投げ",
+    "name_en": "Heaven and Earth Throw",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        { "title": "Ryote-dori", "description": "Partner grabs both wrists." },
+        {
+          "title": "Separation",
+          "description": "One hand to heaven, other to earth."
+        },
+        {
+          "title": "Enter and Throw",
+          "description": "Step in while maintaining separation."
+        }
+      ],
+      "important_notes": [{ "note": "Both hands move simultaneously." }]
+    }
+  },
+  {
+    "id": "kokyu-ho",
+    "slug": "kokyu-ho",
+    "type": "foundational",
+    "name_jp": "呼吸法",
+    "name_en": "Breath Power Exercise",
+    "category": "Taijutsu",
+    "subcategory": "Warm-up",
+    "difficulty": "Beginner",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Seiza",
+          "description": "Both sit in seiza, partner grabs wrists."
+        },
+        {
+          "title": "Extension",
+          "description": "Extend arms using hara power."
+        },
+        {
+          "title": "Projection",
+          "description": "Break balance and push backward."
+        }
+      ],
+      "important_notes": [{ "note": "Relax shoulders completely." }]
+    }
+  },
+  {
+    "id": "suburi-ichi",
+    "slug": "suburi-ichi",
+    "type": "foundational",
+    "name_jp": "素振り一",
+    "name_en": "First Sword Swing",
+    "category": "Aiki-Ken",
+    "difficulty": "Beginner",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Chudan Kamae",
+          "description": "Middle guard, tip at throat height."
+        },
+        {
+          "title": "Raise",
+          "description": "Raise sword overhead in large arc."
+        },
+        { "title": "Cut", "description": "Execute downward cut using center." }
+      ],
+      "important_notes": [{ "note": "Cut comes from center, not arms." }]
+    }
+  },
+  {
+    "id": "kumitachi-ichi",
+    "slug": "kumitachi-ichi",
+    "type": "foundational",
+    "name_jp": "組太刀一",
+    "name_en": "First Paired Sword",
+    "category": "Aiki-Ken",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Opening Position",
+          "description": "Both in chudan kamae at proper distance."
+        },
+        {
+          "title": "Attack and Response",
+          "description": "Uchitachi initiates, uketachi receives."
+        },
+        {
+          "title": "Counter",
+          "description": "Uketachi completes with counter-cut."
+        }
+      ],
+      "important_notes": [{ "note": "Uchitachi provides sincere attacks." }]
+    }
+  },
+  {
+    "id": "jo-suburi-ichi",
+    "slug": "jo-suburi-ichi",
+    "type": "foundational",
+    "name_jp": "杖素振り一",
+    "name_en": "First Staff Swing",
+    "category": "Aiki-Jo",
+    "difficulty": "Beginner",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Choku-tsuki Kamae",
+          "description": "Hold jo pointing at throat."
+        },
+        { "title": "Prepare", "description": "Draw jo back along centerline." },
+        { "title": "Thrust", "description": "Drive forward with rear foot." }
+      ],
+      "important_notes": [{ "note": "Thrust and footwork must be unified." }]
+    }
+  },
+  {
+    "id": "thirty-one-jo-kata",
+    "slug": "thirty-one-jo-kata",
+    "type": "foundational",
+    "name_jp": "三十一の杖",
+    "name_en": "31 Jo Kata",
+    "category": "Aiki-Jo",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Opening Sequence",
+          "description": "Begins with choku-tsuki."
+        },
+        {
+          "title": "Middle Section",
+          "description": "Complex combinations including kaeshi-tsuki."
+        },
+        {
+          "title": "Closing Sequence",
+          "description": "Decisive movements with proper zanshin."
+        }
+      ],
+      "important_notes": [{ "note": "Learn each movement individually first." }]
+    }
+  },
+  {
+    "id": "tachi-dori",
+    "slug": "tachi-dori",
+    "type": "foundational",
+    "name_jp": "太刀取り",
+    "name_en": "Sword Taking",
+    "category": "Buki-dori",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        { "title": "Facing Sword", "description": "Move to avoid the cut." },
+        {
+          "title": "Enter and Control",
+          "description": "Enter and control sword arm."
+        },
+        { "title": "Disarm", "description": "Apply technique while disarming." }
+      ],
+      "important_notes": [{ "note": "Timing and irimi are critical." }]
+    }
+  },
+  {
+    "id": "jo-dori",
+    "slug": "jo-dori",
+    "type": "foundational",
+    "name_jp": "杖取り",
+    "name_en": "Staff Taking",
+    "category": "Buki-dori",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Facing Staff",
+          "description": "Move to avoid strike or thrust."
+        },
+        { "title": "Entry", "description": "Enter inside staff's reach." },
+        { "title": "Disarm", "description": "Apply technique to disarm." }
+      ],
+      "important_notes": [
+        { "note": "Jo has long reach, needs decisive entry." }
+      ]
+    }
+  },
+  {
+    "id": "tanto-dori",
+    "slug": "tanto-dori",
+    "type": "foundational",
+    "name_jp": "短刀取り",
+    "name_en": "Knife Taking",
+    "category": "Buki-dori",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        { "title": "Facing Knife", "description": "Most dangerous situation." },
+        {
+          "title": "Evade and Control",
+          "description": "Avoid and control knife-holding arm."
+        },
+        {
+          "title": "Disarm with Gokyo",
+          "description": "Apply Gokyo to safely disarm."
+        }
+      ],
+      "important_notes": [{ "note": "Reverse grip keeps blade away from you." }]
+    }
+  }
+]

@@ -22,7 +22,6 @@
     "exploreFoundational": "Khám phá các kỹ thuật nền tảng của Iwama Aikido",
     "viewAllTechniques": "Xem tất cả kỹ thuật",
     "view": "Xem",
-    "study": "Học",
     "globalDojoNetwork": "Mạng lưới võ đường toàn cầu",
     "connectWithDojos": "Kết nối với các võ đường Iwama Aikido chính thống trên toàn thế giới",
     "exploreAllDojos": "Khám phá tất cả võ đường",
@@ -38,6 +37,7 @@
     "description": "Khám phá các kỹ thuật truyền thống của phong cách Iwama Aikido, bao gồm kỹ thuật tay không (Taijutsu), kiếm thuật (Aiki-Ken) và gậy thuật (Aiki-Jo).",
     "allTechniques": "Tất cả kỹ thuật",
     "allLevels": "Tất cả cấp độ",
+    "allBeltLevels": "Tất cả cấp đai",
     "showing": "Hiển thị {count} kỹ thuật",
     "showingPlural": "Hiển thị {count} kỹ thuật",
     "postures": "{count} tư thế",
@@ -48,7 +48,15 @@
     "clearFilters": "Xóa bộ lọc",
     "beginner": "Cơ bản",
     "intermediate": "Trung cấp",
-    "advanced": "Nâng cao"
+    "advanced": "Nâng cao",
+    "syllabusView": "Chương trình học",
+    "gridView": "Kỹ thuật nền tảng",
+    "gradingSyllabus": "Chương trình học",
+    "syllabusDescription": "Nhấp vào kỹ thuật để xem chi tiết. Màu xanh lá chỉ các kỹ thuật cần cho cấp đai đã chọn.",
+    "attack": "Thế tấn công",
+    "requiredForBelt": "Cần cho cấp đai đã chọn",
+    "higherLevel": "Kỹ thuật cấp cao hơn",
+    "notApplicable": "Không áp dụng"
   },
   "dojos": {
     "title": "Danh bạ võ đường",

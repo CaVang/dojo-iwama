@@ -1,0 +1,1923 @@
+[
+  {
+    "id": "shomen-uchi-ikkyo",
+    "slug": "shomen-uchi-ikkyo",
+    "type": "grading",
+    "attack": "shomen-uchi",
+    "baseTechnique": "ikkyo",
+    "beltLevels": [
+      "7th-kyu",
+      "6th-kyu",
+      "5th-kyu",
+      "4th-kyu",
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "正面打ち一教",
+    "name_en": "Shomen Uchi Ikkyo",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Beginner",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Kamae",
+          "description": "Face partner in ai-hanmi stance."
+        },
+        {
+          "title": "Receive Strike",
+          "description": "Blend and enter as partner strikes shomen-uchi."
+        },
+        {
+          "title": "Apply Ikkyo",
+          "description": "Control elbow and wrist, guide to ground."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Maintain proper maai throughout."
+        }
+      ]
+    }
+  },
+  {
+    "id": "yokomen-uchi-ikkyo",
+    "slug": "yokomen-uchi-ikkyo",
+    "type": "grading",
+    "attack": "yokomen-uchi",
+    "baseTechnique": "ikkyo",
+    "beltLevels": [
+      "5th-kyu",
+      "4th-kyu",
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "横面打ち一教",
+    "name_en": "Yokomen Uchi Ikkyo",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Beginner",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Kamae",
+          "description": "Face partner in gyaku-hanmi stance."
+        },
+        {
+          "title": "Receive Strike",
+          "description": "Enter diagonally to intercept yokomen strike."
+        },
+        {
+          "title": "Apply Ikkyo",
+          "description": "Control arm and guide partner down."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Enter early to intercept the strike."
+        }
+      ]
+    }
+  },
+  {
+    "id": "katadori-ikkyo",
+    "slug": "katadori-ikkyo",
+    "type": "grading",
+    "attack": "katadori",
+    "baseTechnique": "ikkyo",
+    "beltLevels": [
+      "4th-kyu",
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "肩取り一教",
+    "name_en": "Katadori Ikkyo",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Grab",
+          "description": "Allow partner to grab shoulder."
+        },
+        {
+          "title": "Break Balance",
+          "description": "Enter and unbalance partner."
+        },
+        {
+          "title": "Apply Ikkyo",
+          "description": "Transition to ikkyo control."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Use hip rotation to generate power."
+        }
+      ]
+    }
+  },
+  {
+    "id": "ryotedori-ikkyo",
+    "slug": "ryotedori-ikkyo",
+    "type": "grading",
+    "attack": "ryotedori",
+    "baseTechnique": "ikkyo",
+    "beltLevels": [
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "両手取り一教",
+    "name_en": "Ryotedori Ikkyo",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Grab",
+          "description": "Both wrists grabbed."
+        },
+        {
+          "title": "Break Hold",
+          "description": "Use body movement to disrupt grip."
+        },
+        {
+          "title": "Apply Ikkyo",
+          "description": "Transition to ikkyo on one arm."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Move the whole body, not just arms."
+        }
+      ]
+    }
+  },
+  {
+    "id": "morotedori-ikkyo",
+    "slug": "morotedori-ikkyo",
+    "type": "grading",
+    "attack": "morotedori",
+    "baseTechnique": "ikkyo",
+    "beltLevels": [
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "諸手取り一教",
+    "name_en": "Morotedori Ikkyo",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Grab",
+          "description": "Two hands on one wrist."
+        },
+        {
+          "title": "Generate Power",
+          "description": "Use hip rotation."
+        },
+        {
+          "title": "Apply Ikkyo",
+          "description": "Complete with ikkyo control."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Strong center movement needed."
+        }
+      ]
+    }
+  },
+  {
+    "id": "ushiro-ryotedori-ikkyo",
+    "slug": "ushiro-ryotedori-ikkyo",
+    "type": "grading",
+    "attack": "ushiro-ryotedori",
+    "baseTechnique": "ikkyo",
+    "beltLevels": [
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "後ろ両手取り一教",
+    "name_en": "Ushiro Ryotedori Ikkyo",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Before Grab",
+          "description": "Turn before fully grabbed from behind."
+        },
+        {
+          "title": "Break Free",
+          "description": "Use rotation to escape hold."
+        },
+        {
+          "title": "Apply Ikkyo",
+          "description": "Complete with ikkyo control."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Anticipate and move early."
+        }
+      ]
+    }
+  },
+  {
+    "id": "shomen-uchi-nikyo",
+    "slug": "shomen-uchi-nikyo",
+    "type": "grading",
+    "attack": "shomen-uchi",
+    "baseTechnique": "nikyo",
+    "beltLevels": [
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "正面打ち二教",
+    "name_en": "Shomen Uchi Nikyo",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Strike",
+          "description": "Blend with shomen-uchi attack."
+        },
+        {
+          "title": "Control Wrist",
+          "description": "Secure nikyo grip on wrist."
+        },
+        {
+          "title": "Apply Pressure",
+          "description": "Use wrist lock to control partner."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Maintain connection through entire technique."
+        }
+      ]
+    }
+  },
+  {
+    "id": "yokomen-uchi-nikyo",
+    "slug": "yokomen-uchi-nikyo",
+    "type": "grading",
+    "attack": "yokomen-uchi",
+    "baseTechnique": "nikyo",
+    "beltLevels": [
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "横面打ち二教",
+    "name_en": "Yokomen Uchi Nikyo",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Intercept Strike",
+          "description": "Enter to receive yokomen strike."
+        },
+        {
+          "title": "Capture Wrist",
+          "description": "Transition to nikyo grip."
+        },
+        {
+          "title": "Complete",
+          "description": "Apply nikyo and pin."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Timing is crucial for this technique."
+        }
+      ]
+    }
+  },
+  {
+    "id": "katadori-nikyo",
+    "slug": "katadori-nikyo",
+    "type": "grading",
+    "attack": "katadori",
+    "baseTechnique": "nikyo",
+    "beltLevels": [
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "肩取り二教",
+    "name_en": "Katadori Nikyo",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Grab",
+          "description": "Shoulder grabbed."
+        },
+        {
+          "title": "Control Arm",
+          "description": "Control grabbing arm."
+        },
+        {
+          "title": "Apply Nikyo",
+          "description": "Apply wrist lock."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Maintain structure throughout."
+        }
+      ]
+    }
+  },
+  {
+    "id": "shomen-uchi-sankyo",
+    "slug": "shomen-uchi-sankyo",
+    "type": "grading",
+    "attack": "shomen-uchi",
+    "baseTechnique": "sankyo",
+    "beltLevels": [
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "正面打ち三教",
+    "name_en": "Shomen Uchi Sankyo",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Strike",
+          "description": "Blend with shomen-uchi."
+        },
+        {
+          "title": "Capture Wrist",
+          "description": "Transition to sankyo grip."
+        },
+        {
+          "title": "Apply Sankyo",
+          "description": "Rotate wrist and control."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Keep elbow close to body during rotation."
+        }
+      ]
+    }
+  },
+  {
+    "id": "yokomen-uchi-sankyo",
+    "slug": "yokomen-uchi-sankyo",
+    "type": "grading",
+    "attack": "yokomen-uchi",
+    "baseTechnique": "sankyo",
+    "beltLevels": [
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "横面打ち三教",
+    "name_en": "Yokomen Uchi Sankyo",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Intercept",
+          "description": "Enter to intercept yokomen strike."
+        },
+        {
+          "title": "Capture",
+          "description": "Control wrist and transition to sankyo."
+        },
+        {
+          "title": "Apply",
+          "description": "Complete the lock and pin."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Smooth circular movement throughout."
+        }
+      ]
+    }
+  },
+  {
+    "id": "chudan-tsuki-sankyo",
+    "slug": "chudan-tsuki-sankyo",
+    "type": "grading",
+    "attack": "tsuki",
+    "baseTechnique": "sankyo",
+    "beltLevels": [
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "突き三教",
+    "name_en": "Chudan Tsuki Sankyo",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Evade Thrust",
+          "description": "Enter off the line of attack."
+        },
+        {
+          "title": "Control Arm",
+          "description": "Capture attacking arm."
+        },
+        {
+          "title": "Apply Sankyo",
+          "description": "Rotate wrist into sankyo lock."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Control angle of wrist rotation."
+        }
+      ]
+    }
+  },
+  {
+    "id": "shomen-uchi-yonkyo",
+    "slug": "shomen-uchi-yonkyo",
+    "type": "grading",
+    "attack": "shomen-uchi",
+    "baseTechnique": "yonkyo",
+    "beltLevels": [
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "正面打ち四教",
+    "name_en": "Shomen Uchi Yonkyo",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Strike",
+          "description": "Blend with shomen-uchi."
+        },
+        {
+          "title": "Control Wrist",
+          "description": "Transition to yonkyo grip on forearm."
+        },
+        {
+          "title": "Apply Yonkyo",
+          "description": "Apply pressure point on forearm."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Yonkyo requires precise pressure point location."
+        }
+      ]
+    }
+  },
+  {
+    "id": "yokomen-uchi-yonkyo",
+    "slug": "yokomen-uchi-yonkyo",
+    "type": "grading",
+    "attack": "yokomen-uchi",
+    "baseTechnique": "yonkyo",
+    "beltLevels": [
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "横面打ち四教",
+    "name_en": "Yokomen Uchi Yonkyo",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Intercept",
+          "description": "Enter to intercept strike."
+        },
+        {
+          "title": "Control",
+          "description": "Capture wrist and transition to yonkyo."
+        },
+        {
+          "title": "Apply",
+          "description": "Apply forearm pressure and pin."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Find the pressure point on the forearm."
+        }
+      ]
+    }
+  },
+  {
+    "id": "yokomen-uchi-gokyo",
+    "slug": "yokomen-uchi-gokyo",
+    "type": "grading",
+    "attack": "yokomen-uchi",
+    "baseTechnique": "gokyo",
+    "beltLevels": [
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "横面打ち五教",
+    "name_en": "Yokomen Uchi Gokyo",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Intercept",
+          "description": "Enter to receive strike."
+        },
+        {
+          "title": "Reverse Grip",
+          "description": "Apply gokyo grip."
+        },
+        {
+          "title": "Control",
+          "description": "Pin with reverse wrist control."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Gokyo is primarily for knife attacks."
+        }
+      ]
+    }
+  },
+  {
+    "id": "katatedori-shihonage",
+    "slug": "katatedori-shihonage",
+    "type": "grading",
+    "attack": "katatedori",
+    "baseTechnique": "shihonage",
+    "beltLevels": [
+      "7th-kyu",
+      "6th-kyu",
+      "5th-kyu",
+      "4th-kyu",
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "片手取り四方投げ",
+    "name_en": "Katatedori Shiho-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Beginner",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Grab",
+          "description": "Partner grabs wrist."
+        },
+        {
+          "title": "Enter and Raise",
+          "description": "Step through and raise arms."
+        },
+        {
+          "title": "Execute Throw",
+          "description": "Cut down in four directions."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Keep arms extended during throw."
+        }
+      ]
+    }
+  },
+  {
+    "id": "shomen-uchi-shihonage",
+    "slug": "shomen-uchi-shihonage",
+    "type": "grading",
+    "attack": "shomen-uchi",
+    "baseTechnique": "shihonage",
+    "beltLevels": [
+      "6th-kyu",
+      "5th-kyu",
+      "4th-kyu",
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "正面打ち四方投げ",
+    "name_en": "Shomen Uchi Shiho-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Strike",
+          "description": "Blend with shomen-uchi."
+        },
+        {
+          "title": "Capture and Turn",
+          "description": "Control wrist and turn."
+        },
+        {
+          "title": "Execute Throw",
+          "description": "Throw in four directions."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Enter deeply to control center."
+        }
+      ]
+    }
+  },
+  {
+    "id": "yokomen-uchi-shihonage",
+    "slug": "yokomen-uchi-shihonage",
+    "type": "grading",
+    "attack": "yokomen-uchi",
+    "baseTechnique": "shihonage",
+    "beltLevels": [
+      "6th-kyu",
+      "5th-kyu",
+      "4th-kyu",
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "横面打ち四方投げ",
+    "name_en": "Yokomen Uchi Shiho-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Intercept",
+          "description": "Enter to intercept yokomen."
+        },
+        {
+          "title": "Redirect",
+          "description": "Redirect strike into shiho-nage."
+        },
+        {
+          "title": "Execute",
+          "description": "Complete throw."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Use circular motion throughout."
+        }
+      ]
+    }
+  },
+  {
+    "id": "ryotedori-shihonage",
+    "slug": "ryotedori-shihonage",
+    "type": "grading",
+    "attack": "ryotedori",
+    "baseTechnique": "shihonage",
+    "beltLevels": [
+      "4th-kyu",
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "両手取り四方投げ",
+    "name_en": "Ryotedori Shiho-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Grab",
+          "description": "Both wrists grabbed."
+        },
+        {
+          "title": "Free One Hand",
+          "description": "Use body movement to free."
+        },
+        {
+          "title": "Execute",
+          "description": "Apply shiho-nage to freed arm."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Movement comes from hips."
+        }
+      ]
+    }
+  },
+  {
+    "id": "chudan-tsuki-shihonage",
+    "slug": "chudan-tsuki-shihonage",
+    "type": "grading",
+    "attack": "tsuki",
+    "baseTechnique": "shihonage",
+    "beltLevels": [
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "突き四方投げ",
+    "name_en": "Chudan Tsuki Shiho-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Evade Thrust",
+          "description": "Step off line of attack."
+        },
+        {
+          "title": "Capture Arm",
+          "description": "Control punching arm."
+        },
+        {
+          "title": "Execute",
+          "description": "Complete shiho-nage throw."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Timing of entry is critical."
+        }
+      ]
+    }
+  },
+  {
+    "id": "morotedori-shihonage",
+    "slug": "morotedori-shihonage",
+    "type": "grading",
+    "attack": "morotedori",
+    "baseTechnique": "shihonage",
+    "beltLevels": [
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "諸手取り四方投げ",
+    "name_en": "Morotedori Shiho-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Grab",
+          "description": "Two hands on one wrist."
+        },
+        {
+          "title": "Break Balance",
+          "description": "Use hip power to break grip."
+        },
+        {
+          "title": "Execute",
+          "description": "Apply shiho-nage."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Strong hip rotation needed."
+        }
+      ]
+    }
+  },
+  {
+    "id": "ushiro-ryotedori-shihonage",
+    "slug": "ushiro-ryotedori-shihonage",
+    "type": "grading",
+    "attack": "ushiro-ryotedori",
+    "baseTechnique": "shihonage",
+    "beltLevels": [
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "後ろ両手取り四方投げ",
+    "name_en": "Ushiro Ryotedori Shiho-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Escape Hold",
+          "description": "Turn before fully grabbed."
+        },
+        {
+          "title": "Control",
+          "description": "Secure control of one arm."
+        },
+        {
+          "title": "Execute",
+          "description": "Complete shiho-nage."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Early movement is essential."
+        }
+      ]
+    }
+  },
+  {
+    "id": "shomen-uchi-iriminage",
+    "slug": "shomen-uchi-iriminage",
+    "type": "grading",
+    "attack": "shomen-uchi",
+    "baseTechnique": "iriminage",
+    "beltLevels": [
+      "7th-kyu",
+      "6th-kyu",
+      "5th-kyu",
+      "4th-kyu",
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "正面打ち入り身投げ",
+    "name_en": "Shomen Uchi Irimi-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Beginner",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Enter",
+          "description": "Irimi entry blending with strike."
+        },
+        {
+          "title": "Turn",
+          "description": "Tenkan to redirect partner."
+        },
+        {
+          "title": "Throw",
+          "description": "Enter behind and throw."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Entry must be decisive."
+        }
+      ]
+    }
+  },
+  {
+    "id": "yokomen-uchi-iriminage",
+    "slug": "yokomen-uchi-iriminage",
+    "type": "grading",
+    "attack": "yokomen-uchi",
+    "baseTechnique": "iriminage",
+    "beltLevels": [
+      "6th-kyu",
+      "5th-kyu",
+      "4th-kyu",
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "横面打ち入り身投げ",
+    "name_en": "Yokomen Uchi Irimi-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Intercept",
+          "description": "Enter to intercept strike."
+        },
+        {
+          "title": "Redirect",
+          "description": "Guide partner's movement."
+        },
+        {
+          "title": "Throw",
+          "description": "Complete irimi-nage."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Control partner's head and posture."
+        }
+      ]
+    }
+  },
+  {
+    "id": "chudan-tsuki-iriminage",
+    "slug": "chudan-tsuki-iriminage",
+    "type": "grading",
+    "attack": "tsuki",
+    "baseTechnique": "iriminage",
+    "beltLevels": [
+      "4th-kyu",
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "突き入り身投げ",
+    "name_en": "Chudan Tsuki Irimi-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Evade",
+          "description": "Step off line of thrust."
+        },
+        {
+          "title": "Enter",
+          "description": "Irimi behind partner."
+        },
+        {
+          "title": "Throw",
+          "description": "Execute irimi-nage."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Mind the second punch."
+        }
+      ]
+    }
+  },
+  {
+    "id": "katatedori-iriminage",
+    "slug": "katatedori-iriminage",
+    "type": "grading",
+    "attack": "katatedori",
+    "baseTechnique": "iriminage",
+    "beltLevels": [
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "片手取り入り身投げ",
+    "name_en": "Katatedori Irimi-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Grab",
+          "description": "Wrist grabbed."
+        },
+        {
+          "title": "Enter",
+          "description": "Irimi to partner's side."
+        },
+        {
+          "title": "Throw",
+          "description": "Complete irimi-nage."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Use grabbed hand to maintain connection."
+        }
+      ]
+    }
+  },
+  {
+    "id": "morotedori-iriminage",
+    "slug": "morotedori-iriminage",
+    "type": "grading",
+    "attack": "morotedori",
+    "baseTechnique": "iriminage",
+    "beltLevels": [
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "諸手取り入り身投げ",
+    "name_en": "Morotedori Irimi-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Grab",
+          "description": "Two hands on one wrist."
+        },
+        {
+          "title": "Break and Enter",
+          "description": "Use body to break hold and enter."
+        },
+        {
+          "title": "Throw",
+          "description": "Complete irimi-nage."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Generate power from center."
+        }
+      ]
+    }
+  },
+  {
+    "id": "ushiro-ryotedori-iriminage",
+    "slug": "ushiro-ryotedori-iriminage",
+    "type": "grading",
+    "attack": "ushiro-ryotedori",
+    "baseTechnique": "iriminage",
+    "beltLevels": [
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "後ろ両手取り入り身投げ",
+    "name_en": "Ushiro Ryotedori Irimi-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Escape",
+          "description": "Turn before fully grabbed."
+        },
+        {
+          "title": "Control",
+          "description": "Control partner's position."
+        },
+        {
+          "title": "Throw",
+          "description": "Execute irimi-nage."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Keep moving throughout."
+        }
+      ]
+    }
+  },
+  {
+    "id": "katatedori-kotegaeshi",
+    "slug": "katatedori-kotegaeshi",
+    "type": "grading",
+    "attack": "katatedori",
+    "baseTechnique": "kotegaeshi",
+    "beltLevels": [
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "片手取り小手返し",
+    "name_en": "Katatedori Kote-gaeshi",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Grab",
+          "description": "Wrist grabbed."
+        },
+        {
+          "title": "Turn and Capture",
+          "description": "Tenkan and capture wrist."
+        },
+        {
+          "title": "Apply",
+          "description": "Apply wrist turn and throw."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Cut down with the throw."
+        }
+      ]
+    }
+  },
+  {
+    "id": "shomen-uchi-kotegaeshi",
+    "slug": "shomen-uchi-kotegaeshi",
+    "type": "grading",
+    "attack": "shomen-uchi",
+    "baseTechnique": "kotegaeshi",
+    "beltLevels": [
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "正面打ち小手返し",
+    "name_en": "Shomen Uchi Kote-gaeshi",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Strike",
+          "description": "Blend with shomen-uchi."
+        },
+        {
+          "title": "Capture",
+          "description": "Capture wrist."
+        },
+        {
+          "title": "Apply",
+          "description": "Apply kote-gaeshi."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Connect before capturing wrist."
+        }
+      ]
+    }
+  },
+  {
+    "id": "yokomen-uchi-kotegaeshi",
+    "slug": "yokomen-uchi-kotegaeshi",
+    "type": "grading",
+    "attack": "yokomen-uchi",
+    "baseTechnique": "kotegaeshi",
+    "beltLevels": [
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "横面打ち小手返し",
+    "name_en": "Yokomen Uchi Kote-gaeshi",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Intercept",
+          "description": "Enter to intercept strike."
+        },
+        {
+          "title": "Capture",
+          "description": "Capture wrist from strike."
+        },
+        {
+          "title": "Apply",
+          "description": "Apply kote-gaeshi."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Smooth transition from strike to capture."
+        }
+      ]
+    }
+  },
+  {
+    "id": "chudan-tsuki-kotegaeshi",
+    "slug": "chudan-tsuki-kotegaeshi",
+    "type": "grading",
+    "attack": "tsuki",
+    "baseTechnique": "kotegaeshi",
+    "beltLevels": [
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "突き小手返し",
+    "name_en": "Chudan Tsuki Kote-gaeshi",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Evade",
+          "description": "Step off line of thrust."
+        },
+        {
+          "title": "Capture",
+          "description": "Capture punching wrist."
+        },
+        {
+          "title": "Apply",
+          "description": "Apply kote-gaeshi."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Timing is critical."
+        }
+      ]
+    }
+  },
+  {
+    "id": "ryotedori-tenchinage",
+    "slug": "ryotedori-tenchinage",
+    "type": "grading",
+    "attack": "ryotedori",
+    "baseTechnique": "tenchinage",
+    "beltLevels": [
+      "4th-kyu",
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "両手取り天地投げ",
+    "name_en": "Ryotedori Tenchi-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Grab",
+          "description": "Both wrists grabbed."
+        },
+        {
+          "title": "Split",
+          "description": "Separate hands - heaven and earth."
+        },
+        {
+          "title": "Throw",
+          "description": "Enter and throw."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Hands go to 'heaven' and 'earth' simultaneously."
+        }
+      ]
+    }
+  },
+  {
+    "id": "shomen-uchi-kokyunage",
+    "slug": "shomen-uchi-kokyunage",
+    "type": "grading",
+    "attack": "shomen-uchi",
+    "baseTechnique": "kokyunage",
+    "beltLevels": [
+      "6th-kyu",
+      "5th-kyu",
+      "4th-kyu",
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "正面打ち呼吸投げ",
+    "name_en": "Shomen Uchi Kokyu-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Beginner",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive",
+          "description": "Blend with strike."
+        },
+        {
+          "title": "Redirect",
+          "description": "Use breathing power to redirect."
+        },
+        {
+          "title": "Throw",
+          "description": "Complete kokyu-nage."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Use ki extension, not muscle."
+        }
+      ]
+    }
+  },
+  {
+    "id": "yokomen-uchi-kokyunage",
+    "slug": "yokomen-uchi-kokyunage",
+    "type": "grading",
+    "attack": "yokomen-uchi",
+    "baseTechnique": "kokyunage",
+    "beltLevels": [
+      "5th-kyu",
+      "4th-kyu",
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "横面打ち呼吸投げ",
+    "name_en": "Yokomen Uchi Kokyu-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Intercept",
+          "description": "Enter to receive strike."
+        },
+        {
+          "title": "Blend",
+          "description": "Harmonize with partner's energy."
+        },
+        {
+          "title": "Throw",
+          "description": "Complete with breath power."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Stay relaxed throughout."
+        }
+      ]
+    }
+  },
+  {
+    "id": "ryotedori-kokyunage",
+    "slug": "ryotedori-kokyunage",
+    "type": "grading",
+    "attack": "ryotedori",
+    "baseTechnique": "kokyunage",
+    "beltLevels": [
+      "4th-kyu",
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "両手取り呼吸投げ",
+    "name_en": "Ryotedori Kokyu-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive",
+          "description": "Both wrists grabbed."
+        },
+        {
+          "title": "Lead",
+          "description": "Lead partner with ki."
+        },
+        {
+          "title": "Throw",
+          "description": "Complete breath throw."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Move from one-point."
+        }
+      ]
+    }
+  },
+  {
+    "id": "katatedori-kokyunage",
+    "slug": "katatedori-kokyunage",
+    "type": "grading",
+    "attack": "katatedori",
+    "baseTechnique": "kokyunage",
+    "beltLevels": [
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "片手取り呼吸投げ",
+    "name_en": "Katatedori Kokyu-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive",
+          "description": "Wrist grabbed."
+        },
+        {
+          "title": "Extend",
+          "description": "Extend ki through arm."
+        },
+        {
+          "title": "Throw",
+          "description": "Complete kokyu-nage."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Hand should lead the body."
+        }
+      ]
+    }
+  },
+  {
+    "id": "morotedori-kokyunage",
+    "slug": "morotedori-kokyunage",
+    "type": "grading",
+    "attack": "morotedori",
+    "baseTechnique": "kokyunage",
+    "beltLevels": [
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "諸手取り呼吸投げ",
+    "name_en": "Morotedori Kokyu-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive",
+          "description": "Two hands on one wrist."
+        },
+        {
+          "title": "Generate Power",
+          "description": "Draw power from hips."
+        },
+        {
+          "title": "Throw",
+          "description": "Complete throw."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Grip is opportunity, not obstacle."
+        }
+      ]
+    }
+  },
+  {
+    "id": "ushiro-ryotedori-kokyunage",
+    "slug": "ushiro-ryotedori-kokyunage",
+    "type": "grading",
+    "attack": "ushiro-ryotedori",
+    "baseTechnique": "kokyunage",
+    "beltLevels": [
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "後ろ両手取り呼吸投げ",
+    "name_en": "Ushiro Ryotedori Kokyu-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Escape",
+          "description": "Turn before fully grabbed."
+        },
+        {
+          "title": "Lead",
+          "description": "Lead partner's energy."
+        },
+        {
+          "title": "Throw",
+          "description": "Complete breath throw."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Keep extending throughout."
+        }
+      ]
+    }
+  },
+  {
+    "id": "zagi-kokyuho",
+    "slug": "zagi-kokyuho",
+    "type": "grading",
+    "attack": "ryotedori",
+    "baseTechnique": "kokyuho",
+    "beltLevels": [
+      "7th-kyu",
+      "6th-kyu",
+      "5th-kyu",
+      "4th-kyu",
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "座技呼吸法",
+    "name_en": "Zagi Kokyu-ho",
+    "category": "Taijutsu",
+    "subcategory": "Kokyu Waza",
+    "difficulty": "Beginner",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Seiza",
+          "description": "Face partner in seiza."
+        },
+        {
+          "title": "Receive",
+          "description": "Wrists grabbed."
+        },
+        {
+          "title": "Extend and Throw",
+          "description": "Breath power throw."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Foundation of all Aikido."
+        }
+      ]
+    }
+  },
+  {
+    "id": "katatedori-kokyuho",
+    "slug": "katatedori-kokyuho",
+    "type": "grading",
+    "attack": "katatedori",
+    "baseTechnique": "kokyuho",
+    "beltLevels": [
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "片手取り呼吸法",
+    "name_en": "Katatedori Kokyu-ho",
+    "category": "Taijutsu",
+    "subcategory": "Kokyu Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive",
+          "description": "Single wrist grabbed."
+        },
+        {
+          "title": "Extend Ki",
+          "description": "Extend breath power through grabbed wrist."
+        },
+        {
+          "title": "Complete",
+          "description": "Complete the exercise."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Focus on breath coordination."
+        }
+      ]
+    }
+  },
+  {
+    "id": "ushiro-katatedori-kokyuho",
+    "slug": "ushiro-katatedori-kokyuho",
+    "type": "grading",
+    "attack": "ushiro-ryotedori",
+    "baseTechnique": "kokyuho",
+    "beltLevels": [
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "後ろ片手取り呼吸法",
+    "name_en": "Ushiro Katatedori Kokyu-ho",
+    "category": "Taijutsu",
+    "subcategory": "Kokyu Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Setup",
+          "description": "Wrist grabbed from behind."
+        },
+        {
+          "title": "Extend",
+          "description": "Extend breath power."
+        },
+        {
+          "title": "Complete",
+          "description": "Complete exercise."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Use whole body."
+        }
+      ]
+    }
+  },
+  {
+    "id": "shomen-uchi-gokyo",
+    "slug": "shomen-uchi-gokyo",
+    "type": "grading",
+    "attack": "shomen-uchi",
+    "baseTechnique": "gokyo",
+    "beltLevels": [
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "正面打ち五教",
+    "name_en": "Shomen Uchi Gokyo",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Strike",
+          "description": "Blend with shomen-uchi attack."
+        },
+        {
+          "title": "Reverse Grip",
+          "description": "Apply gokyo with reverse grip."
+        },
+        {
+          "title": "Control",
+          "description": "Pin with pressure on wrist keeping blade away."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Gokyo is designed to safely disarm knife attacks."
+        }
+      ]
+    }
+  },
+  {
+    "id": "chudan-tsuki-gokyo",
+    "slug": "chudan-tsuki-gokyo",
+    "type": "grading",
+    "attack": "tsuki",
+    "baseTechnique": "gokyo",
+    "beltLevels": [
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "突き五教",
+    "name_en": "Chudan Tsuki Gokyo",
+    "category": "Taijutsu",
+    "subcategory": "Osae Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Evade Thrust",
+          "description": "Enter off line of thrust."
+        },
+        {
+          "title": "Capture Arm",
+          "description": "Control attacking arm with reverse grip."
+        },
+        {
+          "title": "Apply Gokyo",
+          "description": "Pin with gokyo keeping blade away."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Essential for knife defense from thrust attacks."
+        }
+      ]
+    }
+  },
+  {
+    "id": "shomen-uchi-kaitennage",
+    "slug": "shomen-uchi-kaitennage",
+    "type": "grading",
+    "attack": "shomen-uchi",
+    "baseTechnique": "kaitennage",
+    "beltLevels": [
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "正面打ち回転投げ",
+    "name_en": "Shomen Uchi Kaiten-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Strike",
+          "description": "Blend with shomen-uchi attack."
+        },
+        {
+          "title": "Rotate",
+          "description": "Guide partner into rotation."
+        },
+        {
+          "title": "Throw",
+          "description": "Complete rotary throw."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Partner rotates around their own center."
+        }
+      ]
+    }
+  },
+  {
+    "id": "yokomen-uchi-kaitennage",
+    "slug": "yokomen-uchi-kaitennage",
+    "type": "grading",
+    "attack": "yokomen-uchi",
+    "baseTechnique": "kaitennage",
+    "beltLevels": [
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "横面打ち回転投げ",
+    "name_en": "Yokomen Uchi Kaiten-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Intercept",
+          "description": "Enter to intercept yokomen strike."
+        },
+        {
+          "title": "Rotate",
+          "description": "Guide partner into rotation."
+        },
+        {
+          "title": "Throw",
+          "description": "Complete rotary throw."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Use partner's momentum to initiate rotation."
+        }
+      ]
+    }
+  },
+  {
+    "id": "katatedori-kaitennage",
+    "slug": "katatedori-kaitennage",
+    "type": "grading",
+    "attack": "katatedori",
+    "baseTechnique": "kaitennage",
+    "beltLevels": [
+      "3rd-kyu",
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "片手取り回転投げ",
+    "name_en": "Katatedori Kaiten-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Intermediate",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Grab",
+          "description": "Wrist grabbed."
+        },
+        {
+          "title": "Lead and Rotate",
+          "description": "Lead partner and initiate rotation."
+        },
+        {
+          "title": "Throw",
+          "description": "Complete kaiten-nage."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Both uchi and soto variations exist."
+        }
+      ]
+    }
+  },
+  {
+    "id": "ryotedori-kaitennage",
+    "slug": "ryotedori-kaitennage",
+    "type": "grading",
+    "attack": "ryotedori",
+    "baseTechnique": "kaitennage",
+    "beltLevels": [
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "両手取り回転投げ",
+    "name_en": "Ryotedori Kaiten-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Grab",
+          "description": "Both wrists grabbed."
+        },
+        {
+          "title": "Break and Rotate",
+          "description": "Free one hand and rotate partner."
+        },
+        {
+          "title": "Throw",
+          "description": "Complete rotary throw."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Break grip using body movement."
+        }
+      ]
+    }
+  },
+  {
+    "id": "morotedori-kaitennage",
+    "slug": "morotedori-kaitennage",
+    "type": "grading",
+    "attack": "morotedori",
+    "baseTechnique": "kaitennage",
+    "beltLevels": [
+      "2nd-kyu",
+      "1st-kyu",
+      "shodan"
+    ],
+    "name_jp": "諸手取り回転投げ",
+    "name_en": "Morotedori Kaiten-nage",
+    "category": "Taijutsu",
+    "subcategory": "Nage Waza",
+    "difficulty": "Advanced",
+    "content": {
+      "key_postures": [
+        {
+          "title": "Receive Grab",
+          "description": "Two hands on one wrist."
+        },
+        {
+          "title": "Generate Power",
+          "description": "Use hip power to initiate rotation."
+        },
+        {
+          "title": "Throw",
+          "description": "Complete kaiten-nage."
+        }
+      ],
+      "important_notes": [
+        {
+          "note": "Hip rotation is essential."
+        }
+      ]
+    }
+  }
+]

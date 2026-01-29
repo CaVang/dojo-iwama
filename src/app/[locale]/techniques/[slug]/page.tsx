@@ -1,9 +1,11 @@
-import { notFound } from 'next/navigation';
-import { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
-import { routing } from '@/i18n/routing';
-import techniques from '@/data/techniques.json';
-import TechniqueDetailClient from './TechniqueDetailClient';
+import { notFound } from "next/navigation";
+import { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import techniquesData from "@/data/techniques.json";
+import TechniqueDetailClient from "./TechniqueDetailClient";
+
+const techniques = techniquesData.techniques;
 
 interface PageProps {
   params: Promise<{
@@ -18,27 +20,29 @@ export async function generateStaticParams() {
     techniques.map((technique) => ({
       locale,
       slug: technique.slug,
-    }))
+    })),
   );
 }
 
 // Generate metadata for each technique page
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const technique = techniques.find((t) => t.slug === slug);
 
   if (!technique) {
     return {
-      title: 'Technique Not Found',
+      title: "Technique Not Found",
     };
   }
 
   return {
     title: `${technique.name_en} (${technique.name_jp})`,
-    description: technique.description,
+    description: `${technique.name_en} - Iwama Aikido technique`,
     openGraph: {
       title: `${technique.name_en} - Iwama Aikido`,
-      description: technique.description,
+      description: `${technique.name_en} - Iwama Aikido technique`,
     },
   };
 }

@@ -29,7 +29,9 @@ import {
   TatamiPattern,
   BrushReveal,
 } from "@/components/ui/JapaneseElements";
-import techniques from "@/data/techniques.json";
+import techniquesData from "@/data/techniques.json";
+
+const techniques = techniquesData.techniques;
 
 interface Technique {
   id: string;
@@ -39,7 +41,7 @@ interface Technique {
   category: string;
   subcategory?: string;
   difficulty: string;
-  description: string;
+  description?: string;
   variants?: string[];
   content: {
     key_postures: Array<{
@@ -117,18 +119,6 @@ function PostureCard({
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 0.5 }}
     >
-      {/* Large step number with brush effect */}
-      <motion.div
-        className="absolute -left-4 md:-left-20 -top-8 z-0"
-        initial={{ scale: 0, rotate: -20 }}
-        animate={isInView ? { scale: 1, rotate: 0 } : {}}
-        transition={{ duration: 0.6, delay: 0.2, ease: "backOut" }}
-      >
-        <span className="font-jp text-[8rem] md:text-[12rem] text-japan-blue/[0.07] font-bold leading-none">
-          {String(index + 1).padStart(2, "0")}
-        </span>
-      </motion.div>
-
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center relative z-10">
         {/* Image with dramatic reveal */}
         <motion.div
@@ -144,12 +134,12 @@ function PostureCard({
 
             {/* Inner kanji */}
             <motion.div
-              className="absolute inset-0 flex items-center justify-center"
+              className="absolute inset-0 flex items-center justify-center p-6"
               initial={{ scale: 1.2, opacity: 0 }}
               animate={isInView ? { scale: 1, opacity: 1 } : {}}
               transition={{ duration: 1, delay: 0.5 }}
             >
-              <span className="font-jp text-6xl md:text-8xl text-japan-blue/10 group-hover:text-japan-blue/20 transition-colors duration-500">
+              <span className="font-jp text-6xl md:text-7xl lg:text-8xl text-japan-blue/10 group-hover:text-japan-blue/20 transition-colors duration-500">
                 {techniqueNameJp}
               </span>
             </motion.div>
@@ -159,11 +149,6 @@ function PostureCard({
             <div className="absolute top-2 right-2 w-8 h-8 border-r-2 border-t-2 border-cinnabar/40" />
             <div className="absolute bottom-2 left-2 w-8 h-8 border-l-2 border-b-2 border-cinnabar/40" />
             <div className="absolute bottom-2 right-2 w-8 h-8 border-r-2 border-b-2 border-cinnabar/40" />
-
-            {/* Step indicator */}
-            <div className="absolute bottom-4 left-4 bg-japan-blue text-washi px-3 py-1 text-sm font-serif tracking-wider">
-              {stepLabel}
-            </div>
           </div>
         </motion.div>
 
@@ -232,7 +217,15 @@ export default function TechniqueDetailClient({
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const t = useTranslations("techniqueDetail");
+  const tTechniqueData = useTranslations("techniqueData");
   const locale = useLocale();
+
+  // Get description from i18n or fallback to technique data
+  const descKey = `${technique.slug}.description`;
+  const hasTranslation = tTechniqueData.has(descKey as never);
+  const description = hasTranslation
+    ? tTechniqueData(descKey as never)
+    : technique.description || technique.name_en;
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -396,7 +389,7 @@ export default function TechniqueDetailClient({
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-washi/70 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
           >
-            {technique.description}
+            {description}
           </motion.p>
 
           {/* Scroll indicator */}

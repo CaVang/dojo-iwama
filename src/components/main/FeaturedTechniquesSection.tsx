@@ -7,17 +7,22 @@ import { useLocale, useTranslations } from "next-intl";
 import { SeigaihaPattern, BrushReveal } from "@/components/ui/JapaneseElements";
 import AnimatedSection from "./AnimatedSection";
 import TechniqueCard from "./TechniqueCard";
-import techniques from "@/data/techniques.json";
+import techniquesData from "@/data/techniques.json";
+
+const techniques = techniquesData.techniques;
 
 export default function FeaturedTechniquesSection() {
   const t = useTranslations("home");
   const locale = useLocale();
 
-  // Get featured techniques (one from each category)
+  // Get featured techniques (one from each category) - only foundational
+  const foundationalTechniques = techniques.filter(
+    (t) => t.type === "foundational",
+  );
   const featuredTechniques = [
-    techniques.find((t) => t.category === "Taijutsu"),
-    techniques.find((t) => t.category === "Aiki-Ken"),
-    techniques.find((t) => t.category === "Aiki-Jo"),
+    foundationalTechniques.find((t) => t.category === "Taijutsu"),
+    foundationalTechniques.find((t) => t.category === "Aiki-Ken"),
+    foundationalTechniques.find((t) => t.category === "Aiki-Jo"),
   ].filter(Boolean) as (typeof techniques)[0][];
 
   return (
@@ -68,7 +73,7 @@ export default function FeaturedTechniquesSection() {
               technique={technique}
               index={index}
               locale={locale}
-              studyLabel={t("study")}
+              studyLabel={t("view")}
             />
           ))}
         </div>
