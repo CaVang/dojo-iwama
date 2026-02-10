@@ -75,7 +75,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         )
         .eq("id", userId)
         .single();
-
+console.log({ profileData })
       if (profileData) {
         setProfile(profileData as Profile);
 
@@ -100,6 +100,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const {
         data: { session },
       } = await supabase.auth.getSession();
+      console.log({session});
       setSession(session);
       setUser(session?.user ?? null);
 
@@ -160,7 +161,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (permissions.includes("admin.full_access")) return true;
     return permissionIds.some((id) => permissions.includes(id));
   };
-console.log(profile)
+
   const role: UserRole = (profile?.role?.name as UserRole) ?? null;
   const isAdmin = role === "admin";
   const isContentModerator = role === "content_moderator" || isAdmin;
