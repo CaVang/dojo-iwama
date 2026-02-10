@@ -160,7 +160,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (permissions.includes("admin.full_access")) return true;
     return permissionIds.some((id) => permissions.includes(id));
   };
-
+console.log(profile)
   const role: UserRole = (profile?.role?.name as UserRole) ?? null;
   const isAdmin = role === "admin";
   const isContentModerator = role === "content_moderator" || isAdmin;
