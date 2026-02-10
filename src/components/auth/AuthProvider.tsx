@@ -100,9 +100,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const getSession = async () => {
       try {
+        console.log('getSession');
         const {
           data: { session },
         } = await supabase.auth.getSession();
+        console.log({session});
 
         setSession(session);
         setUser(session?.user ?? null);
