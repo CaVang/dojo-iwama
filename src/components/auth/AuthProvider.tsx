@@ -88,7 +88,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             .eq("role_id", profileData.role_id);
 
           if (permData) {
-            setPermissions(permData.map((p) => p.permission_id));
+            setPermissions(permData.map((p: { permission_id: string }) => p.permission_id));
           }
         }
       }
@@ -98,32 +98,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   );
 
   useEffect(() => {
-    const getSession = async () => {
-      try {
-        console.log('getSession');
-        const {
-          data: { session },
-        } = await supabase.auth.getSession();
-        console.log({session});
+    let mounted = true;
 
-        setSession(session);
-        setUser(session?.user ?? null);
-
-        if (session?.user) {
-          await fetchProfile(session.user.id);
-        }
-      } catch (error) {
-        console.error("Error getting session:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    getSession();
-
+    // Use onAuthStateChange as primary — it fires immediately with
+    // the current session and does NOT use the Web Locks API.
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (_event, session) => {
+    } = supabase.auth.onAuthStateChange(async (_event: string, session: Session | null) => {
+      if (!mounted) return;
+
       setSession(session);
       setUser(session?.user ?? null);
 
@@ -133,9 +116,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setProfile(null);
         setPermissions([]);
       }
+
+      setIsLoading(false);
     });
 
-    return () => subscription.unsubscribe();
+    // Safety timeout: if onAuthStateChange never fires (edge case),
+    // ensure the app doesn't stay in loading state forever.
+    const timeout = setTimeout(() => {
+      if (mounted) {
+        setIsLoading(false);
+      }
+    }, 3000);
+
+    return () => {
+      mounted = false;
+      clearTimeout(timeout);
+      subscription.unsubscribe();
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
