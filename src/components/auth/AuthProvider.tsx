@@ -6,6 +6,7 @@ import {
   useEffect,
   useState,
   useCallback,
+  useMemo,
   ReactNode,
 } from "react";
 import { User, Session } from "@supabase/supabase-js";
@@ -60,7 +61,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [permissions, setPermissions] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const supabase = createClient();
+  const supabase = useMemo(() => createClient(), []);
 
   const fetchProfile = useCallback(
     async (userId: string) => {
@@ -75,7 +76,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         )
         .eq("id", userId)
         .single();
-console.log({ profileData })
+
       if (profileData) {
         setProfile(profileData as Profile);
 
@@ -92,7 +93,8 @@ console.log({ profileData })
         }
       }
     },
-    [supabase],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
   );
 
   useEffect(() => {
@@ -100,7 +102,7 @@ console.log({ profileData })
       const {
         data: { session },
       } = await supabase.auth.getSession();
-      console.log({session});
+
       setSession(session);
       setUser(session?.user ?? null);
 
@@ -127,7 +129,8 @@ console.log({ profileData })
     });
 
     return () => subscription.unsubscribe();
-  }, [supabase, fetchProfile]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const signInWithGoogle = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
