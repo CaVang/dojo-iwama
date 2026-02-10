@@ -65,32 +65,37 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const fetchProfile = useCallback(
     async (userId: string) => {
-      // Fetch profile with role
-      const { data: profileData } = await supabase
-        .from("profiles")
-        .select(
-          `
-        *,
-        role:roles(name, display_name, priority)
-      `,
-        )
-        .eq("id", userId)
-        .single();
-console.log({profileData});
-      if (profileData) {
-        setProfile(profileData as Profile);
+      try {
+        // Fetch profile with role
+        console.log({userId});
+        const { data: profileData } = await supabase
+          .from("profiles")
+          .select(
+            `
+          *,
+          role:roles(name, display_name, priority)
+        `,
+          )
+          .eq("id", userId)
+          .single();
+  console.log({profileData});
+        if (profileData) {
+          setProfile(profileData as Profile);
 
-        // Fetch permissions for this role
-        if (profileData.role_id) {
-          const { data: permData } = await supabase
-            .from("role_permissions")
-            .select("permission_id")
-            .eq("role_id", profileData.role_id);
+          // Fetch permissions for this role
+          if (profileData.role_id) {
+            const { data: permData } = await supabase
+              .from("role_permissions")
+              .select("permission_id")
+              .eq("role_id", profileData.role_id);
 
-          if (permData) {
-            setPermissions(permData.map((p: { permission_id: string }) => p.permission_id));
+            if (permData) {
+              setPermissions(permData.map((p: { permission_id: string }) => p.permission_id));
+            }
           }
         }
+      } catch (error) {
+        console.error("Error fetching profile:", error);
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
