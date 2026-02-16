@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useMemo, useCallback, useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { vertexShader, fragmentShader } from "../shaders/videoShaders";
 import { useBodyPix } from "../hooks/useBodyPix";
@@ -26,16 +26,19 @@ function createDefaultMask(): THREE.DataTexture {
 
 // Inner R3F component that renders the filtered video plane
 function FilteredVideoPlane({
+  videoElement,
   videoTexture,
   maskTexture,
   resolution,
 }: {
+  videoElement: HTMLVideoElement;
   videoTexture: THREE.VideoTexture;
   maskTexture: THREE.DataTexture | null;
   resolution: [number, number];
 }) {
   const materialRef = useRef<THREE.ShaderMaterial>(null);
   const defaultMask = useMemo(() => createDefaultMask(), []);
+  const { viewport } = useThree();
 
   const activeMask = maskTexture ?? defaultMask;
 
@@ -46,12 +49,11 @@ function FilteredVideoPlane({
       uResolution: { value: new THREE.Vector2(resolution[0], resolution[1]) },
       uEdgeThreshold: { value: 0.12 },
     }),
-    // Only recreate on videoTexture change
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [videoTexture],
   );
 
-  // Update dynamic uniforms every frame
+  // Update dynamic uniforms + force texture refresh every frame
   useFrame(() => {
     if (materialRef.current) {
       materialRef.current.uniforms.uMask.value = activeMask;
@@ -59,17 +61,21 @@ function FilteredVideoPlane({
         resolution[0],
         resolution[1],
       );
+
+      // Force VideoTexture to pull the latest frame from the <video> element
+      if (
+        videoElement.readyState >= videoElement.HAVE_CURRENT_DATA &&
+        !videoElement.paused
+      ) {
+        videoTexture.needsUpdate = true;
+      }
     }
   });
 
-  // Calculate plane aspect ratio to match video
-  const aspect = resolution[0] / resolution[1];
-  const planeHeight = 2;
-  const planeWidth = planeHeight * aspect;
-
+  // Fill the entire viewport regardless of aspect ratio
   return (
     <mesh>
-      <planeGeometry args={[planeWidth, planeHeight]} />
+      <planeGeometry args={[viewport.width, viewport.height]} />
       <shaderMaterial
         ref={materialRef}
         vertexShader={vertexShader}
@@ -133,28 +139,20 @@ export default function VideoFilterCanvas() {
       setResolution([video.videoWidth, video.videoHeight]);
     };
 
-    const onCanPlayThrough = () => {
-      // Only create texture if video has decoded frames
-      if (video.readyState >= 3 && video.videoWidth > 0) {
+    const onCanPlay = () => {
+      // Create texture once the video has enough data
+      if (video.readyState >= 2 && video.videoWidth > 0) {
         const tex = new THREE.VideoTexture(video);
         tex.minFilter = THREE.LinearFilter;
         tex.magFilter = THREE.LinearFilter;
         tex.colorSpace = THREE.SRGBColorSpace;
+        // Disable auto-update — we control updates via useFrame
+        tex.generateMipmaps = false;
         tex.needsUpdate = true;
         setVideoTexture(tex);
         setIsVideoReady(true);
       }
     };
-
-    // Add listeners BEFORE setting src
-    video.addEventListener("loadedmetadata", onLoadedMetadata);
-    video.addEventListener("canplaythrough", onCanPlayThrough);
-    video.addEventListener("timeupdate", onTimeUpdate);
-    video.addEventListener("ended", onEnded);
-
-    // Set source and load
-    video.src = videoSrc;
-    video.load();
 
     function onTimeUpdate() {
       if (video) setCurrentTime(video.currentTime);
@@ -164,9 +162,21 @@ export default function VideoFilterCanvas() {
       setIsPlaying(false);
     }
 
+    // Add listeners BEFORE setting src
+    video.addEventListener("loadedmetadata", onLoadedMetadata);
+    video.addEventListener("canplay", onCanPlay);
+    video.addEventListener("canplaythrough", onCanPlay);
+    video.addEventListener("timeupdate", onTimeUpdate);
+    video.addEventListener("ended", onEnded);
+
+    // Set source and load
+    video.src = videoSrc;
+    video.load();
+
     return () => {
       video.removeEventListener("loadedmetadata", onLoadedMetadata);
-      video.removeEventListener("canplaythrough", onCanPlayThrough);
+      video.removeEventListener("canplay", onCanPlay);
+      video.removeEventListener("canplaythrough", onCanPlay);
       video.removeEventListener("timeupdate", onTimeUpdate);
       video.removeEventListener("ended", onEnded);
     };
@@ -178,8 +188,13 @@ export default function VideoFilterCanvas() {
     if (!video) return;
 
     if (video.paused) {
-      video.play().catch(console.error);
-      setIsPlaying(true);
+      video
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch((err) => {
+          console.error("Video play failed:", err);
+          setIsPlaying(false);
+        });
     } else {
       video.pause();
       setIsPlaying(false);
@@ -217,14 +232,19 @@ export default function VideoFilterCanvas() {
 
   return (
     <div className="space-y-6">
-      {/* Hidden video element */}
+      {/* Hidden video element — must NOT have display:none, use offscreen positioning */}
       <video
         ref={videoRef}
-        crossOrigin="anonymous"
         playsInline
         muted
         preload="auto"
-        className="hidden"
+        style={{
+          position: "absolute",
+          width: "1px",
+          height: "1px",
+          opacity: 0,
+          pointerEvents: "none",
+        }}
       />
 
       {/* File Upload */}
@@ -283,13 +303,15 @@ export default function VideoFilterCanvas() {
           minHeight: "300px",
         }}
       >
-        {isVideoReady && videoTexture ? (
+        {isVideoReady && videoTexture && videoRef.current ? (
           <Canvas
-            camera={{ position: [0, 0, 2], fov: 50 }}
+            orthographic
+            camera={{ zoom: 1, position: [0, 0, 1] }}
             gl={{ antialias: false, alpha: false }}
             style={{ width: "100%", height: "100%" }}
           >
             <FilteredVideoPlane
+              videoElement={videoRef.current}
               videoTexture={videoTexture}
               maskTexture={maskTexture}
               resolution={resolution}
