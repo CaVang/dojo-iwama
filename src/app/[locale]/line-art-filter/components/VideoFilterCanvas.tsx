@@ -2,13 +2,11 @@
 
 import { useRef, useState, useCallback, useEffect } from "react";
 import { Upload, Play, Pause, Loader2, AlertCircle, Film } from "lucide-react";
-import { useBodyPix } from "../hooks/useBodyPix";
 
 const EDGE_THRESHOLD = 30;
 
 /**
- * Apply Sobel edge detection on imageData in-place, using maskData for
- * body / background separation.
+ * Apply Sobel edge detection on entire frame.
  *
  * - Body pixels (mask > 128): black lines on white (line art)
  * - Background pixels: muted, desaturated original color
@@ -16,7 +14,6 @@ const EDGE_THRESHOLD = 30;
 function applyLineArtFilter(
   src: ImageData,
   dst: ImageData,
-  maskData: Uint8ClampedArray | null,
   width: number,
   height: number,
 ) {
@@ -44,22 +41,11 @@ function applyLineArtFilter(
       const gy = -tl - 2 * t - tr + bl + 2 * b + br;
       const edge = Math.sqrt(gx * gx + gy * gy);
 
-      // Check mask: is this pixel a body pixel?
-      const isBody = maskData ? maskData[idx] > 128 : true;
-
-      if (isBody) {
-        // Line art: white background, black edges
-        const v = edge > EDGE_THRESHOLD ? 0 : 255;
-        d[idx] = v;
-        d[idx + 1] = v;
-        d[idx + 2] = v;
-      } else {
-        // Muted background
-        const gray = lum(idx);
-        d[idx] = Math.round((gray * 0.7 + s[idx] * 0.3) * 0.6);
-        d[idx + 1] = Math.round((gray * 0.7 + s[idx + 1] * 0.3) * 0.6);
-        d[idx + 2] = Math.round((gray * 0.7 + s[idx + 2] * 0.3) * 0.6);
-      }
+      // Line art for entire frame: white background, black edges
+      const v = edge > EDGE_THRESHOLD ? 0 : 255;
+      d[idx] = v;
+      d[idx + 1] = v;
+      d[idx + 2] = v;
       d[idx + 3] = 255;
     }
   }
@@ -78,10 +64,7 @@ export default function VideoFilterCanvas() {
   const [resolution, setResolution] = useState<[number, number]>([1920, 1080]);
   const [videoFileName, setVideoFileName] = useState<string>("");
 
-  const { maskTexture, isModelLoading, modelError } = useBodyPix(
-    videoRef,
-    isVideoReady,
-  );
+
 
   // Handle file upload
   const handleFileChange = useCallback(
@@ -160,9 +143,6 @@ export default function VideoFilterCanvas() {
     const ctx = canvas.getContext("2d", { willReadFrequently: true });
     if (!ctx) return;
 
-    // Mask data from BodyPix (RGBA texture data)
-    let maskImageData: Uint8ClampedArray | null = null;
-
     const renderFrame = () => {
       if (video.paused || video.ended) {
         animFrameRef.current = 0;
@@ -176,45 +156,7 @@ export default function VideoFilterCanvas() {
       const src = ctx.getImageData(0, 0, canvas.width, canvas.height);
       const dst = ctx.createImageData(canvas.width, canvas.height);
 
-      // Get mask data from BodyPix texture if available
-      if (maskTexture?.image?.data) {
-        const texData = maskTexture.image.data as Uint8Array;
-        // Mask texture may be a different size than the video.
-        // If same size, use directly; otherwise scale
-        if (
-          maskTexture.image.width === canvas.width &&
-          maskTexture.image.height === canvas.height
-        ) {
-          maskImageData = new Uint8ClampedArray(texData);
-        } else {
-          // Scale mask to video size using a temporary canvas
-          const tmpCanvas = document.createElement("canvas");
-          tmpCanvas.width = maskTexture.image.width;
-          tmpCanvas.height = maskTexture.image.height;
-          const tmpCtx = tmpCanvas.getContext("2d");
-          if (tmpCtx) {
-            const imgData = new ImageData(
-              new Uint8ClampedArray(texData),
-              maskTexture.image.width,
-              maskTexture.image.height,
-            );
-            tmpCtx.putImageData(imgData, 0, 0);
-
-            // Scale to video size
-            const scaleCanvas = document.createElement("canvas");
-            scaleCanvas.width = canvas.width;
-            scaleCanvas.height = canvas.height;
-            const scaleCtx = scaleCanvas.getContext("2d");
-            if (scaleCtx) {
-              scaleCtx.drawImage(tmpCanvas, 0, 0, canvas.width, canvas.height);
-              const scaled = scaleCtx.getImageData(0, 0, canvas.width, canvas.height);
-              maskImageData = scaled.data;
-            }
-          }
-        }
-      }
-
-      applyLineArtFilter(src, dst, maskImageData, canvas.width, canvas.height);
+      applyLineArtFilter(src, dst, canvas.width, canvas.height);
       ctx.putImageData(dst, 0, 0);
 
       animFrameRef.current = requestAnimationFrame(renderFrame);
@@ -242,7 +184,7 @@ export default function VideoFilterCanvas() {
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
         const src = ctx.getImageData(0, 0, canvas.width, canvas.height);
         const dst = ctx.createImageData(canvas.width, canvas.height);
-        applyLineArtFilter(src, dst, maskImageData, canvas.width, canvas.height);
+        applyLineArtFilter(src, dst, canvas.width, canvas.height);
         ctx.putImageData(dst, 0, 0);
       }
     };
@@ -253,7 +195,7 @@ export default function VideoFilterCanvas() {
       ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
       const src = ctx.getImageData(0, 0, canvas.width, canvas.height);
       const dst = ctx.createImageData(canvas.width, canvas.height);
-      applyLineArtFilter(src, dst, maskImageData, canvas.width, canvas.height);
+      applyLineArtFilter(src, dst, canvas.width, canvas.height);
       ctx.putImageData(dst, 0, 0);
     }
 
@@ -266,7 +208,7 @@ export default function VideoFilterCanvas() {
         animFrameRef.current = 0;
       }
     };
-  }, [isVideoReady, maskTexture]);
+  }, [isVideoReady]);
 
   // Play/Pause toggle
   const togglePlayPause = useCallback(() => {
@@ -356,21 +298,7 @@ export default function VideoFilterCanvas() {
         )}
       </div>
 
-      {/* Model loading indicator */}
-      {isModelLoading && (
-        <div className="flex items-center gap-3 p-4 bg-cta/5 border border-cta/20 rounded-lg text-sm text-cta">
-          <Loader2 size={16} className="animate-spin" />
-          <span>Loading BodyPix AI model...</span>
-        </div>
-      )}
 
-      {/* Model error */}
-      {modelError && (
-        <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
-          <AlertCircle size={16} />
-          <span>BodyPix Error: {modelError}</span>
-        </div>
-      )}
 
       {/* Video loading state */}
       {videoSrc && !isVideoReady && (
