@@ -14,6 +14,16 @@ import {
   Film,
 } from "lucide-react";
 
+// Create a default white 1x1 mask texture (all body = no masking)
+function createDefaultMask(): THREE.DataTexture {
+  const data = new Uint8Array([255, 255, 255, 255]);
+  const tex = new THREE.DataTexture(data, 1, 1, THREE.RGBAFormat);
+  tex.minFilter = THREE.LinearFilter;
+  tex.magFilter = THREE.LinearFilter;
+  tex.needsUpdate = true;
+  return tex;
+}
+
 // Inner R3F component that renders the filtered video plane
 function FilteredVideoPlane({
   videoTexture,
@@ -25,21 +35,30 @@ function FilteredVideoPlane({
   resolution: [number, number];
 }) {
   const materialRef = useRef<THREE.ShaderMaterial>(null);
+  const defaultMask = useMemo(() => createDefaultMask(), []);
+
+  const activeMask = maskTexture ?? defaultMask;
 
   const uniforms = useMemo(
     () => ({
       uTexture: { value: videoTexture },
-      uMask: { value: maskTexture },
+      uMask: { value: activeMask },
       uResolution: { value: new THREE.Vector2(resolution[0], resolution[1]) },
       uEdgeThreshold: { value: 0.12 },
     }),
-    [videoTexture, maskTexture, resolution],
+    // Only recreate on videoTexture change
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [videoTexture],
   );
 
-  // Update mask texture every frame
+  // Update dynamic uniforms every frame
   useFrame(() => {
     if (materialRef.current) {
-      materialRef.current.uniforms.uMask.value = maskTexture;
+      materialRef.current.uniforms.uMask.value = activeMask;
+      materialRef.current.uniforms.uResolution.value.set(
+        resolution[0],
+        resolution[1],
+      );
     }
   });
 
@@ -72,6 +91,7 @@ export default function VideoFilterCanvas() {
   const [videoTexture, setVideoTexture] = useState<THREE.VideoTexture | null>(
     null,
   );
+  const [videoFileName, setVideoFileName] = useState<string>("");
 
   const { maskTexture, isModelLoading, modelError } = useBodyPix(
     videoRef,
@@ -84,13 +104,15 @@ export default function VideoFilterCanvas() {
       const file = e.target.files?.[0];
       if (!file) return;
 
-      // Cleanup previous video
+      // Cleanup previous
       if (videoSrc) URL.revokeObjectURL(videoSrc);
       if (videoTexture) videoTexture.dispose();
 
       setIsVideoReady(false);
       setIsPlaying(false);
       setCurrentTime(0);
+      setVideoTexture(null);
+      setVideoFileName(file.name);
 
       const url = URL.createObjectURL(file);
       setVideoSrc(url);
@@ -103,39 +125,48 @@ export default function VideoFilterCanvas() {
     const video = videoRef.current;
     if (!video || !videoSrc) return;
 
-    video.src = videoSrc;
-    video.load();
+    // Reset state
+    setIsVideoReady(false);
 
     const onLoadedMetadata = () => {
       setDuration(video.duration);
       setResolution([video.videoWidth, video.videoHeight]);
     };
 
-    const onCanPlay = () => {
-      const tex = new THREE.VideoTexture(video);
-      tex.minFilter = THREE.LinearFilter;
-      tex.magFilter = THREE.LinearFilter;
-      tex.colorSpace = THREE.SRGBColorSpace;
-      setVideoTexture(tex);
-      setIsVideoReady(true);
+    const onCanPlayThrough = () => {
+      // Only create texture if video has decoded frames
+      if (video.readyState >= 3 && video.videoWidth > 0) {
+        const tex = new THREE.VideoTexture(video);
+        tex.minFilter = THREE.LinearFilter;
+        tex.magFilter = THREE.LinearFilter;
+        tex.colorSpace = THREE.SRGBColorSpace;
+        tex.needsUpdate = true;
+        setVideoTexture(tex);
+        setIsVideoReady(true);
+      }
     };
 
-    const onTimeUpdate = () => {
-      setCurrentTime(video.currentTime);
-    };
-
-    const onEnded = () => {
-      setIsPlaying(false);
-    };
-
+    // Add listeners BEFORE setting src
     video.addEventListener("loadedmetadata", onLoadedMetadata);
-    video.addEventListener("canplay", onCanPlay);
+    video.addEventListener("canplaythrough", onCanPlayThrough);
     video.addEventListener("timeupdate", onTimeUpdate);
     video.addEventListener("ended", onEnded);
 
+    // Set source and load
+    video.src = videoSrc;
+    video.load();
+
+    function onTimeUpdate() {
+      if (video) setCurrentTime(video.currentTime);
+    }
+
+    function onEnded() {
+      setIsPlaying(false);
+    }
+
     return () => {
       video.removeEventListener("loadedmetadata", onLoadedMetadata);
-      video.removeEventListener("canplay", onCanPlay);
+      video.removeEventListener("canplaythrough", onCanPlayThrough);
       video.removeEventListener("timeupdate", onTimeUpdate);
       video.removeEventListener("ended", onEnded);
     };
@@ -147,7 +178,7 @@ export default function VideoFilterCanvas() {
     if (!video) return;
 
     if (video.paused) {
-      video.play();
+      video.play().catch(console.error);
       setIsPlaying(true);
     } else {
       video.pause();
@@ -181,7 +212,8 @@ export default function VideoFilterCanvas() {
       if (videoSrc) URL.revokeObjectURL(videoSrc);
       if (videoTexture) videoTexture.dispose();
     };
-  }, [videoSrc, videoTexture]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="space-y-6">
@@ -191,6 +223,7 @@ export default function VideoFilterCanvas() {
         crossOrigin="anonymous"
         playsInline
         muted
+        preload="auto"
         className="hidden"
       />
 
@@ -206,14 +239,14 @@ export default function VideoFilterCanvas() {
         <input
           id="video-upload"
           type="file"
-          accept="video/*"
+          accept="video/mp4,video/webm,video/ogg"
           onChange={handleFileChange}
           className="hidden"
         />
-        {videoSrc && (
+        {videoFileName && (
           <span className="text-sm text-text-muted flex items-center gap-1">
             <Film size={14} />
-            Video loaded
+            {videoFileName}
           </span>
         )}
       </div>
@@ -234,10 +267,21 @@ export default function VideoFilterCanvas() {
         </div>
       )}
 
+      {/* Video loading state */}
+      {videoSrc && !isVideoReady && (
+        <div className="flex items-center gap-3 p-4 bg-surface border border-border/50 rounded-lg text-sm text-text-muted">
+          <Loader2 size={16} className="animate-spin" />
+          <span>Processing video...</span>
+        </div>
+      )}
+
       {/* Canvas Area */}
       <div
         className="relative bg-black rounded-xl overflow-hidden border border-border/50"
-        style={{ aspectRatio: `${resolution[0]} / ${resolution[1]}` }}
+        style={{
+          aspectRatio: `${resolution[0]} / ${resolution[1]}`,
+          minHeight: "300px",
+        }}
       >
         {isVideoReady && videoTexture ? (
           <Canvas
