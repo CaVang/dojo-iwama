@@ -21,9 +21,9 @@ const VideoFilterCanvas = dynamic(
 );
 
 export default function LineArtFilterPage() {
-  const { isAdmin, isLoading } = useAuth();
+  const { isAdmin, isLoading, profile } = useAuth();
   const router = useRouter();
-console.log({isAdmin, isLoading});
+console.log({isAdmin, isLoading, profile});
   // Admin guard
   useEffect(() => {
     if (!isLoading && !isAdmin) {
