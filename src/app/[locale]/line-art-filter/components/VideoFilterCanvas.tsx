@@ -1,102 +1,81 @@
 "use client";
 
-import { useRef, useState, useMemo, useCallback, useEffect } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import * as THREE from "three";
-import { vertexShader, fragmentShader } from "../shaders/videoShaders";
+import { useRef, useState, useCallback, useEffect } from "react";
+import { Upload, Play, Pause, Loader2, AlertCircle, Film } from "lucide-react";
 import { useBodyPix } from "../hooks/useBodyPix";
-import {
-  Upload,
-  Play,
-  Pause,
-  Loader2,
-  AlertCircle,
-  Film,
-} from "lucide-react";
 
-// Create a default white 1x1 mask texture (all body = no masking)
-function createDefaultMask(): THREE.DataTexture {
-  const data = new Uint8Array([255, 255, 255, 255]);
-  const tex = new THREE.DataTexture(data, 1, 1, THREE.RGBAFormat);
-  tex.minFilter = THREE.LinearFilter;
-  tex.magFilter = THREE.LinearFilter;
-  tex.needsUpdate = true;
-  return tex;
-}
+const EDGE_THRESHOLD = 30;
 
-// Inner R3F component that renders the filtered video plane
-function FilteredVideoPlane({
-  videoElement,
-  videoTexture,
-  maskTexture,
-  resolution,
-}: {
-  videoElement: HTMLVideoElement;
-  videoTexture: THREE.VideoTexture;
-  maskTexture: THREE.DataTexture | null;
-  resolution: [number, number];
-}) {
-  const materialRef = useRef<THREE.ShaderMaterial>(null);
-  const defaultMask = useMemo(() => createDefaultMask(), []);
-  const { viewport } = useThree();
+/**
+ * Apply Sobel edge detection on imageData in-place, using maskData for
+ * body / background separation.
+ *
+ * - Body pixels (mask > 128): black lines on white (line art)
+ * - Background pixels: muted, desaturated original color
+ */
+function applyLineArtFilter(
+  src: ImageData,
+  dst: ImageData,
+  maskData: Uint8ClampedArray | null,
+  width: number,
+  height: number,
+) {
+  const s = src.data;
+  const d = dst.data;
 
-  const activeMask = maskTexture ?? defaultMask;
+  for (let y = 1; y < height - 1; y++) {
+    for (let x = 1; x < width - 1; x++) {
+      const idx = (y * width + x) * 4;
 
-  const uniforms = useMemo(
-    () => ({
-      uTexture: { value: videoTexture },
-      uMask: { value: activeMask },
-      uResolution: { value: new THREE.Vector2(resolution[0], resolution[1]) },
-      uEdgeThreshold: { value: 0.12 },
-    }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [videoTexture],
-  );
+      // Luminance helper (inline for perf)
+      const lum = (i: number) => s[i] * 0.299 + s[i + 1] * 0.587 + s[i + 2] * 0.114;
 
-  // Update dynamic uniforms + force texture refresh every frame
-  useFrame(() => {
-    if (materialRef.current) {
-      materialRef.current.uniforms.uMask.value = activeMask;
-      materialRef.current.uniforms.uResolution.value.set(
-        resolution[0],
-        resolution[1],
-      );
+      // Sobel kernel sample positions
+      const tl = lum(((y - 1) * width + (x - 1)) * 4);
+      const t = lum(((y - 1) * width + x) * 4);
+      const tr = lum(((y - 1) * width + (x + 1)) * 4);
+      const l = lum((y * width + (x - 1)) * 4);
+      const r = lum((y * width + (x + 1)) * 4);
+      const bl = lum(((y + 1) * width + (x - 1)) * 4);
+      const b = lum(((y + 1) * width + x) * 4);
+      const br = lum(((y + 1) * width + (x + 1)) * 4);
 
-      // Force VideoTexture to pull the latest frame from the <video> element
-      if (
-        videoElement.readyState >= videoElement.HAVE_CURRENT_DATA &&
-        !videoElement.paused
-      ) {
-        videoTexture.needsUpdate = true;
+      const gx = -tl - 2 * l - bl + tr + 2 * r + br;
+      const gy = -tl - 2 * t - tr + bl + 2 * b + br;
+      const edge = Math.sqrt(gx * gx + gy * gy);
+
+      // Check mask: is this pixel a body pixel?
+      const isBody = maskData ? maskData[idx] > 128 : true;
+
+      if (isBody) {
+        // Line art: white background, black edges
+        const v = edge > EDGE_THRESHOLD ? 0 : 255;
+        d[idx] = v;
+        d[idx + 1] = v;
+        d[idx + 2] = v;
+      } else {
+        // Muted background
+        const gray = lum(idx);
+        d[idx] = Math.round((gray * 0.7 + s[idx] * 0.3) * 0.6);
+        d[idx + 1] = Math.round((gray * 0.7 + s[idx + 1] * 0.3) * 0.6);
+        d[idx + 2] = Math.round((gray * 0.7 + s[idx + 2] * 0.3) * 0.6);
       }
+      d[idx + 3] = 255;
     }
-  });
-
-  // Fill the entire viewport regardless of aspect ratio
-  return (
-    <mesh>
-      <planeGeometry args={[viewport.width, viewport.height]} />
-      <shaderMaterial
-        ref={materialRef}
-        vertexShader={vertexShader}
-        fragmentShader={fragmentShader}
-        uniforms={uniforms}
-      />
-    </mesh>
-  );
+  }
 }
 
 export default function VideoFilterCanvas() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animFrameRef = useRef<number>(0);
+
   const [videoSrc, setVideoSrc] = useState<string | null>(null);
   const [isVideoReady, setIsVideoReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [resolution, setResolution] = useState<[number, number]>([1920, 1080]);
-  const [videoTexture, setVideoTexture] = useState<THREE.VideoTexture | null>(
-    null,
-  );
   const [videoFileName, setVideoFileName] = useState<string>("");
 
   const { maskTexture, isModelLoading, modelError } = useBodyPix(
@@ -110,20 +89,17 @@ export default function VideoFilterCanvas() {
       const file = e.target.files?.[0];
       if (!file) return;
 
-      // Cleanup previous
       if (videoSrc) URL.revokeObjectURL(videoSrc);
-      if (videoTexture) videoTexture.dispose();
 
       setIsVideoReady(false);
       setIsPlaying(false);
       setCurrentTime(0);
-      setVideoTexture(null);
       setVideoFileName(file.name);
 
       const url = URL.createObjectURL(file);
       setVideoSrc(url);
     },
-    [videoSrc, videoTexture],
+    [videoSrc],
   );
 
   // Setup video element when source changes
@@ -131,7 +107,6 @@ export default function VideoFilterCanvas() {
     const video = videoRef.current;
     if (!video || !videoSrc) return;
 
-    // Reset state
     setIsVideoReady(false);
 
     const onLoadedMetadata = () => {
@@ -140,16 +115,7 @@ export default function VideoFilterCanvas() {
     };
 
     const onCanPlay = () => {
-      // Create texture once the video has enough data
       if (video.readyState >= 2 && video.videoWidth > 0) {
-        const tex = new THREE.VideoTexture(video);
-        tex.minFilter = THREE.LinearFilter;
-        tex.magFilter = THREE.LinearFilter;
-        tex.colorSpace = THREE.SRGBColorSpace;
-        // Disable auto-update — we control updates via useFrame
-        tex.generateMipmaps = false;
-        tex.needsUpdate = true;
-        setVideoTexture(tex);
         setIsVideoReady(true);
       }
     };
@@ -162,14 +128,12 @@ export default function VideoFilterCanvas() {
       setIsPlaying(false);
     }
 
-    // Add listeners BEFORE setting src
     video.addEventListener("loadedmetadata", onLoadedMetadata);
     video.addEventListener("canplay", onCanPlay);
     video.addEventListener("canplaythrough", onCanPlay);
     video.addEventListener("timeupdate", onTimeUpdate);
     video.addEventListener("ended", onEnded);
 
-    // Set source and load
     video.src = videoSrc;
     video.load();
 
@@ -181,6 +145,128 @@ export default function VideoFilterCanvas() {
       video.removeEventListener("ended", onEnded);
     };
   }, [videoSrc]);
+
+  // Rendering loop — draw filtered frames to canvas
+  useEffect(() => {
+    if (!isVideoReady) return;
+
+    const video = videoRef.current;
+    const canvas = canvasRef.current;
+    if (!video || !canvas) return;
+
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+
+    const ctx = canvas.getContext("2d", { willReadFrequently: true });
+    if (!ctx) return;
+
+    // Mask data from BodyPix (RGBA texture data)
+    let maskImageData: Uint8ClampedArray | null = null;
+
+    const renderFrame = () => {
+      if (video.paused || video.ended) {
+        animFrameRef.current = 0;
+        return;
+      }
+
+      // Draw current video frame
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+      // Read pixels
+      const src = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const dst = ctx.createImageData(canvas.width, canvas.height);
+
+      // Get mask data from BodyPix texture if available
+      if (maskTexture?.image?.data) {
+        const texData = maskTexture.image.data as Uint8Array;
+        // Mask texture may be a different size than the video.
+        // If same size, use directly; otherwise scale
+        if (
+          maskTexture.image.width === canvas.width &&
+          maskTexture.image.height === canvas.height
+        ) {
+          maskImageData = new Uint8ClampedArray(texData);
+        } else {
+          // Scale mask to video size using a temporary canvas
+          const tmpCanvas = document.createElement("canvas");
+          tmpCanvas.width = maskTexture.image.width;
+          tmpCanvas.height = maskTexture.image.height;
+          const tmpCtx = tmpCanvas.getContext("2d");
+          if (tmpCtx) {
+            const imgData = new ImageData(
+              new Uint8ClampedArray(texData),
+              maskTexture.image.width,
+              maskTexture.image.height,
+            );
+            tmpCtx.putImageData(imgData, 0, 0);
+
+            // Scale to video size
+            const scaleCanvas = document.createElement("canvas");
+            scaleCanvas.width = canvas.width;
+            scaleCanvas.height = canvas.height;
+            const scaleCtx = scaleCanvas.getContext("2d");
+            if (scaleCtx) {
+              scaleCtx.drawImage(tmpCanvas, 0, 0, canvas.width, canvas.height);
+              const scaled = scaleCtx.getImageData(0, 0, canvas.width, canvas.height);
+              maskImageData = scaled.data;
+            }
+          }
+        }
+      }
+
+      applyLineArtFilter(src, dst, maskImageData, canvas.width, canvas.height);
+      ctx.putImageData(dst, 0, 0);
+
+      animFrameRef.current = requestAnimationFrame(renderFrame);
+    };
+
+    // Start loop when video plays
+    const onPlay = () => {
+      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
+      animFrameRef.current = requestAnimationFrame(renderFrame);
+    };
+
+    const onPause = () => {
+      if (animFrameRef.current) {
+        cancelAnimationFrame(animFrameRef.current);
+        animFrameRef.current = 0;
+      }
+    };
+
+    video.addEventListener("play", onPlay);
+    video.addEventListener("pause", onPause);
+
+    // Also render first frame when seeking while paused
+    const onSeeked = () => {
+      if (video.paused && video.readyState >= 2) {
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const src = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const dst = ctx.createImageData(canvas.width, canvas.height);
+        applyLineArtFilter(src, dst, maskImageData, canvas.width, canvas.height);
+        ctx.putImageData(dst, 0, 0);
+      }
+    };
+    video.addEventListener("seeked", onSeeked);
+
+    // Draw the initial (paused) frame
+    if (video.readyState >= 2) {
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const src = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const dst = ctx.createImageData(canvas.width, canvas.height);
+      applyLineArtFilter(src, dst, maskImageData, canvas.width, canvas.height);
+      ctx.putImageData(dst, 0, 0);
+    }
+
+    return () => {
+      video.removeEventListener("play", onPlay);
+      video.removeEventListener("pause", onPause);
+      video.removeEventListener("seeked", onSeeked);
+      if (animFrameRef.current) {
+        cancelAnimationFrame(animFrameRef.current);
+        animFrameRef.current = 0;
+      }
+    };
+  }, [isVideoReady, maskTexture]);
 
   // Play/Pause toggle
   const togglePlayPause = useCallback(() => {
@@ -214,7 +300,6 @@ export default function VideoFilterCanvas() {
     [],
   );
 
-  // Format time as mm:ss
   const formatTime = (seconds: number) => {
     const m = Math.floor(seconds / 60);
     const s = Math.floor(seconds % 60);
@@ -225,14 +310,14 @@ export default function VideoFilterCanvas() {
   useEffect(() => {
     return () => {
       if (videoSrc) URL.revokeObjectURL(videoSrc);
-      if (videoTexture) videoTexture.dispose();
+      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className="space-y-6">
-      {/* Hidden video element — must NOT have display:none, use offscreen positioning */}
+      {/* Hidden video element — offscreen so browser still decodes frames */}
       <video
         ref={videoRef}
         playsInline
@@ -303,20 +388,11 @@ export default function VideoFilterCanvas() {
           minHeight: "300px",
         }}
       >
-        {isVideoReady && videoTexture && videoRef.current ? (
-          <Canvas
-            orthographic
-            camera={{ zoom: 1, position: [0, 0, 1] }}
-            gl={{ antialias: false, alpha: false }}
-            style={{ width: "100%", height: "100%" }}
-          >
-            <FilteredVideoPlane
-              videoElement={videoRef.current}
-              videoTexture={videoTexture}
-              maskTexture={maskTexture}
-              resolution={resolution}
-            />
-          </Canvas>
+        {isVideoReady ? (
+          <canvas
+            ref={canvasRef}
+            style={{ width: "100%", height: "100%", display: "block" }}
+          />
         ) : (
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white/40 gap-3">
             <Film size={48} strokeWidth={1} />
@@ -328,7 +404,6 @@ export default function VideoFilterCanvas() {
       {/* Video Controls */}
       {isVideoReady && (
         <div className="flex items-center gap-4 p-4 bg-surface rounded-lg border border-border/50">
-          {/* Play/Pause */}
           <button
             onClick={togglePlayPause}
             className="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors"
@@ -337,7 +412,6 @@ export default function VideoFilterCanvas() {
             {isPlaying ? <Pause size={18} /> : <Play size={18} />}
           </button>
 
-          {/* Seek bar */}
           <div className="flex-1 flex items-center gap-3">
             <span className="text-xs text-text-muted font-mono w-12 text-right">
               {formatTime(currentTime)}
