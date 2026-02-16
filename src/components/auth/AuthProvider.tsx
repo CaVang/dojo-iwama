@@ -68,7 +68,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       try {
         // Fetch profile with role
         console.log({userId});
-        const { data: profileData } = await supabase
+        const { data: profileData, error } = await supabase
           .from("profiles")
           .select(
             `
@@ -78,7 +78,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           )
           .eq("id", userId)
           .single();
-  console.log({profileData});
+    console.log({profileData, error});
         if (profileData) {
           setProfile(profileData as Profile);
 
