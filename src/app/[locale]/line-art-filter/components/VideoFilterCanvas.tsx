@@ -3,7 +3,7 @@
 import { useRef, useState, useCallback, useEffect } from "react";
 import { Upload, Play, Pause, Loader2, AlertCircle, Film } from "lucide-react";
 
-const EDGE_THRESHOLD = 60;
+const EDGE_THRESHOLD = 50;
 
 /**
  * Apply Sobel edge detection on entire frame.
