@@ -131,7 +131,7 @@ export default function SyllabusMatrix({
                           href={`/${locale}/techniques/${technique.slug}`}
                           className={`group/tooltip inline-flex items-center justify-center w-8 h-8 rounded-full transition-all ${
                             isAvailable
-                              ? "bg-bamboo/20 text-bamboo hover:bg-bamboo hover:text-washi hover:scale-110"
+                              ? "bg-bamboo text-white hover:bg-bamboo hover:text-washi hover:scale-110"
                               : "bg-gray-100 text-gray-400 hover:bg-gray-200"
                           }`}
                         >
