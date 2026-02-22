@@ -151,7 +151,7 @@ export default function DojoMap({ onDojoSelect }: DojoMapProps) {
   return (
     <div className="relative">
       {/* Location Button */}
-      <div className="absolute top-4 right-4 z-1000">
+      <div className="absolute top-4 right-4 z-10">
         <button
           onClick={requestLocation}
           disabled={isLocating}

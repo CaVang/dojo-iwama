@@ -32,12 +32,12 @@ export default function RegistrationsPage() {
     fetchRegistrations();
   }, []);
 
-  const handleStatusChange = async (id: string, newStatus: string) => {
+  const handleStatusChange = async (id: string, newStatus: string, class_id?: string) => {
     try {
       const res = await fetch("/api/dashboard/dojo/registrations", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id, status: newStatus }),
+        body: JSON.stringify({ id, status: newStatus, class_id }),
       });
       const data = await res.json();
       

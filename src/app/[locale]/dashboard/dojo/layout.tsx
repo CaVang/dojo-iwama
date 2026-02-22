@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { Users, Calendar, FileText, Settings, UserPlus } from "lucide-react";
+import { Users, Calendar, FileText, Settings, UserPlus, CalendarDays } from "lucide-react";
 import PageTransition from "@/components/animations/PageTransition";
 
 export default function DojoDashboardLayout({
@@ -22,10 +22,14 @@ export default function DojoDashboardLayout({
       icon: <UserPlus size={18} />,
     },
     {
-      href: "#", // Placeholder for future feature
+      href: `/${locale}/dashboard/dojo/classes`,
+      label: "Lớp học",
+      icon: <CalendarDays size={18} />,
+    },
+    {
+      href: `/${locale}/dashboard/dojo/students`,
       label: t("menu_students"),
       icon: <Users size={18} />,
-      disabled: true,
     },
     {
       href: "#", // Placeholder for future feature

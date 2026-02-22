@@ -18,9 +18,14 @@ export interface Registration {
   created_at: string;
 }
 
+interface DojoClass {
+  id: string;
+  name: string;
+}
+
 interface RegistrationTableProps {
   registrations: Registration[];
-  onStatusChange: (id: string, newStatus: string) => Promise<void>;
+  onStatusChange: (id: string, newStatus: string, class_id?: string) => Promise<void>;
 }
 
 export default function RegistrationTable({ registrations, onStatusChange }: RegistrationTableProps) {
@@ -29,6 +34,10 @@ export default function RegistrationTable({ registrations, onStatusChange }: Reg
   const dateLocale = locale === "vi" ? vi : enUS;
 
   const [updatingId, setUpdatingId] = useState<string | null>(null);
+  const [enrollModalReg, setEnrollModalReg] = useState<Registration | null>(null);
+  const [availableClasses, setAvailableClasses] = useState<DojoClass[]>([]);
+  const [selectedClassId, setSelectedClassId] = useState<string>("");
+  const [isFetchingClasses, setIsFetchingClasses] = useState(false);
 
   const getStatusBadge = (status: string) => {
     switch (status) {
@@ -45,10 +54,38 @@ export default function RegistrationTable({ registrations, onStatusChange }: Reg
     }
   };
 
-  const handleStatusChange = async (id: string, status: string) => {
+  const fetchClasses = async () => {
+    try {
+      setIsFetchingClasses(true);
+      const res = await fetch("/api/dashboard/dojo/classes");
+      if (res.ok) {
+        const data = await res.json();
+        setAvailableClasses(data.classes || []);
+        if (data.classes && data.classes.length > 0) {
+          setSelectedClassId(data.classes[0].id);
+        }
+      }
+    } catch (err) {
+      console.error("Failed to fetch classes", err);
+    } finally {
+      setIsFetchingClasses(false);
+    }
+  };
+
+  const handleStatusSelect = async (reg: Registration, newStatus: string) => {
+    if (newStatus === "enrolled") {
+      setEnrollModalReg(reg);
+      fetchClasses();
+      return;
+    }
+    await executeStatusChange(reg.id, newStatus);
+  };
+
+  const executeStatusChange = async (id: string, status: string, class_id?: string) => {
     setUpdatingId(id);
-    await onStatusChange(id, status);
+    await onStatusChange(id, status, class_id);
     setUpdatingId(null);
+    setEnrollModalReg(null);
   };
 
   if (registrations.length === 0) {
@@ -94,7 +131,7 @@ export default function RegistrationTable({ registrations, onStatusChange }: Reg
                   <select
                     className="p-1 text-xs border border-japan-blue/20 rounded bg-white text-sumi focus:outline-none focus:border-japan-blue disabled:opacity-50"
                     value={reg.status}
-                    onChange={(e) => handleStatusChange(reg.id, e.target.value)}
+                    onChange={(e) => handleStatusSelect(reg, e.target.value)}
                     disabled={updatingId === reg.id}
                   >
                     <option value="pending">{t("status_pending")}</option>
@@ -109,6 +146,58 @@ export default function RegistrationTable({ registrations, onStatusChange }: Reg
           ))}
         </tbody>
       </table>
+
+      {/* Enroll Modal */}
+      {enrollModalReg && (
+         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <div className="fixed inset-0 bg-sumi/50 backdrop-blur-sm" onClick={() => setEnrollModalReg(null)}></div>
+            <div className="relative bg-white w-full max-w-md rounded-lg shadow-2xl p-6">
+                <h3 className="font-serif text-xl font-bold text-sumi mb-2">Xác nhận Nhập Học</h3>
+                <p className="text-sm text-sumi-muted mb-4">
+                  Bạn đang chuyển trạng thái của <span className="font-bold text-japan-blue">{enrollModalReg.contact_name}</span> thành <strong>Đã nhập học</strong>.
+                  <br/>Hệ thống sẽ đồng thời tạo hồ sơ học viên chính thức. Vui lòng chọn lớp học để gán học viên này vào:
+                </p>
+
+                {isFetchingClasses ? (
+                  <div className="py-4 text-center text-sm text-sumi-muted">Đang tải danh sách lớp...</div>
+                ) : availableClasses.length > 0 ? (
+                  <div className="mb-6">
+                    <label className="block text-sm font-medium text-sumi mb-2">Chọn lớp học:</label>
+                    <select 
+                      className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:border-japan-blue focus:ring-1 focus:ring-japan-blue"
+                      value={selectedClassId}
+                      onChange={(e) => setSelectedClassId(e.target.value)}
+                    >
+                      {availableClasses.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+                    </select>
+                  </div>
+                ) : (
+                  <div className="mb-6 p-3 bg-yellow-50 text-yellow-800 text-sm rounded border border-yellow-200">
+                    Võ đường của bạn chưa tạo Lớp học nào. Học viên sẽ được đưa vào danh sách chung chưa phân lớp.
+                  </div>
+                )}
+
+                <div className="flex justify-end gap-3 mt-2">
+                  <button 
+                    onClick={() => setEnrollModalReg(null)}
+                    disabled={updatingId === enrollModalReg.id}
+                    className="px-4 py-2 text-sm text-sumi hover:bg-gray-100 rounded transition-colors"
+                  >
+                    Hủy
+                  </button>
+                  <button 
+                    onClick={() => executeStatusChange(enrollModalReg.id, 'enrolled', selectedClassId || undefined)}
+                    disabled={updatingId === enrollModalReg.id}
+                    className="px-4 py-2 text-sm bg-japan-blue text-washi rounded hover:bg-japan-blue/90 disabled:opacity-50 transition-colors flex items-center justify-center min-w-[100px]"
+                  >
+                    {updatingId === enrollModalReg.id ? (
+                      <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                    ) : "Xác nhận"}
+                  </button>
+                </div>
+            </div>
+         </div>
+      )}
     </div>
   );
 }

@@ -68,26 +68,84 @@ export async function PATCH(req: NextRequest) {
   try {
     const supabase = await createClient();
     const body = await req.json();
-    const { id, status } = body;
+    const { id, status, class_id } = body;
+
+    // ==========================================
+    // DEMO/SIMULATION MODE FOR LOCAL DEVELOPMENT 
+    // ==========================================
+    if (process.env.NODE_ENV === "development") {
+      const cookieHeader = req.headers.get("cookie") || "";
+      const match = cookieHeader.match(/(^| )dev_simulated_role=([^;]+)/);
+      const simulatedRole = match ? match[2] : null;
+
+      if (simulatedRole === "dojo_chief" || simulatedRole === "admin") {
+        console.log(`Bypassing auth for Dev Role in PATCH: ${simulatedRole}`);
+        const { data: fakeUpdate, error: upError } = await supabase
+          .from("dojo_registrations")
+          .update({ status })
+          .eq("id", id)
+          .select()
+          .single();
+          
+        if (upError) {
+          return NextResponse.json({ error: "Fail update fake registration" }, { status: 500 });
+        }
+
+        // Fake auto create student
+        if (status === 'enrolled' && class_id && fakeUpdate) {
+            const { error: studentError } = await supabase
+              .from("dojo_students")
+              .insert({
+                dojo_id: fakeUpdate.dojo_id,
+                class_id,
+                registration_id: fakeUpdate.id,
+                name: fakeUpdate.contact_name,
+                contact_info: fakeUpdate.contact_info,
+                status: 'active'
+              });
+            if (studentError) console.error("Error creating student in dev mode:", studentError);
+        }
+          
+        return NextResponse.json({ success: true, registration: fakeUpdate });
+      }
+    }
 
     if (!id || !status) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
     // Attempt to update. RLS ensures the user can only update their own dojo's registrations.
-    const { data, error } = await supabase
+    const { data: updatedReg, error } = await supabase
       .from("dojo_registrations")
       .update({ status })
       .eq("id", id)
       .select()
       .single();
 
-    if (error) {
+    if (error || !updatedReg) {
       console.error("Error updating registration:", error);
       return NextResponse.json({ error: "Failed to update registration status or unauthorized" }, { status: 500 });
     }
 
-    return NextResponse.json({ success: true, registration: data });
+    // If status is enrolled and class_id is provided, create a student record
+    if (status === 'enrolled' && class_id) {
+        const { error: studentError } = await supabase
+          .from("dojo_students")
+          .insert({
+            dojo_id: updatedReg.dojo_id,
+            class_id,
+            registration_id: updatedReg.id,
+            name: updatedReg.contact_name,
+            contact_info: updatedReg.contact_info,
+            status: 'active'
+          });
+          
+        if (studentError) {
+           console.error("Error creating student from registration:", studentError);
+        }
+    }
+
+    return NextResponse.json({ success: true, registration: updatedReg });
   } catch (error: any) {
     console.error("Dashboard update API error:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
