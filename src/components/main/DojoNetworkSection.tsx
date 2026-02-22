@@ -1,16 +1,39 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Users } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { TatamiPattern } from "@/components/ui/JapaneseElements";
 import AnimatedSection from "./AnimatedSection";
-import dojos from "@/data/dojos.json";
+import staticDojos from "@/data/dojos.json";
+
+interface DojoData {
+  id: string;
+  name: string;
+  chief_instructor: string;
+  address: string;
+  background_url?: string;
+  avatar_url?: string;
+}
 
 export default function DojoNetworkSection() {
   const t = useTranslations("home");
   const locale = useLocale();
+  const [dojos, setDojos] = useState<DojoData[]>(staticDojos.slice(0, 3));
+
+  useEffect(() => {
+    fetch("/api/dojos")
+      .then(res => res.ok ? res.json() : null)
+      .then(data => {
+        if (data?.dojos?.length > 0) {
+          setDojos(data.dojos.slice(0, 3));
+        }
+      })
+      .catch(() => {/* fallback to static data */});
+  }, []);
 
   return (
     <section className="py-24 md:py-32 relative">
@@ -41,15 +64,26 @@ export default function DojoNetworkSection() {
               whileHover={{ y: -8 }}
             >
               <div className="bg-washi-cream h-full border border-japan-blue/10 hover:border-japan-blue/30 transition-colors overflow-hidden group">
-                {/* Header image placeholder */}
-                <div className="h-40 bg-gradient-to-br from-japan-blue/20 to-bamboo/10 relative">
-                  <motion.div
-                    className="absolute inset-0 flex items-center justify-center"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <Users className="w-16 h-16 text-japan-blue/20" />
-                  </motion.div>
+                {/* Header image */}
+                <div className="h-40 bg-gradient-to-br from-japan-blue/20 to-bamboo/10 relative overflow-hidden">
+                  {dojo.background_url ? (
+                    <Image src={dojo.background_url} alt={dojo.name} fill className="object-cover" />
+                  ) : (
+                    <motion.div
+                      className="absolute inset-0 flex items-center justify-center"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <Users className="w-16 h-16 text-japan-blue/20" />
+                    </motion.div>
+                  )}
+
+                  {/* Avatar */}
+                  {dojo.avatar_url && (
+                    <div className="absolute bottom-2 left-3 w-10 h-10 rounded-full border-2 border-white overflow-hidden shadow-md bg-white">
+                      <Image src={dojo.avatar_url} alt="" fill className="object-cover" />
+                    </div>
+                  )}
 
                   {/* Corner decoration */}
                   <div className="absolute top-2 right-2 w-8 h-8 border-r border-t border-washi/30" />

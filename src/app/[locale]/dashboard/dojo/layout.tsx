@@ -37,16 +37,15 @@ export default function DojoDashboardLayout({
       icon: <Calendar size={18} />,
     },
     {
-      href: "#", // Placeholder for future feature
-      label: t("menu_blog"),
+      href: `/${locale}/dashboard/dojo/blogs`,
+      label: t("menu_blogs"), // Assuming 'menu_blogs' is the key for "Bài viết"
       icon: <FileText size={18} />,
-      disabled: true,
+      disabled: false,
     },
     {
-      href: "#", // Placeholder for future feature
+      href: `/${locale}/dashboard/dojo/settings`,
       label: t("menu_settings"),
       icon: <Settings size={18} />,
-      disabled: true,
     },
   ];
 

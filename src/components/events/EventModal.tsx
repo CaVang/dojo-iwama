@@ -2,8 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Calendar, MapPin, User } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { X, Calendar, MapPin, User, FileText, Plus, ChevronRight } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
+import Link from "next/link";
+import { useAuth } from "@/components/auth/AuthProvider";
+import { BlogType } from "@/app/[locale]/dashboard/dojo/blogs/BlogFormModal";
 import dojos from "@/data/dojos.json";
 
 interface EventModalProps {
@@ -34,9 +37,12 @@ export default function EventModal({
   onRegistrationChange,
 }: EventModalProps) {
   const t = useTranslations("events");
+  const locale = useLocale();
+  const { isDojoChief } = useAuth();
   const [localRegistered, setLocalRegistered] = useState(isRegistered);
   const [isProcessing, setIsProcessing] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [linkedBlogs, setLinkedBlogs] = useState<BlogType[]>([]);
 
   // Sync prop to local state
   useEffect(() => {
@@ -55,6 +61,22 @@ export default function EventModal({
       document.body.style.overflow = "";
     };
   }, [isOpen]);
+
+  // Fetch Linked Blogs
+  useEffect(() => {
+    if (isOpen && event?.id) {
+       fetch(`/api/blogs?event_id=${event.id}`)
+         .then(res => res.json())
+         .then(data => {
+            if (data.blogs) {
+               setLinkedBlogs(data.blogs);
+            }
+         })
+         .catch(console.error);
+    } else {
+       setLinkedBlogs([]);
+    }
+  }, [isOpen, event?.id]);
 
   if (!event) return null;
 
@@ -243,6 +265,59 @@ export default function EventModal({
                 <p className="text-sumi leading-relaxed mb-6">
                   {event.description || (event.description_key ? t(event.description_key) : "")}
                 </p>
+
+                {/* Linked Blogs Section */}
+                {(linkedBlogs.length > 0 || isDojoChief) && (
+                  <div className="mb-8 mt-8 border-t border-japan-blue/10 pt-6">
+                    <div className="flex justify-between items-center mb-4">
+                      <div className="text-sm text-sumi-muted uppercase tracking-wide flex items-center gap-2">
+                        <FileText size={16} /> {t("related_blogs")}
+                      </div>
+                      {isDojoChief && (
+                        <Link
+                           href={`/${locale}/dashboard/dojo/blogs?new=true&event_id=${event.id}`}
+                           className="text-japan-blue hover:text-white hover:bg-japan-blue text-xs font-bold px-3 py-1.5 border border-japan-blue rounded transition-colors flex items-center gap-1"
+                        >
+                           <Plus size={14} /> {t("write_new_blog")}
+                        </Link>
+                      )}
+                    </div>
+
+                    {linkedBlogs.length > 0 ? (
+                      <div className="grid grid-cols-1 gap-3">
+                        {linkedBlogs.map((blog) => (
+                           <Link 
+                              key={blog.id} 
+                              href={`/${locale}/blogs/${blog.id}`}
+                              className="group flex flex-col sm:flex-row items-center gap-4 p-3 bg-white border border-japan-blue/10 rounded hover:border-japan-blue/30 transition-colors shadow-sm"
+                           >
+                              {blog.image_url && (
+                                <div className="w-full sm:w-24 h-16 shrink-0 relative rounded overflow-hidden bg-sumi-muted/10">
+                                   {/* eslint-disable-next-line @next/next/no-img-element */}
+                                   <img src={blog.image_url} alt={blog.title} className="object-cover w-full h-full" />
+                                </div>
+                              )}
+                              <div className="flex-1 min-w-0 flex justify-between items-center w-full">
+                                <div>
+                                   <h4 className="font-bold text-sumi line-clamp-1 group-hover:text-japan-blue transition-colors">
+                                     {blog.title}
+                                   </h4>
+                                   <p className="text-xs text-sumi-muted line-clamp-1 mt-1">
+                                     {new Date(blog.created_at).toLocaleDateString("vi-VN")}
+                                   </p>
+                                </div>
+                                <ChevronRight className="text-sumi-muted group-hover:text-japan-blue shrink-0 ml-2" size={16} />
+                              </div>
+                           </Link>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="text-sm text-sumi-muted italic bg-washi p-3 rounded border border-dashed border-japan-blue/20">
+                         {t("no_related_blogs")}
+                      </div>
+                    )}
+                  </div>
+                )}
                 
                 {/* Registration Action */}
                 <div className="mt-8">

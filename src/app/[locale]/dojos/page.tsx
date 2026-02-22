@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -18,7 +19,7 @@ import { useLocale, useTranslations } from "next-intl";
 import PageTransition, {
   staggerContainer,
 } from "@/components/animations/PageTransition";
-import dojos from "@/data/dojos.json";
+import staticDojos from "@/data/dojos.json";
 import "leaflet/dist/leaflet.css";
 import RegistrationDialog from "@/components/dojos/RegistrationDialog";
 
@@ -35,6 +36,7 @@ const DojoMap = dynamic(() => import("@/components/dojos/DojoMap"), {
 export default function DojosPage() {
   const [expandedDojo, setExpandedDojo] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [dojos, setDojos] = useState(staticDojos);
   
   // Registration Dialog State
   const [isRegOpen, setIsRegOpen] = useState(false);
@@ -42,6 +44,30 @@ export default function DojosPage() {
 
   const t = useTranslations("dojos");
   const locale = useLocale();
+
+  // Fetch dojos from API and merge with static data
+  useEffect(() => {
+    fetch("/api/dojos")
+      .then(res => res.ok ? res.json() : null)
+      .then(data => {
+        if (data?.dojos?.length > 0) {
+          // Merge: API data takes precedence, static fills the gaps
+          const apiMap = new Map(data.dojos.map((d: typeof staticDojos[0]) => [d.id, d]));
+          const merged = staticDojos.map(sd => ({
+            ...sd,
+            ...(apiMap.get(sd.id) || {}),
+          }));
+          // Add any API dojos not in static data
+          data.dojos.forEach((d: typeof staticDojos[0]) => {
+            if (!staticDojos.find(sd => sd.id === d.id)) {
+              merged.push(d);
+            }
+          });
+          setDojos(merged);
+        }
+      })
+      .catch(() => {/* fallback to static data */});
+  }, []);
 
   const filteredDojos = dojos.filter(
     (dojo) =>
@@ -185,13 +211,19 @@ export default function DojosPage() {
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
-                          <div className="w-10 h-10 bg-japan-blue/10 rounded-full flex items-center justify-center shrink-0">
-                            <Users className="w-5 h-5 text-japan-blue" />
+                          <div className="w-10 h-10 bg-japan-blue/10 rounded-full flex items-center justify-center shrink-0 overflow-hidden">
+                            {(dojo as any).avatar_url ? (
+                              <Image src={(dojo as any).avatar_url} alt={dojo.name} width={40} height={40} className="object-cover w-full h-full" />
+                            ) : (
+                              <Users className="w-5 h-5 text-japan-blue" />
+                            )}
                           </div>
                           <div>
-                            <h2 className="font-serif text-xl text-sumi">
-                              {dojo.name}
-                            </h2>
+                            <Link href={`/${locale}/dojos/${dojo.id}`} className="hover:underline">
+                              <h2 className="font-serif text-xl text-sumi">
+                                {dojo.name}
+                              </h2>
+                            </Link>
                             <p className="text-sm text-sumi-muted">
                               {dojo.chief_instructor}
                             </p>
