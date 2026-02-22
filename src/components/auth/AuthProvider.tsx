@@ -67,7 +67,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     async (userId: string) => {
       try {
         // Fetch profile with role
-        console.log({userId});
         const { data: profileData, error } = await supabase
           .from("profiles")
           .select(
@@ -78,7 +77,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           )
           .eq("id", userId)
           .single();
-    console.log({profileData, error});
+
         if (profileData) {
           setProfile(profileData as Profile);
 
@@ -111,6 +110,33 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (_event: string, session: Session | null) => {
       if (!mounted) return;
+
+      // ==========================================
+      // SIMULATION MODE FOR LOCAL DEVELOPMENT 
+      // ==========================================
+      if (process.env.NODE_ENV === "development") {
+        const match = document.cookie.match(new RegExp('(^| )dev_simulated_role=([^;]+)'));
+        const simulatedRole = match ? match[2] : null;
+
+        if (simulatedRole && simulatedRole !== "guest") {
+          console.warn(`Local Dev Auth Overridden with role: ${simulatedRole}`);
+          
+          // Mock a user session
+          setSession({} as Session);
+          setUser({ id: "dev-simulated-user-id", email: "dev@example.com" } as User);
+          
+          // Mock the profile to match internal state checks
+          setProfile({
+            id: "dev-simulated-user-id",
+            role: { name: simulatedRole, display_name: "Simulated Role", priority: 1 },
+          } as Profile);
+          
+          // Mock full permissions to avoid UI blockers
+          setPermissions(["admin.full_access"]);
+          setIsLoading(false);
+          return;
+        }
+      }
 
       setSession(session);
       setUser(session?.user ?? null);

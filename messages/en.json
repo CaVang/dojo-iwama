@@ -270,6 +270,9 @@
     "scroll": "Scroll"
   },
   "dashboard": {
+    "guide_title": "Dojo Management",
+    "guide_desc": "Click here to access your dojo dashboard to manage registrations and information.",
+    "guide_got_it": "Got it",
     "dojo_dashboard_title": "Dojo Management",
     "menu_registrations": "Registrations",
     "menu_students": "Students",

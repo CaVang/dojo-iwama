@@ -4,6 +4,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { AuthProvider } from "@/components/auth/AuthProvider";
+import RoleSwitcher from "@/components/dev/RoleSwitcher";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 
@@ -76,6 +77,7 @@ export default async function LocaleLayout({
             <main>{children}</main>
             <Footer />
           </div>
+          <RoleSwitcher />
         </div>
       </AuthProvider>
     </NextIntlClientProvider>

@@ -270,6 +270,9 @@
     "scroll": "Cuộn"
   },
   "dashboard": {
+    "guide_title": "Quản lý Võ đường",
+    "guide_desc": "Bấm vào đây để truy cập trang quản trị các yêu cầu đăng ký học và thông tin võ đường của bạn.",
+    "guide_got_it": "Đã hiểu",
     "dojo_dashboard_title": "Quản lý Dojo",
     "menu_registrations": "Đăng ký học",
     "menu_students": "Học viên",

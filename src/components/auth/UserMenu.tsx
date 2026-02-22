@@ -3,16 +3,42 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
-import { LogOut, User, Shield, Settings } from "lucide-react";
+import { LogOut, User, Shield, Settings, LayoutDashboard } from "lucide-react";
 import { useAuth } from "./AuthProvider";
 
 export default function UserMenu() {
-  const { user, profile, isAdmin, signOut, isLoading } = useAuth();
+  const { user, profile, isAdmin, isDojoChief, signOut, isLoading } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
+  const [showGuide, setShowGuide] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const locale = useLocale();
+  const t = useTranslations("dashboard");
+
+  // Check for first time Dojo Owner
+  useEffect(() => {
+    if (isDojoChief && typeof window !== "undefined") {
+      const hasSeenGuide = localStorage.getItem("dojo_owner_guide_seen");
+      if (!hasSeenGuide) {
+        setShowGuide(true);
+      }
+    }
+  }, [isDojoChief]);
+
+  const dismissGuide = () => {
+    setShowGuide(false);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("dojo_owner_guide_seen", "true");
+    }
+  };
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+    if (showGuide) {
+      dismissGuide();
+    }
+  };
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -43,10 +69,10 @@ export default function UserMenu() {
   return (
     <div className="relative" ref={menuRef}>
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 focus:outline-none"
+        onClick={handleToggle}
+        className="flex items-center gap-2 focus:outline-none relative"
       >
-        <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-japan-blue/20 hover:border-japan-blue transition-colors">
+        <div className={`relative w-10 h-10 rounded-full overflow-hidden border-2 transition-colors ${showGuide ? 'border-cinnabar shadow-[0_0_15px_rgba(235,94,85,0.5)]' : 'border-japan-blue/20 hover:border-japan-blue'}`}>
           {avatarUrl ? (
             <Image
               src={avatarUrl}
@@ -60,7 +86,43 @@ export default function UserMenu() {
             </div>
           )}
         </div>
+        
+        {/* Red Ping Dot for Notification */}
+        {showGuide && (
+          <span className="absolute -top-1 -right-1 flex h-3 w-3 z-10">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cinnabar opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+          </span>
+        )}
       </button>
+
+      {/* First Time Guide Popover */}
+      <AnimatePresence>
+        {showGuide && !isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+            className="absolute right-0 top-[120%] mt-2 w-72 bg-japan-blue text-washi rounded-md shadow-2xl z-50 p-5 border border-japan-blue/20"
+          >
+            {/* Arrow pointing up */}
+            <div className="absolute -top-2 right-4 w-4 h-4 bg-japan-blue rotate-45 rounded-sm" />
+            
+            <div className="relative z-10">
+              <h4 className="font-serif font-bold text-lg mb-2 text-white">{t("guide_title")}</h4>
+              <p className="text-sm text-washi/90 mb-4 leading-relaxed">
+                {t("guide_desc")}
+              </p>
+              <button 
+                onClick={(e) => { e.stopPropagation(); dismissGuide(); }}
+                className="w-full bg-washi text-japan-blue font-bold py-2.5 rounded hover:bg-washi-cream transition-colors shadow-sm"
+              >
+                {t("guide_got_it")}
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <AnimatePresence>
         {isOpen && (
@@ -105,6 +167,17 @@ export default function UserMenu() {
 
             {/* Menu Items */}
             <div className="py-2">
+              {isDojoChief && (
+                <Link
+                  href={`/${locale}/dashboard/dojo/registrations`}
+                  onClick={() => setIsOpen(false)}
+                  className="w-full flex items-center gap-3 px-4 py-2 text-sm text-sumi hover:bg-japan-blue/5 transition-colors"
+                >
+                  <LayoutDashboard size={16} />
+                  <span>Quản lý Dojo</span>
+                </Link>
+              )}
+              
               <Link
                 href={`/${locale}/profile`}
                 onClick={() => setIsOpen(false)}

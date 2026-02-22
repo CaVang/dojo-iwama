@@ -7,6 +7,26 @@ export async function GET(req: NextRequest) {
     
     // 1. Authenticate user
     const { data: { user }, error: authError } = await supabase.auth.getUser();
+
+    // ==========================================
+    // DEMO/SIMULATION MODE FOR LOCAL DEVELOPMENT 
+    // ==========================================
+    if (process.env.NODE_ENV === "development") {
+      const cookieHeader = req.headers.get("cookie") || "";
+      const match = cookieHeader.match(/(^| )dev_simulated_role=([^;]+)/);
+      const simulatedRole = match ? match[2] : null;
+
+      if (simulatedRole === "dojo_chief" || simulatedRole === "admin") {
+        console.log(`Bypassing auth for Dev Role: ${simulatedRole}`);
+        const { data: mockRegistrations } = await supabase
+          .from("dojo_registrations")
+          .select("*")
+          .order("created_at", { ascending: false });
+          
+        return NextResponse.json({ registrations: mockRegistrations || [] });
+      }
+    }
+
     if (authError || !user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
