@@ -269,6 +269,29 @@
     "backToLibrary": "Quay lại thư viện",
     "scroll": "Cuộn"
   },
+  "dashboard": {
+    "dojo_dashboard_title": "Quản lý Dojo",
+    "menu_registrations": "Đăng ký học",
+    "menu_students": "Học viên",
+    "menu_events": "Sự kiện",
+    "menu_blog": "Blog",
+    "menu_settings": "Thông tin",
+    "coming_soon": "Sắp ra mắt",
+    "registrations_title": "Danh sách đăng ký học",
+    "registrations_desc": "Quản lý các yêu cầu đăng ký học mới nhất từ website.",
+    "date": "Ngày",
+    "contactName": "Tên liên hệ",
+    "contactInfo": "Thông tin (SĐT/Email)",
+    "studentAge": "Độ tuổi",
+    "status": "Trạng thái",
+    "actions": "Hành động",
+    "status_pending": "Chờ xử lý",
+    "status_contacted": "Đã liên hệ",
+    "status_enrolled": "Đã nhập học",
+    "status_declined": "Từ chối",
+    "noRegistrations": "Chưa có danh sách đăng ký nào.",
+    "loading": "Đang tải dữ liệu..."
+  },
   "techniqueData": {
     "categories": {
       "warmup": "Khởi động",

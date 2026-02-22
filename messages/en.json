@@ -269,6 +269,29 @@
     "backToLibrary": "Back to Library",
     "scroll": "Scroll"
   },
+  "dashboard": {
+    "dojo_dashboard_title": "Dojo Management",
+    "menu_registrations": "Registrations",
+    "menu_students": "Students",
+    "menu_events": "Events",
+    "menu_blog": "Blog",
+    "menu_settings": "Settings",
+    "coming_soon": "Coming Soon",
+    "registrations_title": "Registration Requests",
+    "registrations_desc": "Manage the latest registration requests from the website.",
+    "date": "Date",
+    "contactName": "Contact Name",
+    "contactInfo": "Contact Info",
+    "studentAge": "Student Age",
+    "status": "Status",
+    "actions": "Actions",
+    "status_pending": "Pending",
+    "status_contacted": "Contacted",
+    "status_enrolled": "Enrolled",
+    "status_declined": "Declined",
+    "noRegistrations": "No registrations found.",
+    "loading": "Loading data..."
+  },
   "techniqueData": {
     "categories": {
       "warmup": "Warm-up",
