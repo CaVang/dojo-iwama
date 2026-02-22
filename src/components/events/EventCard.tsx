@@ -8,18 +8,21 @@ import dojos from "@/data/dojos.json";
 interface EventCardProps {
   event: {
     id: string;
-    title_key: string;
+    title?: string;
+    title_key?: string;
     date: string;
     end_date: string | null;
     dojo_id: string;
-    description_key: string;
+    description?: string;
+    description_key?: string;
     event_type: string;
-    instructor: string;
+    instructor?: string;
   };
+  isRegistered?: boolean;
   onClick: () => void;
 }
 
-export default function EventCard({ event, onClick }: EventCardProps) {
+export default function EventCard({ event, isRegistered, onClick }: EventCardProps) {
   const t = useTranslations("events");
   const dojo = dojos.find((d) => d.id === event.dojo_id);
 
@@ -57,7 +60,16 @@ export default function EventCard({ event, onClick }: EventCardProps) {
       whileHover={{ y: -4 }}
       onClick={onClick}
     >
-      <div className="bg-washi-cream border border-japan-blue/10 hover:border-japan-blue/30 transition-all duration-300 overflow-hidden">
+      <div className={`bg-washi-cream border hover:border-japan-blue/30 transition-all duration-300 overflow-hidden relative ${isRegistered ? 'border-bamboo shadow-sm' : 'border-japan-blue/10'}`}>
+        
+        {/* Registration Badge overlay */}
+        {isRegistered && (
+          <div className="absolute top-0 right-0 z-10 bg-bamboo text-washi text-[10px] font-bold px-2 py-0.5 rounded-bl shadow-sm flex items-center gap-1">
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+            ĐÃ ĐĂNG KÝ
+          </div>
+        )}
+
         {/* Date Badge */}
         <div className="flex">
           <div className="w-20 shrink-0 bg-linear-to-br from-japan-blue to-japan-blue/80 text-washi flex flex-col items-center justify-center py-4">
@@ -79,7 +91,7 @@ export default function EventCard({ event, onClick }: EventCardProps) {
 
             {/* Title */}
             <h3 className="font-serif text-lg text-sumi group-hover:text-japan-blue transition-colors line-clamp-1">
-              {t(event.title_key)}
+              {event.title || (event.title_key ? t(event.title_key) : "Sự kiện Dojo")}
             </h3>
 
             {/* Hover reveal: Location & Description */}
@@ -97,7 +109,7 @@ export default function EventCard({ event, onClick }: EventCardProps) {
                   </div>
                 )}
                 <p className="text-xs text-sumi-muted line-clamp-2 leading-relaxed">
-                  {t(event.description_key)}
+                  {event.description || (event.description_key ? t(event.description_key) : "")}
                 </p>
               </div>
             </motion.div>

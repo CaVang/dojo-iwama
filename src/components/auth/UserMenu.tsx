@@ -12,6 +12,7 @@ export default function UserMenu() {
   const { user, profile, isAdmin, isDojoChief, signOut, isLoading } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [showGuide, setShowGuide] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(0);
   const menuRef = useRef<HTMLDivElement>(null);
   const locale = useLocale();
   const t = useTranslations("dashboard");
@@ -23,6 +24,21 @@ export default function UserMenu() {
       if (!hasSeenGuide) {
         setShowGuide(true);
       }
+      
+      // Fetch unread registrations
+      const fetchUnread = async () => {
+        try {
+           const res = await fetch('/api/dashboard/dojo/notifications/unread');
+           if (res.ok) {
+             const data = await res.json();
+             setUnreadCount(data.unreadCount || 0);
+           }
+        } catch (e) {
+           console.error(e);
+        }
+      };
+      
+      fetchUnread();
     }
   }, [isDojoChief]);
 
@@ -87,11 +103,13 @@ export default function UserMenu() {
           )}
         </div>
         
-        {/* Red Ping Dot for Notification */}
-        {showGuide && (
-          <span className="absolute -top-1 -right-1 flex h-3 w-3 z-10">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cinnabar opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+        {/* Red Ping Dot for Notification / Guide */}
+        {(unreadCount > 0 || showGuide) && (
+          <span className="absolute -top-1 -right-1 flex items-center justify-center z-10 shadow-sm">
+            {showGuide && <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cinnabar opacity-75"></span>}
+            <span className={`relative inline-flex flex-col items-center justify-center rounded-full bg-red-600 text-white font-bold text-[10px] leading-none ${unreadCount > 0 ? 'h-4 min-w-[16px] px-1' : 'h-3 w-3'}`}>
+              {unreadCount > 0 ? (unreadCount > 9 ? '9+' : unreadCount) : ''}
+            </span>
           </span>
         )}
       </button>
@@ -171,10 +189,17 @@ export default function UserMenu() {
                 <Link
                   href={`/${locale}/dashboard/dojo/registrations`}
                   onClick={() => setIsOpen(false)}
-                  className="w-full flex items-center gap-3 px-4 py-2 text-sm text-sumi hover:bg-japan-blue/5 transition-colors"
+                  className="w-full flex justify-between items-center px-4 py-2 hover:bg-japan-blue/5 transition-colors group"
                 >
-                  <LayoutDashboard size={16} />
-                  <span>Quản lý Dojo</span>
+                  <div className="flex items-center gap-3 text-sm text-sumi">
+                     <LayoutDashboard size={16} />
+                     <span>Quản lý Dojo</span>
+                  </div>
+                  {unreadCount > 0 && (
+                     <span className="bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full min-w-[20px] text-center">
+                        {unreadCount}
+                     </span>
+                  )}
                 </Link>
               )}
               

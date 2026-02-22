@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Calendar, MapPin, User } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -9,25 +9,40 @@ import dojos from "@/data/dojos.json";
 interface EventModalProps {
   event: {
     id: string;
-    title_key: string;
+    title?: string;
+    title_key?: string;
     date: string;
     end_date: string | null;
     dojo_id: string;
-    description_key: string;
+    description?: string;
+    description_key?: string;
     event_type: string;
-    instructor: string;
+    instructor?: string;
     image_url: string;
   } | null;
   isOpen: boolean;
+  isRegistered?: boolean;
   onClose: () => void;
+  onRegistrationChange?: () => void;
 }
 
 export default function EventModal({
   event,
   isOpen,
+  isRegistered = false,
   onClose,
+  onRegistrationChange,
 }: EventModalProps) {
   const t = useTranslations("events");
+  const [localRegistered, setLocalRegistered] = useState(isRegistered);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+
+  // Sync prop to local state
+  useEffect(() => {
+    setLocalRegistered(isRegistered);
+    setErrorMsg("");
+  }, [isRegistered, isOpen]);
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -44,6 +59,46 @@ export default function EventModal({
   if (!event) return null;
 
   const dojo = dojos.find((d) => d.id === event.dojo_id);
+
+  const handleRegistrationToggle = async () => {
+    if (!event) return;
+    setIsProcessing(true);
+    setErrorMsg("");
+    
+    try {
+      if (localRegistered) {
+         // Unregister
+         const res = await fetch(`/api/user/events/registrations?event_id=${event.id}`, { method: 'DELETE' });
+         if (res.ok) {
+            setLocalRegistered(false);
+            if (onRegistrationChange) onRegistrationChange();
+         } else {
+            const data = await res.json();
+            setErrorMsg(data.error || "Lỗi hủy đăng ký");
+         }
+      } else {
+         // Register
+         const res = await fetch('/api/user/events/registrations', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ event_id: event.id })
+         });
+         
+         const data = await res.json();
+         if (res.ok) {
+            setLocalRegistered(true);
+            if (onRegistrationChange) onRegistrationChange();
+         } else {
+            setErrorMsg(data.error || "Để đăng ký sự kiện, bạn cần đăng nhập tài khoản trước.");
+         }
+      }
+    } catch (e) {
+      console.error(e);
+      setErrorMsg("Đã xảy ra lỗi kết nối");
+    } finally {
+      setIsProcessing(false);
+    }
+  };
 
   const formatDateRange = (start: string, end: string | null) => {
     const startDate = new Date(start);
@@ -133,7 +188,7 @@ export default function EventModal({
             {/* Content */}
             <div className="flex-1 overflow-y-auto p-6 md:p-8">
               <h2 className="font-serif text-2xl md:text-3xl text-sumi mb-6">
-                {t(event.title_key)}
+                {event.title || (event.title_key ? t(event.title_key) : "Sự kiện")}
               </h2>
 
               <div className="space-y-4 mb-6">
@@ -185,9 +240,39 @@ export default function EventModal({
                 <div className="text-sm text-sumi-muted uppercase tracking-wide mb-2">
                   {t("description")}
                 </div>
-                <p className="text-sumi leading-relaxed">
-                  {t(event.description_key)}
+                <p className="text-sumi leading-relaxed mb-6">
+                  {event.description || (event.description_key ? t(event.description_key) : "")}
                 </p>
+                
+                {/* Registration Action */}
+                <div className="mt-8">
+                  {errorMsg && (
+                    <div className="mb-4 text-sm text-red-500 bg-red-50 p-3 rounded">
+                      {errorMsg}
+                    </div>
+                  )}
+                  
+                  <button
+                    onClick={handleRegistrationToggle}
+                    disabled={isProcessing}
+                    className={`w-full py-4 font-bold rounded shadow-md transition-all flex items-center justify-center gap-2 ${
+                      localRegistered 
+                        ? 'bg-bamboo/10 text-bamboo border border-bamboo hover:bg-bamboo/20' 
+                        : 'bg-japan-blue text-white hover:bg-japan-blue/90'
+                    } disabled:opacity-50`}
+                  >
+                    {isProcessing ? (
+                      <span className="w-5 h-5 rounded-full border-2 border-current border-t-transparent animate-spin" />
+                    ) : localRegistered ? (
+                      <>
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                        Bạn đã Đăng ký tham gia (Nhấn để Huỷ)
+                      </>
+                    ) : (
+                      "Đăng ký Tham gia Sự kiện"
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
 

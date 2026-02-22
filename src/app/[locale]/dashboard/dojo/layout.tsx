@@ -32,10 +32,9 @@ export default function DojoDashboardLayout({
       icon: <Users size={18} />,
     },
     {
-      href: "#", // Placeholder for future feature
+      href: `/${locale}/dashboard/dojo/events`,
       label: t("menu_events"),
       icon: <Calendar size={18} />,
-      disabled: true,
     },
     {
       href: "#", // Placeholder for future feature

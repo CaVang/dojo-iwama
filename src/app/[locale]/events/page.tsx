@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -11,37 +11,71 @@ import events from "@/data/events.json";
 
 type EventType = {
   id: string;
-  title_key: string;
+  title?: string;
+  title_key?: string;
   date: string;
   end_date: string | null;
   dojo_id: string;
-  description_key: string;
+  description?: string;
+  description_key?: string;
   image_url: string;
   event_type: string;
-  instructor: string;
-  related_blog_ids: string[];
+  instructor?: string;
+  related_blog_ids?: string[];
 };
 
 export default function EventsPage() {
   const t = useTranslations("events");
   const [selectedEvent, setSelectedEvent] = useState<EventType | null>(null);
   const [selectedMonth, setSelectedMonth] = useState<string>("all");
+  const [eventsData, setEventsData] = useState<EventType[]>([]);
+  const [registeredEventIds, setRegisteredEventIds] = useState<string[]>([]);
+
+  // Fetch dynamic events
+  useEffect(() => {
+    fetch('/api/events')
+      .then(res => res.json())
+      .then(data => {
+        if (data.events && data.events.length > 0) {
+           setEventsData([...data.events, ...events]); 
+        } else {
+           setEventsData(events as EventType[]);
+        }
+      })
+      .catch((err) => {
+         console.error("Failed to fetch events page", err);
+         setEventsData(events as EventType[]);
+      });
+      
+    // Fetch registered events if user is somehow logged in
+    fetch('/api/user/events/registrations')
+      .then(res => {
+         if (res.ok) return res.json();
+         throw new Error("Failed");
+      })
+      .then(data => {
+         if (data.registeredEventIds) {
+             setRegisteredEventIds(data.registeredEventIds);
+         }
+      })
+      .catch((err) => console.log("Guest visually", err));
+  }, []);
 
   // Get all unique months from events
   const availableMonths = useMemo(() => {
     const months = new Set<string>();
-    (events as EventType[]).forEach((event) => {
+    eventsData.forEach((event) => {
       const date = new Date(event.date);
       const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
       months.add(monthKey);
     });
     return Array.from(months).sort();
-  }, []);
+  }, [eventsData]);
 
   // Filter events by selected month
   const filteredEvents = useMemo(() => {
     const now = new Date();
-    let filtered = (events as EventType[])
+    let filtered = eventsData
       .filter((e) => new Date(e.date) >= now)
       .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
@@ -221,6 +255,7 @@ export default function EventsPage() {
                             >
                               <EventCard
                                 event={event}
+                                isRegistered={registeredEventIds.includes(event.id)}
                                 onClick={() => setSelectedEvent(event)}
                               />
                             </motion.div>

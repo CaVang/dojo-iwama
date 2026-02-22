@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -13,26 +13,62 @@ import events from "@/data/events.json";
 
 type EventType = {
   id: string;
-  title_key: string;
+  title?: string;
+  title_key?: string;
   date: string;
   end_date: string | null;
   dojo_id: string;
-  description_key: string;
+  description?: string;
+  description_key?: string;
   image_url: string;
   event_type: string;
-  instructor: string;
-  related_blog_ids: string[];
+  instructor?: string;
+  related_blog_ids?: string[];
 };
 
 export default function UpcomingEventsSection() {
   const t = useTranslations("events");
   const locale = useLocale();
   const [selectedEvent, setSelectedEvent] = useState<EventType | null>(null);
+  const [eventsData, setEventsData] = useState<EventType[]>([]);
+  const [registeredEventIds, setRegisteredEventIds] = useState<string[]>([]);
+
+  // Fetch events from the database
+  useEffect(() => {
+    fetch('/api/events')
+      .then(res => res.json())
+      .then(data => {
+        if (data.events && data.events.length > 0) {
+           // We append DB info to the existing placeholder JSON (optional)
+           // or completely replace it. Let's merge both for a rich UI:
+           setEventsData([...data.events, ...events]); 
+        } else {
+           setEventsData(events as EventType[]);
+        }
+      })
+      .catch((err) => {
+         console.error("Failed to fetch upcoming events", err);
+         setEventsData(events as EventType[]);
+      });
+      
+    // Fetch registered events
+    fetch('/api/user/events/registrations')
+      .then(res => {
+         if (res.ok) return res.json();
+         throw new Error("Failed");
+      })
+      .then(data => {
+         if (data.registeredEventIds) {
+             setRegisteredEventIds(data.registeredEventIds);
+         }
+      })
+      .catch((err) => console.log("Guest visually", err));
+  }, []);
 
   // Group events by month
   const eventsByMonth = useMemo(() => {
     const now = new Date();
-    const upcomingEvents = (events as EventType[])
+    const upcomingEvents = eventsData
       .filter((e) => new Date(e.date) >= now)
       .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
@@ -127,6 +163,7 @@ export default function UpcomingEventsSection() {
                       >
                         <EventCard
                           event={event}
+                          isRegistered={registeredEventIds.includes(event.id)}
                           onClick={() => setSelectedEvent(event)}
                         />
                       </motion.div>
