@@ -146,7 +146,15 @@
     "locating": "Đang xác định...",
     "geolocationNotSupported": "Trình duyệt của bạn không hỗ trợ định vị",
     "locationError": "Không thể lấy vị trí của bạn",
-    "worldwideDojos": "Võ đường toàn cầu"
+    "worldwideDojos": "Võ đường toàn cầu",
+    "registerButton": "Đăng ký",
+    "contactName": "Tên phụ huynh / học viên",
+    "contactInfo": "Số điện thoại / Email",
+    "studentAge": "Độ tuổi người học",
+    "messageOptional": "Lời nhắn (không bắt buộc)",
+    "submit": "Gửi thông tin",
+    "successMessageTitle": "Thành công!",
+    "successMessage": "Đăng ký thành công! Võ đường sẽ sớm liên hệ với bạn."
   },
   "events": {
     "sectionTitle": "Sự kiện sắp tới",

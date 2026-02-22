@@ -12,6 +12,7 @@ import {
   Users,
   ChevronDown,
   Search,
+  UserPlus
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import PageTransition, {
@@ -19,6 +20,7 @@ import PageTransition, {
 } from "@/components/animations/PageTransition";
 import dojos from "@/data/dojos.json";
 import "leaflet/dist/leaflet.css";
+import RegistrationDialog from "@/components/dojos/RegistrationDialog";
 
 // Dynamically import DojoMap to avoid SSR issues
 const DojoMap = dynamic(() => import("@/components/dojos/DojoMap"), {
@@ -33,6 +35,11 @@ const DojoMap = dynamic(() => import("@/components/dojos/DojoMap"), {
 export default function DojosPage() {
   const [expandedDojo, setExpandedDojo] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  
+  // Registration Dialog State
+  const [isRegOpen, setIsRegOpen] = useState(false);
+  const [selectedDojoForReg, setSelectedDojoForReg] = useState<{ id: string; name: string; email?: string } | null>(null);
+
   const t = useTranslations("dojos");
   const locale = useLocale();
 
@@ -230,6 +237,38 @@ export default function DojosPage() {
                             </p>
                           )}
 
+                          {/* Action Buttons: Register & Map */}
+                          <div className="flex flex-col sm:flex-row gap-4 mb-6">
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedDojoForReg({
+                                  id: dojo.id,
+                                  name: dojo.name,
+                                  email: dojo.email
+                                });
+                                setIsRegOpen(true);
+                              }}
+                              className="flex-1 flex items-center justify-center gap-2 p-4 bg-japan-blue text-washi hover:bg-japan-blue/90 transition-colors font-serif tracking-wider"
+                            >
+                              <UserPlus size={18} />
+                              {t("registerButton", { fallback: "Đăng ký" })}
+                            </button>
+
+                            {dojo.map_link && (
+                              <a
+                                href={dojo.map_link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-1 flex items-center justify-center gap-2 p-4 border border-japan-blue/20 text-japan-blue hover:bg-japan-blue/5 transition-colors font-serif tracking-wider"
+                              >
+                                <MapPin size={18} />
+                                {t("viewOnMap")}
+                                <ExternalLink size={14} />
+                              </a>
+                            )}
+                          </div>
+
                           {/* Contact Grid */}
                           <div className="grid sm:grid-cols-2 gap-4">
                             {/* Phone */}
@@ -275,20 +314,6 @@ export default function DojosPage() {
                               </a>
                             )}
                           </div>
-
-                          {/* Map Link */}
-                          {dojo.map_link && (
-                            <a
-                              href={dojo.map_link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="mt-4 flex items-center justify-center gap-2 p-4 border border-japan-blue/20 text-japan-blue hover:bg-japan-blue hover:text-washi transition-colors font-serif tracking-wider"
-                            >
-                              <MapPin size={18} />
-                              {t("viewOnMap")}
-                              <ExternalLink size={14} />
-                            </a>
-                          )}
                         </div>
                       </motion.div>
                     )}
@@ -360,6 +385,18 @@ export default function DojosPage() {
           </div>
         </motion.div>
       </section>
+
+      {/* Registration Dialog */}
+      {selectedDojoForReg && (
+          <RegistrationDialog 
+            isOpen={isRegOpen}
+            onClose={() => setIsRegOpen(false)}
+            dojoId={selectedDojoForReg.id}
+            dojoName={selectedDojoForReg.name}
+            dojoEmail={selectedDojoForReg.email}
+          />
+      )}
+
     </PageTransition>
   );
 }

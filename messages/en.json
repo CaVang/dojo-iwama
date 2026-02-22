@@ -146,7 +146,15 @@
     "locating": "Locating...",
     "geolocationNotSupported": "Geolocation is not supported by your browser",
     "locationError": "Unable to get your location",
-    "worldwideDojos": "Worldwide Dojos"
+    "worldwideDojos": "Worldwide Dojos",
+    "registerButton": "Register",
+    "contactName": "Contact Name",
+    "contactInfo": "Phone or Email",
+    "studentAge": "Student Age",
+    "messageOptional": "Message (Optional)",
+    "submit": "Submit Registration",
+    "successMessageTitle": "Success!",
+    "successMessage": "Successfully registered! The dojo will contact you soon."
   },
   "events": {
     "sectionTitle": "Upcoming Events",
