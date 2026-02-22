@@ -2,6 +2,8 @@
 
 import { useRef } from "react";
 import DojoEntrance from "@/components/ui/DojoEntrance";
+import AgeGroupsSection from "@/components/main/AgeGroupsSection";
+import CorePillarsSection from "@/components/main/CorePillarsSection";
 import PhilosophySection from "@/components/main/PhilosophySection";
 import FeaturedTechniquesSection from "@/components/main/FeaturedTechniquesSection";
 import DojoNetworkSection from "@/components/main/DojoNetworkSection";
@@ -23,6 +25,12 @@ export default function HomePage() {
 
         {/* Featured Techniques */}
         <FeaturedTechniquesSection />
+
+        {/* Age Groups Section */}
+        <AgeGroupsSection />
+
+        {/* Core Pillars / Safety Guarantee */}
+        <CorePillarsSection />
 
         {/* Dojo Section */}
         <DojoNetworkSection />

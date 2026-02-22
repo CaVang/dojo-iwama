@@ -30,7 +30,75 @@
     "welcomeTo": "Welcome to",
     "iwamaAikido": "Iwama Aikido",
     "continueScrolling": "Continue Scrolling",
-    "scrollToEnter": "Scroll to Enter"
+    "scrollToEnter": "Scroll to Enter",
+    "ageGroups": {
+      "title": "The Aikido Journey",
+      "learnMore": "Discover the benefits →",
+      "closeDrawer": "Close",
+      "goalLabel": "Goal",
+      "benefitsLabel": "Benefits",
+      "kids": {
+        "name": "Kids (4 - 11 years old)",
+        "goal": "Fun, safe, building a foundation of discipline.",
+        "benefits": [
+          "Familiarity with falling (Ukemi skills)",
+          "Enhanced concentration",
+          "Politeness and socializing with friends"
+        ],
+        "benefitDetails": [
+          "Children learn to fall safely, protecting their head and joints when tripping at school or playing.",
+          "Through repetitious katas, children learn mind-body connection, reducing distraction.",
+          "The dojo environment requires bowing and respecting partners, helping children develop emotional intelligence."
+        ]
+      },
+      "teens": {
+        "name": "Teens (12 - 17 years old)",
+        "goal": "Self-defense skills, relieving study pressure, stress relief.",
+        "benefits": [
+          "Self-confidence",
+          "Increased endurance",
+          "Learning to protect the body when falling",
+          "Sense of respect for others"
+        ],
+        "benefitDetails": [
+          "Progressing through ranks and mastering techniques helps teenagers trust their own abilities.",
+          "High-energy classes build flexible muscles and noticeably increase physical stamina.",
+          "Falling skills (Ukemi) protect teens from serious injuries in other sports activities.",
+          "Dojo discipline teaches teenagers polite behavior and helps control impulsive adolescent emotions."
+        ]
+      },
+      "adults": {
+        "name": "Adults (18+)",
+        "goal": "Work-life balance, enduring physical training, and the philosophy of Aiki.",
+        "benefits": [
+          "Mental well-being",
+          "Reduction of work stress",
+          "Natural reflex self-defense"
+        ],
+        "benefitDetails": [
+          "The mindfulness (Zanshin) in Aikido brings your mind to the present, clearing anxiety.",
+          "An hour of sweaty practice is the perfect antidote to an 8-hour office desk routine.",
+          "Develop self-protection reflexes by neutralizing attacking force rather than matching strength with strength."
+        ]
+      }
+    },
+    "corePillars": {
+      "title": "The 3 Golden Pillars",
+      "subtitle": "The Dojo Guarantee",
+      "guarantee": "100% non-violent training environment, using absolute safety standard mats.",
+      "pillar1": {
+        "title": "Non-violent Self-defense",
+        "description": "Resolve school conflicts without causing injury."
+      },
+      "pillar2": {
+        "title": "Discipline & Respect",
+        "description": "Japanese dojo etiquette cultivates a healthy lifestyle."
+      },
+      "pillar3": {
+        "title": "Fitness & Digital Detox",
+        "description": "An excellent way to step away from phones and TVs."
+      }
+    }
   },
   "techniques": {
     "title": "Technique Library",
@@ -203,7 +271,10 @@
     "tai-no-henko": {
       "name": "Body Change",
       "description": "Body turning technique - mandatory warm-up in every Iwama class to train harmony (ki) and hip (koshi).",
-      "variants": ["Kihon (Solid, firm grip)", "Ki no Nagare (Flowing, soft)"],
+      "variants": [
+        "Kihon (Solid, firm grip)",
+        "Ki no Nagare (Flowing, soft)"
+      ],
       "postures": {
         "kamae": {
           "title": "Kamae",

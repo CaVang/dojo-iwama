@@ -30,7 +30,75 @@
     "welcomeTo": "Chào mừng đến với",
     "iwamaAikido": "Iwama Aikido",
     "continueScrolling": "Tiếp tục cuộn",
-    "scrollToEnter": "Cuộn để vào"
+    "scrollToEnter": "Cuộn để vào",
+    "ageGroups": {
+      "title": "Hành trình tập luyện",
+      "learnMore": "Giải mã các lợi ích →",
+      "closeDrawer": "Đóng",
+      "goalLabel": "Mục tiêu",
+      "benefitsLabel": "Lợi ích",
+      "kids": {
+        "name": "Thiếu Nhi (4 - 11 tuổi)",
+        "goal": "Vui vẻ, an toàn, xây dựng nền tảng kỷ luật.",
+        "benefits": [
+          "Làm quen với vấp ngã (Kỹ năng Ukemi)",
+          "Tăng cường sự tập trung",
+          "Lễ phép và hoà đồng với bạn bè"
+        ],
+        "benefitDetails": [
+          "Bé học cách ngã tròn người, bảo vệ đầu và xương khớp khi vấp ngã ở trường hay vui chơi.",
+          "Qua các bài tập lặp lại, bé học cách kết nối giữa não bộ và cơ thể, giảm sự xao nhãng.",
+          "Môi trường võ đường yêu cầu chào hỏi, thưa gửi và tôn trọng bạn tập, giúp bé phát triển trí tuệ cảm xúc."
+        ]
+      },
+      "teens": {
+        "name": "Thiếu Niên (12 - 17 tuổi)",
+        "goal": "Kỹ năng tự vệ, giải tỏa áp lực học hành, xả stress.",
+        "benefits": [
+          "Tự tin vào bản thân",
+          "Tăng cường sức bền",
+          "Học cách bảo vệ cơ thể khi ngã",
+          "Ý thức tôn trọng đối xử"
+        ],
+        "benefitDetails": [
+          "Sự tiến bộ qua từng đai và các kỹ thuật giúp trẻ tin tưởng vào khả năng của chính mình.",
+          "Các buổi tập tiêu hao năng lượng lớn, giúp cơ bắp linh hoạt và sức bền thể lực tăng cường rõ rệt.",
+          "Kỹ năng ngã (Ukemi) bảo vệ trẻ khỏi chấn thương nghiêm trọng trong các hoạt động thể thao khác.",
+          "Kỷ luật Dojo dạy trẻ cách đối xử lịch sự, kiềm chế cảm xúc bốc đồng của tuổi dậy thì."
+        ]
+      },
+      "adults": {
+        "name": "Trưởng Thành (18+)",
+        "goal": "Cân bằng cuộc sống, rèn luyện thể lực bền bỉ và Triết lí hợp khí (Aiki).",
+        "benefits": [
+          "Sức khoẻ tĩnh tâm",
+          "Giảm thiểu stress công việc",
+          "Khả năng tự vệ phản xạ tự nhiên"
+        ],
+        "benefitDetails": [
+          "Sự tĩnh tâm (Zanshin) trong Aikido đưa tâm trí bạn về hiện tại, gạt bỏ lo âu.",
+          "Một giờ tập luyện toát mồ hôi là liều thuốc giải độc hoàn hảo sau 8 tiếng ngồi văn phòng.",
+          "Phát triển phản xạ bảo vệ bản thân thông qua việc hóa giải lực tấn công thay vì dùng sức."
+        ]
+      }
+    },
+    "corePillars": {
+      "title": "3 Trụ Cột Vàng",
+      "subtitle": "Lời cam kết từ Dojo",
+      "guarantee": "Môi trường tập luyện 100% không bạo lực, có thảm tiêu chuẩn an toàn tuyệt đối.",
+      "pillar1": {
+        "title": "Tự vệ không bạo lực",
+        "description": "Hóa giải xung đột học đường mà không gây chấn thương."
+      },
+      "pillar2": {
+        "title": "Kỷ luật & Tôn trọng",
+        "description": "Nghi thức võ đường Nhật Bản rèn luyện nếp sống."
+      },
+      "pillar3": {
+        "title": "Thể chất & Detox thiết bị số",
+        "description": "Cách tuyệt vời để rời xa điện thoại và màn hình tivi."
+      }
+    }
   },
   "techniques": {
     "title": "Thư viện kỹ thuật",
@@ -203,7 +271,10 @@
     "tai-no-henko": {
       "name": "Xoay người đổi hướng",
       "description": "Kỹ thuật xoay người - bắt buộc khởi động trong mọi lớp học Iwama để rèn luyện sự hòa hợp (ki) và hông (koshi).",
-      "variants": ["Kihon (Cứng, nắm chặt)", "Ki no Nagare (Dòng chảy, mềm)"],
+      "variants": [
+        "Kihon (Cứng, nắm chặt)",
+        "Ki no Nagare (Dòng chảy, mềm)"
+      ],
       "postures": {
         "kamae": {
           "title": "Kamae",
